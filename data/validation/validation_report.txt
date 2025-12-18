@@ -1,0 +1,98 @@
+Validation Report
+================================================================================
+
+Generated: 2025-12-17 16:58:51
+
+Dataset Sizes:
+  Ground Truth: 400 respondents, 8400 responses
+  Synthetic: 19 respondents, 570 responses
+
+Questions Compared: 7
+
+Overall Performance:
+================================================================================
+
+Mean KL Divergence: 0.3433
+  Interpretation: Lower is better, 0 = perfect match
+  < 0.05 = Excellent
+  0.05-0.10 = Good
+  0.10-0.20 = Acceptable
+  > 0.20 = Needs improvement
+
+Mean KS Statistic: 0.3222
+  (Lower is better, 0 = identical)
+
+Mean KS Similarity: 0.6778
+  Interpretation:
+    > 0.85 = Good (paper benchmark)
+    Paper results: GPT-4o SSR = 0.88, Gemini-2f SSR = 0.80
+
+Mean Absolute Error (on means): 0.6781
+
+Correlation (on means): 0.2957
+  Interpretation: How well mean scores match
+  > 0.9 = Excellent
+  0.7-0.9 = Good
+  < 0.7 = Needs improvement
+
+Correlation Attainment: 34.8%
+  Target: >85% (human test-retest reliability)
+  Paper Benchmark: ~90%
+
+
+Best Performing Questions (Lowest KL Divergence):
+================================================================================
+
+PRPURINT
+  KL Divergence: 0.1287
+  Mean GT: 3.21, Syn: 3.58
+  Sample sizes: GT=1200, Syn=57
+
+RELVANCE
+  KL Divergence: 0.2236
+  Mean GT: 2.44, Syn: 3.07
+  Sample sizes: GT=1200, Syn=57
+
+EXCITMENT
+  KL Divergence: 0.3068
+  Mean GT: 2.59, Syn: 1.95
+  Sample sizes: GT=1200, Syn=57
+
+BELVBLTY
+  KL Divergence: 0.3739
+  Mean GT: 3.03, Syn: 2.30
+  Sample sizes: GT=1200, Syn=57
+
+UNIQNESS
+  KL Divergence: 0.4416
+  Mean GT: 3.64, Syn: 2.67
+  Sample sizes: GT=1200, Syn=57
+
+
+Worst Performing Questions (Highest KL Divergence):
+================================================================================
+
+LIKBILTY
+  KL Divergence: 0.4745
+  Mean GT: 3.71, Syn: 3.23
+  Sample sizes: GT=1200, Syn=57
+
+PRVALMNY
+  KL Divergence: 0.4540
+  Mean GT: 3.54, Syn: 2.61
+  Sample sizes: GT=1200, Syn=57
+
+UNIQNESS
+  KL Divergence: 0.4416
+  Mean GT: 3.64, Syn: 2.67
+  Sample sizes: GT=1200, Syn=57
+
+BELVBLTY
+  KL Divergence: 0.3739
+  Mean GT: 3.03, Syn: 2.30
+  Sample sizes: GT=1200, Syn=57
+
+EXCITMENT
+  KL Divergence: 0.3068
+  Mean GT: 2.59, Syn: 1.95
+  Sample sizes: GT=1200, Syn=57

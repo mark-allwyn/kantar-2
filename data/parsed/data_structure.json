@@ -1,0 +1,3412 @@
+{
+  "num_rows": 400,
+  "num_columns": 227,
+  "columns": [
+    {
+      "name": "SERIAL",
+      "index": 0,
+      "dtype": "int64",
+      "sample_values": [
+        "2",
+        "4",
+        "5",
+        "6",
+        "9"
+      ],
+      "unique_count": 400,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "DATE",
+      "index": 1,
+      "dtype": "int64",
+      "sample_values": [
+        "20250709",
+        "20250709",
+        "20250709",
+        "20250709",
+        "20250709"
+      ],
+      "unique_count": 3,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Gender",
+      "index": 2,
+      "dtype": "object",
+      "sample_values": [
+        "Male",
+        "Male",
+        "Female",
+        "Female",
+        "Male"
+      ],
+      "unique_count": 2,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(SEX) SEX",
+      "index": 3,
+      "dtype": "object",
+      "sample_values": [
+        "Male",
+        "Male",
+        "Female",
+        "Female",
+        "Male"
+      ],
+      "unique_count": 2,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "AGE",
+      "index": 4,
+      "dtype": "int64",
+      "sample_values": [
+        "43",
+        "32",
+        "47",
+        "57",
+        "50"
+      ],
+      "unique_count": 58,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(AGEQUOTA) AGEBANDS",
+      "index": 5,
+      "dtype": "object",
+      "sample_values": [
+        "35 - 54",
+        "18 - 34",
+        "35 - 54",
+        "55 - 75",
+        "35 - 54"
+      ],
+      "unique_count": 3,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(OCCUPATION_SCR) OCCUPATION SCREENER",
+      "index": 6,
+      "dtype": "object",
+      "sample_values": [
+        "None of these",
+        "None of these",
+        "None of these",
+        "None of these",
+        "None of these"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(GROUPFMR) SAMPLE TYPE",
+      "index": 7,
+      "dtype": "object",
+      "sample_values": [
+        "Main",
+        "Main",
+        "Main",
+        "Main",
+        "Main"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CATBUYER) PRODUCTS / SERVICES BOUGHT",
+      "index": 8,
+      "dtype": "object",
+      "sample_values": [
+        "Loterie vsazené osobně (na poště, v trafice, ve sběrně,…), jako např. Sportka, Eurojackpot, Šťastných 10 aj.,Online loterie (vsazené na internetu, v aplikaci), jako např. Sportka, Eurojackpot, Šťastných 10 aj.,Papírové stírací losy (koupené na prodejním místě), jako např. Rentiér, Zlatá rybka, Černá perla apod.,Online losy (obdoba stíracích losů, které se však hrají na internetu), jako např. Rentiér, Zlatá rybka, Černá perla apod.",
+        "Loterie vsazené osobně (na poště, v trafice, ve sběrně,…), jako např. Sportka, Eurojackpot, Šťastných 10 aj.,Online loterie (vsazené na internetu, v aplikaci), jako např. Sportka, Eurojackpot, Šťastných 10 aj.,Papírové stírací losy (koupené na prodejním místě), jako např. Rentiér, Zlatá rybka, Černá perla apod.",
+        "Loterie vsazené osobně (na poště, v trafice, ve sběrně,…), jako např. Sportka, Eurojackpot, Šťastných 10 aj.,Papírové stírací losy (koupené na prodejním místě), jako např. Rentiér, Zlatá rybka, Černá perla apod.,Online losy (obdoba stíracích losů, které se však hrají na internetu), jako např. Rentiér, Zlatá rybka, Černá perla apod.",
+        "Loterie vsazené osobně (na poště, v trafice, ve sběrně,…), jako např. Sportka, Eurojackpot, Šťastných 10 aj.,Papírové stírací losy (koupené na prodejním místě), jako např. Rentiér, Zlatá rybka, Černá perla apod.",
+        "Loterie vsazené osobně (na poště, v trafice, ve sběrně,…), jako např. Sportka, Eurojackpot, Šťastných 10 aj.,Papírové stírací losy (koupené na prodejním místě), jako např. Rentiér, Zlatá rybka, Černá perla apod."
+      ],
+      "unique_count": 8,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BRDBUY) BRANDS BOUGHT",
+      "index": 9,
+      "dtype": "object",
+      "sample_values": [
+        "Zlatá rybka,Černá perla,Vánoční losy,Rentiér,Mates",
+        "Zlatá rybka,Černá perla,Vánoční losy,Rentiér",
+        "Zlatá rybka,Černá perla,Vánoční losy,Rentiér,Mates,Maxa / Korunka,Zlatý měšec",
+        "Zlatá rybka,Černá perla,Rentiér,Mates,Zlatý měšec",
+        "Zlatá rybka,Černá perla,Vánoční losy"
+      ],
+      "unique_count": 126,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept_block_conceptbrands, helper",
+      "index": 10,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ Christmas AR Message  ",
+      "index": 11,
+      "dtype": "float64",
+      "sample_values": [
+        "3.0",
+        "3.0",
+        "1.0",
+        "2.0",
+        "3.0"
+      ],
+      "unique_count": 3,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ Elf Yourself  ",
+      "index": 12,
+      "dtype": "float64",
+      "sample_values": [
+        "3.0",
+        "3.0",
+        "2.0",
+        "2.0",
+        "1.0"
+      ],
+      "unique_count": 3,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ AR Christmas Mini Game  ",
+      "index": 13,
+      "dtype": "float64",
+      "sample_values": [
+        "3.0",
+        "2.0",
+        "2.0",
+        "1.0",
+        "1.0"
+      ],
+      "unique_count": 3,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ Christmas Lip Sync  ",
+      "index": 14,
+      "dtype": "float64",
+      "sample_values": [
+        "1.0",
+        "2.0",
+        "3.0",
+        "1.0",
+        "1.0"
+      ],
+      "unique_count": 3,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ Christmas Duet  ",
+      "index": 15,
+      "dtype": "float64",
+      "sample_values": [
+        "3.0",
+        "3.0",
+        "1.0",
+        "3.0",
+        "3.0"
+      ],
+      "unique_count": 3,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ Christmas Cake Suprise  ",
+      "index": 16,
+      "dtype": "float64",
+      "sample_values": [
+        "1.0",
+        "1.0",
+        "2.0",
+        "3.0",
+        "1.0"
+      ],
+      "unique_count": 3,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ Birthday Message  ",
+      "index": 17,
+      "dtype": "float64",
+      "sample_values": [
+        "2.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "2.0"
+      ],
+      "unique_count": 3,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Dummy : Position - 2 CZ Valentine Message  ",
+      "index": 18,
+      "dtype": "float64",
+      "sample_values": [
+        "2.0",
+        "2.0",
+        "1.0",
+        "2.0",
+        "1.0"
+      ],
+      "unique_count": 3,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Christmas AR Message  ",
+      "index": 19,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Might or might not",
+        "(2) Probably would not",
+        "(4) Probably would",
+        "(3) Might or might not",
+        "(3) Might or might not"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Elf Yourself  ",
+      "index": 20,
+      "dtype": "object",
+      "sample_values": [
+        "(1) Definitely would not",
+        "(4) Probably would",
+        "(2) Probably would not",
+        "(5) Definitely would",
+        "(3) Might or might not"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ AR Christmas Mini Game  ",
+      "index": 21,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Probably would",
+        "(2) Probably would not",
+        "(2) Probably would not",
+        "(2) Probably would not",
+        "(3) Might or might not"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Christmas Lip Sync  ",
+      "index": 22,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Probably would",
+        "(1) Definitely would not",
+        "(4) Probably would",
+        "(5) Definitely would",
+        "(4) Probably would"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Christmas Duet  ",
+      "index": 23,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Might or might not",
+        "(4) Probably would",
+        "(5) Definitely would",
+        "(5) Definitely would",
+        "(2) Probably would not"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Christmas Cake Suprise  ",
+      "index": 24,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Might or might not",
+        "(1) Definitely would not",
+        "(3) Might or might not",
+        "(3) Might or might not",
+        "(4) Probably would"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Birthday Message  ",
+      "index": 25,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Probably would",
+        "(5) Definitely would",
+        "(4) Probably would",
+        "(5) Definitely would",
+        "(3) Might or might not"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Valentine Message  ",
+      "index": 26,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Might or might not",
+        "(4) Probably would",
+        "(1) Definitely would not",
+        "(2) Probably would not",
+        "(3) Might or might not"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ Christmas AR Message  ",
+      "index": 27,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat new and different",
+        "(4) Very new and different",
+        "(3) Somewhat new and different",
+        "(3) Somewhat new and different",
+        "(2) Slightly new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ Elf Yourself  ",
+      "index": 28,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly new and different",
+        "(3) Somewhat new and different",
+        "(2) Slightly new and different",
+        "(4) Very new and different",
+        "(3) Somewhat new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ AR Christmas Mini Game  ",
+      "index": 29,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat new and different",
+        "(4) Very new and different",
+        "(4) Very new and different",
+        "(3) Somewhat new and different",
+        "(3) Somewhat new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ Christmas Lip Sync  ",
+      "index": 30,
+      "dtype": "object",
+      "sample_values": [
+        "(5) Extremely new and different",
+        "(2) Slightly new and different",
+        "(4) Very new and different",
+        "(5) Extremely new and different",
+        "(5) Extremely new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ Christmas Duet  ",
+      "index": 31,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat new and different",
+        "(4) Very new and different",
+        "(4) Very new and different",
+        "(5) Extremely new and different",
+        "(2) Slightly new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ Christmas Cake Suprise  ",
+      "index": 32,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Very new and different",
+        "(3) Somewhat new and different",
+        "(3) Somewhat new and different",
+        "(3) Somewhat new and different",
+        "(2) Slightly new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ Birthday Message  ",
+      "index": 33,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Very new and different",
+        "(4) Very new and different",
+        "(2) Slightly new and different",
+        "(5) Extremely new and different",
+        "(3) Somewhat new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(UNIQNESS) UNIQUENESS - 2 CZ Valentine Message  ",
+      "index": 34,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat new and different",
+        "(4) Very new and different",
+        "(5) Extremely new and different",
+        "(2) Slightly new and different",
+        "(4) Very new and different"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ Christmas AR Message  ",
+      "index": 35,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Worth slightly less",
+        "(3) Worth slightly less",
+        "(3) Worth slightly less",
+        "(4) The price is about right",
+        "(4) The price is about right"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ Elf Yourself  ",
+      "index": 36,
+      "dtype": "object",
+      "sample_values": [
+        "(1) Worth very much less",
+        "(4) The price is about right",
+        "(3) Worth slightly less",
+        "(3) Worth slightly less",
+        "(4) The price is about right"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ AR Christmas Mini Game  ",
+      "index": 37,
+      "dtype": "object",
+      "sample_values": [
+        "(4) The price is about right",
+        "(3) Worth slightly less",
+        "(4) The price is about right",
+        "(2) Worth much less",
+        "(4) The price is about right"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ Christmas Lip Sync  ",
+      "index": 38,
+      "dtype": "object",
+      "sample_values": [
+        "(4) The price is about right",
+        "(1) Worth very much less",
+        "(4) The price is about right",
+        "(4) The price is about right",
+        "(4) The price is about right"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ Christmas Duet  ",
+      "index": 39,
+      "dtype": "object",
+      "sample_values": [
+        "(4) The price is about right",
+        "(4) The price is about right",
+        "(4) The price is about right",
+        "(4) The price is about right",
+        "(2) Worth much less"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ Christmas Cake Suprise  ",
+      "index": 40,
+      "dtype": "object",
+      "sample_values": [
+        "(4) The price is about right",
+        "(2) Worth much less",
+        "(3) Worth slightly less",
+        "(3) Worth slightly less",
+        "(5) Worth slightly more"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ Birthday Message  ",
+      "index": 41,
+      "dtype": "object",
+      "sample_values": [
+        "(4) The price is about right",
+        "(4) The price is about right",
+        "(3) Worth slightly less",
+        "(4) The price is about right",
+        "(4) The price is about right"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRVALMNY) VALUE FOR MONEY - 2 CZ Valentine Message  ",
+      "index": 42,
+      "dtype": "object",
+      "sample_values": [
+        "(4) The price is about right",
+        "(3) Worth slightly less",
+        "(2) Worth much less",
+        "(3) Worth slightly less",
+        "(5) Worth slightly more"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ Christmas AR Message  ",
+      "index": 43,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Like somewhat",
+        "(3) Like somewhat",
+        "(4) Like quite well",
+        "(4) Like quite well",
+        "(2) Like slightly"
+      ],
+      "unique_count": 6,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ Elf Yourself  ",
+      "index": 44,
+      "dtype": "object",
+      "sample_values": [
+        "(1) Do not like at all",
+        "(4) Like quite well",
+        "(2) Like slightly",
+        "(4) Like quite well",
+        "(3) Like somewhat"
+      ],
+      "unique_count": 6,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ AR Christmas Mini Game  ",
+      "index": 45,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Like quite well",
+        "(3) Like somewhat",
+        "(4) Like quite well",
+        "(2) Like slightly",
+        "(3) Like somewhat"
+      ],
+      "unique_count": 6,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ Christmas Lip Sync  ",
+      "index": 46,
+      "dtype": "object",
+      "sample_values": [
+        "(5) Like very well",
+        "(2) Like slightly",
+        "(5) Like very well",
+        "(6) Like extremely",
+        "(5) Like very well"
+      ],
+      "unique_count": 6,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ Christmas Duet  ",
+      "index": 47,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Like somewhat",
+        "(5) Like very well",
+        "(5) Like very well",
+        "(6) Like extremely",
+        "(2) Like slightly"
+      ],
+      "unique_count": 6,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ Christmas Cake Suprise  ",
+      "index": 48,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Like slightly",
+        "(2) Like slightly",
+        "(3) Like somewhat",
+        "(4) Like quite well",
+        "(3) Like somewhat"
+      ],
+      "unique_count": 6,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ Birthday Message  ",
+      "index": 49,
+      "dtype": "object",
+      "sample_values": [
+        "(5) Like very well",
+        "(5) Like very well",
+        "(3) Like somewhat",
+        "(6) Like extremely",
+        "(3) Like somewhat"
+      ],
+      "unique_count": 6,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKBILTY) LIKEABILITY - 2 CZ Valentine Message  ",
+      "index": 50,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Like somewhat",
+        "(4) Like quite well",
+        "(3) Like somewhat",
+        "(2) Like slightly",
+        "(4) Like quite well"
+      ],
+      "unique_count": 6,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Christmas AR Message  ",
+      "index": 51,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Elf Yourself  ",
+      "index": 52,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ AR Christmas Mini Game  ",
+      "index": 53,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Christmas Lip Sync  ",
+      "index": 54,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Christmas Duet  ",
+      "index": 55,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Christmas Cake Suprise  ",
+      "index": 56,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Birthday Message  ",
+      "index": 57,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Valentine Message  ",
+      "index": 58,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Christmas AR Message  ",
+      "index": 59,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Elf Yourself  ",
+      "index": 60,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ AR Christmas Mini Game  ",
+      "index": 61,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Christmas Lip Sync  ",
+      "index": 62,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Christmas Duet  ",
+      "index": 63,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Christmas Cake Suprise  ",
+      "index": 64,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Birthday Message  ",
+      "index": 65,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Valentine Message  ",
+      "index": 66,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ Christmas AR Message  ",
+      "index": 67,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat relevant",
+        "(2) Slightly relevant",
+        "(3) Somewhat relevant",
+        "(3) Somewhat relevant",
+        "(3) Somewhat relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ Elf Yourself  ",
+      "index": 68,
+      "dtype": "object",
+      "sample_values": [
+        "(1) Not at all relevant",
+        "(2) Slightly relevant",
+        "(1) Not at all relevant",
+        "(3) Somewhat relevant",
+        "(2) Slightly relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ AR Christmas Mini Game  ",
+      "index": 69,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat relevant",
+        "(2) Slightly relevant",
+        "(2) Slightly relevant",
+        "(1) Not at all relevant",
+        "(2) Slightly relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ Christmas Lip Sync  ",
+      "index": 70,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Very relevant",
+        "(1) Not at all relevant",
+        "(3) Somewhat relevant",
+        "(4) Very relevant",
+        "(3) Somewhat relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ Christmas Duet  ",
+      "index": 71,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly relevant",
+        "(4) Very relevant",
+        "(3) Somewhat relevant",
+        "(4) Very relevant",
+        "(1) Not at all relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ Christmas Cake Suprise  ",
+      "index": 72,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly relevant",
+        "(1) Not at all relevant",
+        "(3) Somewhat relevant",
+        "(4) Very relevant",
+        "(2) Slightly relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ Birthday Message  ",
+      "index": 73,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat relevant",
+        "(4) Very relevant",
+        "(3) Somewhat relevant",
+        "(4) Very relevant",
+        "(3) Somewhat relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(RELVANCE) RELEVANCE - 2 CZ Valentine Message  ",
+      "index": 74,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly relevant",
+        "(3) Somewhat relevant",
+        "(1) Not at all relevant",
+        "(1) Not at all relevant",
+        "(2) Slightly relevant"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ Christmas AR Message  ",
+      "index": 75,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Quite exciting",
+        "(2) Not very exciting",
+        "(3) Quite exciting",
+        "(2) Not very exciting",
+        "(2) Not very exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ Elf Yourself  ",
+      "index": 76,
+      "dtype": "object",
+      "sample_values": [
+        "(1) Not at all exciting",
+        "(3) Quite exciting",
+        "(1) Not at all exciting",
+        "(4) Very exciting",
+        "(3) Quite exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ AR Christmas Mini Game  ",
+      "index": 77,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Quite exciting",
+        "(2) Not very exciting",
+        "(3) Quite exciting",
+        "(1) Not at all exciting",
+        "(2) Not very exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ Christmas Lip Sync  ",
+      "index": 78,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Quite exciting",
+        "(1) Not at all exciting",
+        "(4) Very exciting",
+        "(4) Very exciting",
+        "(4) Very exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ Christmas Duet  ",
+      "index": 79,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Not very exciting",
+        "(3) Quite exciting",
+        "(4) Very exciting",
+        "(4) Very exciting",
+        "(1) Not at all exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ Christmas Cake Suprise  ",
+      "index": 80,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Not very exciting",
+        "(2) Not very exciting",
+        "(3) Quite exciting",
+        "(3) Quite exciting",
+        "(3) Quite exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ Birthday Message  ",
+      "index": 81,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Quite exciting",
+        "(4) Very exciting",
+        "(2) Not very exciting",
+        "(4) Very exciting",
+        "(2) Not very exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(EXCITMENT) EXCITEMENT - 2 CZ Valentine Message  ",
+      "index": 82,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Not very exciting",
+        "(3) Quite exciting",
+        "(1) Not at all exciting",
+        "(3) Quite exciting",
+        "(3) Quite exciting"
+      ],
+      "unique_count": 4,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Christmas AR Message  ",
+      "index": 83,
+      "dtype": "object",
+      "sample_values": [
+        "(5) 5",
+        "(7) 7",
+        "(6) 6",
+        "(5) 5",
+        "(5) 5"
+      ],
+      "unique_count": 9,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Elf Yourself  ",
+      "index": 84,
+      "dtype": "object",
+      "sample_values": [
+        "(3) 3",
+        "(6) 6",
+        "(5) 5",
+        "(8) 8",
+        "(6) 6"
+      ],
+      "unique_count": 9,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ AR Christmas Mini Game  ",
+      "index": 85,
+      "dtype": "object",
+      "sample_values": [
+        "(8) 8",
+        "(7) 7",
+        "(6) 6",
+        "(1) 1 - I don't know what to expect at all",
+        "(5) 5"
+      ],
+      "unique_count": 9,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Christmas Lip Sync  ",
+      "index": 86,
+      "dtype": "object",
+      "sample_values": [
+        "(7) 7",
+        "(3) 3",
+        "(8) 8",
+        "(9) 9 - I know exactly what to expect",
+        "(9) 9 - I know exactly what to expect"
+      ],
+      "unique_count": 9,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Christmas Duet  ",
+      "index": 87,
+      "dtype": "object",
+      "sample_values": [
+        "(4) 4",
+        "(7) 7",
+        "(8) 8",
+        "(9) 9 - I know exactly what to expect",
+        "(4) 4"
+      ],
+      "unique_count": 9,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Christmas Cake Suprise  ",
+      "index": 88,
+      "dtype": "object",
+      "sample_values": [
+        "(4) 4",
+        "(4) 4",
+        "(5) 5",
+        "(6) 6",
+        "(4) 4"
+      ],
+      "unique_count": 9,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Birthday Message  ",
+      "index": 89,
+      "dtype": "object",
+      "sample_values": [
+        "(7) 7",
+        "(9) 9 - I know exactly what to expect",
+        "(5) 5",
+        "(9) 9 - I know exactly what to expect",
+        "(5) 5"
+      ],
+      "unique_count": 9,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Valentine Message  ",
+      "index": 90,
+      "dtype": "object",
+      "sample_values": [
+        "(4) 4",
+        "(8) 8",
+        "(7) 7",
+        "(7) 7",
+        "(7) 7"
+      ],
+      "unique_count": 9,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ Christmas AR Message  ",
+      "index": 91,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(4) Very believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable"
+      ],
+      "unique_count": 4,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ Elf Yourself  ",
+      "index": 92,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(2) Not very believable",
+        "(4) Very believable",
+        "(3) Somewhat believable"
+      ],
+      "unique_count": 4,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ AR Christmas Mini Game  ",
+      "index": 93,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(2) Not very believable",
+        "(3) Somewhat believable"
+      ],
+      "unique_count": 4,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ Christmas Lip Sync  ",
+      "index": 94,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(4) Very believable",
+        "(4) Very believable"
+      ],
+      "unique_count": 4,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ Christmas Duet  ",
+      "index": 95,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(4) Very believable",
+        "(2) Not very believable"
+      ],
+      "unique_count": 4,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ Christmas Cake Suprise  ",
+      "index": 96,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable"
+      ],
+      "unique_count": 4,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ Birthday Message  ",
+      "index": 97,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(4) Very believable",
+        "(3) Somewhat believable",
+        "(4) Very believable",
+        "(3) Somewhat believable"
+      ],
+      "unique_count": 4,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(BELVBLTY) BELIEVEABILITY - 2 CZ Valentine Message  ",
+      "index": 98,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Somewhat believable",
+        "(3) Somewhat believable",
+        "(4) Very believable",
+        "(3) Somewhat believable",
+        "(3) Somewhat believable"
+      ],
+      "unique_count": 4,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ Christmas AR Message  ",
+      "index": 99,
+      "dtype": "object",
+      "sample_values": [
+        "Je to originální nápad",
+        "Lidi",
+        "novinka",
+        "originální přání",
+        "Vše je ok."
+      ],
+      "unique_count": 91,
+      "null_count": 305,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ Elf Yourself  ",
+      "index": 100,
+      "dtype": "object",
+      "sample_values": [
+        "Postava s obličejem",
+        "los",
+        "Vánoční přání",
+        "Cena",
+        "Líbí se mi tancující elf"
+      ],
+      "unique_count": 97,
+      "null_count": 299,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ AR Christmas Mini Game  ",
+      "index": 101,
+      "dtype": "object",
+      "sample_values": [
+        "ujde to",
+        "Je to originální a vtipný nápad",
+        "že je to los",
+        "Asi barevnost",
+        "líbí se mi  vše"
+      ],
+      "unique_count": 100,
+      "null_count": 295,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ Christmas Lip Sync  ",
+      "index": 102,
+      "dtype": "object",
+      "sample_values": [
+        "Videovzkaz",
+        "zaručená výhra",
+        "Vánoční video, určitě bude vtipné, veselé.",
+        "Video s přáním",
+        "Cena"
+      ],
+      "unique_count": 86,
+      "null_count": 309,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ Christmas Duet  ",
+      "index": 103,
+      "dtype": "object",
+      "sample_values": [
+        "To same, co v predchozich variantach",
+        "Vánoční koleda",
+        "zaručená výhra",
+        "Možnost nahrávání duetu, bude to zábavné, veselé, vtipné",
+        "los ok"
+      ],
+      "unique_count": 87,
+      "null_count": 311,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ Christmas Cake Suprise  ",
+      "index": 104,
+      "dtype": "object",
+      "sample_values": [
+        "Zarucena vyhra pro obdarovaneho",
+        "novinka",
+        "osobní překvapení",
+        "Obdobně jako předchozí. Velmi výjimečně s jedinečné n trhu",
+        "Celkovy napad"
+      ],
+      "unique_count": 92,
+      "null_count": 305,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ Birthday Message  ",
+      "index": 105,
+      "dtype": "object",
+      "sample_values": [
+        "Zpráva pro přítele",
+        "Libí se mi ten nápad ,dat něco i s fotkou neveřim že los vyhraje ale i tak supr",
+        "Možnost nahrát osobní přání",
+        "Barva lidi",
+        "Ok"
+      ],
+      "unique_count": 95,
+      "null_count": 303,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - 2 CZ Valentine Message  ",
+      "index": 106,
+      "dtype": "object",
+      "sample_values": [
+        "To same, co v predchozi variante",
+        "nápad",
+        "Na tomto návrh se mi líbí originalita konkrétního produktu",
+        "qr kod",
+        "Osobni prani"
+      ],
+      "unique_count": 93,
+      "null_count": 306,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ Christmas AR Message  ",
+      "index": 107,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 345,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ Elf Yourself  ",
+      "index": 108,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 350,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ AR Christmas Mini Game  ",
+      "index": 109,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 354,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ Christmas Lip Sync  ",
+      "index": 110,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 342,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ Christmas Duet  ",
+      "index": 111,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 339,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ Christmas Cake Suprise  ",
+      "index": 112,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 345,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ Birthday Message  ",
+      "index": 113,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 349,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(LIKES_STD) LIKES - Codes - 2 CZ Valentine Message  ",
+      "index": 114,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo ",
+        "Není nic, co by se mi  líbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 343,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ Christmas AR Message  ",
+      "index": 115,
+      "dtype": "object",
+      "sample_values": [
+        "To video",
+        "Nelíbí  se mi ty anglické nápisy",
+        "250",
+        "Znám lepší způsoby, jak vyjádřit přání.",
+        "vtipný by byo, kdyby někdo tento osobní dárek los poslal dál jako dárek dalšímu x osobní vzkaz lze vymazat a nahrát nový ?"
+      ],
+      "unique_count": 49,
+      "null_count": 349,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ Elf Yourself  ",
+      "index": 116,
+      "dtype": "object",
+      "sample_values": [
+        "Celkový dojem a cena",
+        "Už je to několik let, co jsme posílala taková přáníčka- zastaralé",
+        "zybtek",
+        "Není nic co by se mi nelíbilo",
+        "Rozšířená realita"
+      ],
+      "unique_count": 47,
+      "null_count": 347,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ AR Christmas Mini Game  ",
+      "index": 117,
+      "dtype": "object",
+      "sample_values": [
+        "mohlo by to být v českém jazyce",
+        "Neni uplne zajimave",
+        "ta hra",
+        "Cena, nápad a přijde mi zbytečné",
+        "Nelíbí se mi, že stírací los ze změní ve hru."
+      ],
+      "unique_count": 60,
+      "null_count": 336,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ Christmas Lip Sync  ",
+      "index": 118,
+      "dtype": "object",
+      "sample_values": [
+        "Celkový nápad se mi nelibi",
+        "video",
+        "Černoch na reklamě",
+        "Není nic co by se mi nelíbilo",
+        "Je to složité"
+      ],
+      "unique_count": 58,
+      "null_count": 339,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ Christmas Duet  ",
+      "index": 119,
+      "dtype": "object",
+      "sample_values": [
+        "To same, vo v predchozich variantach",
+        "zybtek zybtecny",
+        "Možná trochu složité pro starší generaci",
+        "Zpěv",
+        "k Vánocům trochu neosobní"
+      ],
+      "unique_count": 45,
+      "null_count": 352,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ Christmas Cake Suprise  ",
+      "index": 120,
+      "dtype": "object",
+      "sample_values": [
+        "Prijde mi to cele takove detinske",
+        "Z dortu vyskoči převlečeny přitel a cena se mi nelibi",
+        "Přijde mi zbytečné",
+        "cena",
+        "Moje rodina by takto elektronický dárek úplně neocenila"
+      ],
+      "unique_count": 49,
+      "null_count": 347,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ Birthday Message  ",
+      "index": 121,
+      "dtype": "object",
+      "sample_values": [
+        "cena",
+        "Online prodej",
+        "Neni jasne, co znamena, ze los garantuje vyhru - castka?",
+        "Anglický název",
+        "Ocenila bych spíše Vánoční edici"
+      ],
+      "unique_count": 44,
+      "null_count": 353,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - 2 CZ Valentine Message  ",
+      "index": 122,
+      "dtype": "object",
+      "sample_values": [
+        "To sane, co v předchozí variante",
+        "mohlo by to být v českém jazyce",
+        "Nelíbí se mi cena a navíc neslavím Valentýn.",
+        "valentýn",
+        "Nejsem cílová skupina"
+      ],
+      "unique_count": 52,
+      "null_count": 344,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Christmas AR Message  ",
+      "index": 123,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 301,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Elf Yourself  ",
+      "index": 124,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 302,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ AR Christmas Mini Game  ",
+      "index": 125,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 313,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Christmas Lip Sync  ",
+      "index": 126,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 312,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Christmas Duet  ",
+      "index": 127,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 298,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Christmas Cake Suprise  ",
+      "index": 128,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 303,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Birthday Message  ",
+      "index": 129,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 299,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Valentine Message  ",
+      "index": 130,
+      "dtype": "object",
+      "sample_values": [
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo ",
+        "Není nic, co by se mi  nelíbilo "
+      ],
+      "unique_count": 1,
+      "null_count": 305,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Christmas AR Message  ",
+      "index": 131,
+      "dtype": "object",
+      "sample_values": [
+        "1~250~78~3940",
+        "1~436~374~5147,2~513~667~12278,3~547~738~13281",
+        "1~406~576~4485",
+        "1~622~1021~4953",
+        "1~268~79~4029"
+      ],
+      "unique_count": 150,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Elf Yourself  ",
+      "index": 132,
+      "dtype": "object",
+      "sample_values": [
+        "1~104~253~26969",
+        "1~429~219~4144,2~397~396~12153",
+        "1~278~181~3419,2~394~176~4122,3~450~179~4897",
+        "1~123~931~10699,2~370~1035~12674,3~625~980~20458",
+        "1~199~195~62061,2~300~185~62985,3~405~187~64201,4~497~189~64969,5~588~183~65854,6~69~204~67531,7~174~218~68516,8~289~214~69467,9~429~220~70516,10~557~216~71410,11~649~216~72536,12~110~241~73562,13~252~255~74413"
+      ],
+      "unique_count": 151,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ AR Christmas Mini Game  ",
+      "index": 133,
+      "dtype": "object",
+      "sample_values": [
+        "1~385~912~5175,2~396~1066~6502",
+        "1~373~469~8418,2~453~520~12104,3~424~598~12249,4~573~727~13661",
+        "1~437~186~9231,2~510~546~15856",
+        "1~441~146~7347",
+        "1~140~927~8514"
+      ],
+      "unique_count": 151,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Christmas Lip Sync  ",
+      "index": 134,
+      "dtype": "object",
+      "sample_values": [
+        "1~314~314~8102",
+        "1~504~147~23067",
+        "1~601~180~2939,2~448~266~4051",
+        "1~358~314~19100,2~536~298~20838,3~202~376~24573,4~302~369~25040,5~376~367~25542,6~531~376~27361,7~664~371~27755,8~64~422~28423,9~653~402~32340,10~162~427~33226,11~460~551~51578,12~296~583~53492,13~416~583~54135,14~509~571~54719,15~80~623~57375,16~124~609~57809,17~267~609~58686,18~411~600~59329,19~564~625~60082,20~631~616~61693,21~71~638~62289,22~151~645~64934,23~222~638~65310,24~360~645~65754,25~493~634~66162,26~627~645~66597,27~76~674~67440,28~220~672~67891,29~313~683~68402,30~424~680~69002,31~522~678~69446",
+        "1~113~1024~36421,2~386~997~44605,3~608~1088~51109"
+      ],
+      "unique_count": 149,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Christmas Duet  ",
+      "index": 135,
+      "dtype": "object",
+      "sample_values": [
+        "1~88~191~5023,2~463~200~7068",
+        "1~571~399~2333",
+        "1~186~221~14133,2~448~281~19741,3~448~192~23029",
+        "1~347~291~4978,2~433~289~5443,3~511~282~6378,4~578~294~6845,5~189~365~10371,6~280~354~10797,7~373~354~11239,8~518~360~13344,9~636~351~14429,10~78~389~15640,11~647~387~17286,12~140~425~18046,13~151~538~22282,14~264~536~22699,15~353~536~23125,16~544~569~26173,17~69~600~27326,18~178~605~27761,19~284~598~28262,20~400~589~28704,21~96~640~33399,22~169~631~34367,23~276~636~36029,24~380~631~36622,25~507~634~37249,26~571~625~38678,27~489~669~40164,28~598~669~40890",
+        "1~297~162~3587,2~382~157~4202,3~428~162~4794"
+      ],
+      "unique_count": 150,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Christmas Cake Suprise  ",
+      "index": 136,
+      "dtype": "object",
+      "sample_values": [
+        "1~74~183~8164,2~451~181~9107",
+        "1~589~105~26420",
+        "1~509~96~8939",
+        "1~151~581~1786,2~150~357~2602",
+        "1~93~1014~3473"
+      ],
+      "unique_count": 150,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Birthday Message  ",
+      "index": 137,
+      "dtype": "object",
+      "sample_values": [
+        "1~636~503~4531",
+        "1~623~1000~12781,2~366~978~15403,3~104~983~16324",
+        "1~117~51~5422",
+        "1~440~278~10250,2~544~269~10832,3~640~269~11384,4~173~316~12927,5~318~305~13361,6~447~505~21681,7~562~480~22182,8~649~514~22665,9~429~531~24695,10~542~523~25097,11~100~563~25865,12~249~547~26357,13~331~567~26759,14~416~560~27101",
+        "1~223~497~54636"
+      ],
+      "unique_count": 148,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Valentine Message  ",
+      "index": 138,
+      "dtype": "object",
+      "sample_values": [
+        "1~587~175~7099,2~404~214~7662",
+        "1~306~899~3699,2~91~917~4962,3~526~930~6425",
+        "1~338~227~10558,2~609~658~19418,3~398~476~22153",
+        "1~589~176~3205,2~360~211~4412,3~546~262~4996",
+        "1~529~290~14194,2~362~219~23015"
+      ],
+      "unique_count": 151,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Christmas AR Message  ",
+      "index": 139,
+      "dtype": "object",
+      "sample_values": [
+        "1~198~147~6759",
+        "1~716~378~1361",
+        "1~103~944~17538",
+        "1~100~941~4014",
+        "1~385~588~1293"
+      ],
+      "unique_count": 150,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Elf Yourself  ",
+      "index": 140,
+      "dtype": "object",
+      "sample_values": [
+        "1~62~209~8831,2~384~672~15137,3~482~663~16169",
+        "1~73~221~3171",
+        "1~181~97~1188,2~45~219~2467",
+        "1~613~1079~47473",
+        "1~405~636~28761,2~497~665~30718,3~433~636~32127"
+      ],
+      "unique_count": 151,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ AR Christmas Mini Game  ",
+      "index": 141,
+      "dtype": "object",
+      "sample_values": [
+        "1~385~917~5120",
+        "1~22~800~2064",
+        "1~83~181~4650",
+        "1~362~89~2622,2~63~186~7053",
+        "1~407~1065~10290"
+      ],
+      "unique_count": 151,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Christmas Lip Sync  ",
+      "index": 142,
+      "dtype": "object",
+      "sample_values": [
+        "1~672~782~2645",
+        "1~616~171~9834,2~82~656~13693,3~171~658~19854,4~260~658~20122,5~476~665~21621,6~604~669~21903,7~540~689~22636,8~351~696~22985,9~278~700~23252",
+        "1~485~84~4309",
+        "1~607~182~29702",
+        "1~616~963~11630"
+      ],
+      "unique_count": 149,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Christmas Duet  ",
+      "index": 143,
+      "dtype": "object",
+      "sample_values": [
+        "1~556~470~1691,2~310~554~2122,3~192~617~2418,4~457~676~2670",
+        "1~662~780~1638",
+        "1~446~111~16919",
+        "1~71~182~5557",
+        "1~67~201~974,2~317~100~1637,3~464~89~2125"
+      ],
+      "unique_count": 150,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Christmas Cake Suprise  ",
+      "index": 144,
+      "dtype": "object",
+      "sample_values": [
+        "1~585~442~8300,2~571~499~10429,3~522~535~12376,4~394~611~14107",
+        "1~53~193~6180,2~536~538~12873,3~602~538~13538,4~91~567~15902,5~202~578~16435,6~336~571~17001,7~456~571~18050,8~267~638~21231,9~324~640~21448,10~371~634~21681,11~80~665~22547,12~189~663~23430",
+        "1~558~43~2386",
+        "1~543~782~3640",
+        "1~58~196~6342"
+      ],
+      "unique_count": 150,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Birthday Message  ",
+      "index": 145,
+      "dtype": "object",
+      "sample_values": [
+        "1~672~798~4609",
+        "1~96~932~11684,2~629~1068~13482",
+        "1~288~45~6856",
+        "1~593~171~5245",
+        "1~408~689~3518"
+      ],
+      "unique_count": 148,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Valentine Message  ",
+      "index": 146,
+      "dtype": "object",
+      "sample_values": [
+        "1~568~464~1834,2~361~519~3310,3~398~578~4226",
+        "1~107~939~7873,2~326~899~8895,3~544~917~9976",
+        "1~144~1003~2370,2~300~1007~2570,3~571~1012~2778",
+        "1~358~104~1876,2~112~936~4396",
+        "1~603~171~21917"
+      ],
+      "unique_count": 151,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Christmas AR Message  ",
+      "index": 147,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Christmas AR Message  ",
+      "index": 148,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Christmas AR Message  ",
+      "index": 149,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly disagree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree",
+        "(2) Slightly disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Christmas AR Message  ",
+      "index": 150,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Christmas AR Message  ",
+      "index": 151,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(1) Strongly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Christmas AR Message  ",
+      "index": 152,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Elf Yourself  ",
+      "index": 153,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree",
+        "(5) Strongly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Elf Yourself  ",
+      "index": 154,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(1) Strongly disagree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Elf Yourself  ",
+      "index": 155,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Elf Yourself  ",
+      "index": 156,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(2) Slightly disagree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Elf Yourself  ",
+      "index": 157,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Elf Yourself  ",
+      "index": 158,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ AR Christmas Mini Game  ",
+      "index": 159,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ AR Christmas Mini Game  ",
+      "index": 160,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree",
+        "(1) Strongly disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ AR Christmas Mini Game  ",
+      "index": 161,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ AR Christmas Mini Game  ",
+      "index": 162,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(4) Slightly agree",
+        "(1) Strongly disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ AR Christmas Mini Game  ",
+      "index": 163,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(1) Strongly disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ AR Christmas Mini Game  ",
+      "index": 164,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(2) Slightly disagree",
+        "(2) Slightly disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Christmas Lip Sync  ",
+      "index": 165,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(5) Strongly agree",
+        "(5) Strongly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Christmas Lip Sync  ",
+      "index": 166,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(2) Slightly disagree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(5) Strongly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Christmas Lip Sync  ",
+      "index": 167,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(5) Strongly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Christmas Lip Sync  ",
+      "index": 168,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(5) Strongly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Christmas Lip Sync  ",
+      "index": 169,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Christmas Lip Sync  ",
+      "index": 170,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(5) Strongly agree",
+        "(5) Strongly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 251,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Christmas Duet  ",
+      "index": 171,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Christmas Duet  ",
+      "index": 172,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Christmas Duet  ",
+      "index": 173,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Christmas Duet  ",
+      "index": 174,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Christmas Duet  ",
+      "index": 175,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Christmas Duet  ",
+      "index": 176,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Christmas Cake Suprise  ",
+      "index": 177,
+      "dtype": "object",
+      "sample_values": [
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Christmas Cake Suprise  ",
+      "index": 178,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Christmas Cake Suprise  ",
+      "index": 179,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Christmas Cake Suprise  ",
+      "index": 180,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Christmas Cake Suprise  ",
+      "index": 181,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(2) Slightly disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Christmas Cake Suprise  ",
+      "index": 182,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 250,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Birthday Message  ",
+      "index": 183,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Birthday Message  ",
+      "index": 184,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Birthday Message  ",
+      "index": 185,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Birthday Message  ",
+      "index": 186,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Birthday Message  ",
+      "index": 187,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Birthday Message  ",
+      "index": 188,
+      "dtype": "object",
+      "sample_values": [
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(2) Slightly disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 252,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Valentine Message  ",
+      "index": 189,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(4) Slightly agree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Valentine Message  ",
+      "index": 190,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(5) Strongly agree",
+        "(1) Strongly disagree",
+        "(4) Slightly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Valentine Message  ",
+      "index": 191,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(5) Strongly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Valentine Message  ",
+      "index": 192,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Valentine Message  ",
+      "index": 193,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(2) Slightly disagree",
+        "(2) Slightly disagree",
+        "(3) Neither agree nor disagree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Valentine Message  ",
+      "index": 194,
+      "dtype": "object",
+      "sample_values": [
+        "(3) Neither agree nor disagree",
+        "(3) Neither agree nor disagree",
+        "(4) Slightly agree",
+        "(5) Strongly agree",
+        "(4) Slightly agree"
+      ],
+      "unique_count": 5,
+      "null_count": 249,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ Christmas AR Message  ",
+      "index": 195,
+      "dtype": "int64",
+      "sample_values": [
+        "1029611",
+        "1029611",
+        "1029611",
+        "1029611",
+        "1029611"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ Elf Yourself  ",
+      "index": 196,
+      "dtype": "int64",
+      "sample_values": [
+        "1029612",
+        "1029612",
+        "1029612",
+        "1029612",
+        "1029612"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ AR Christmas Mini Game  ",
+      "index": 197,
+      "dtype": "int64",
+      "sample_values": [
+        "1029613",
+        "1029613",
+        "1029613",
+        "1029613",
+        "1029613"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ Christmas Lip Sync  ",
+      "index": 198,
+      "dtype": "int64",
+      "sample_values": [
+        "1029614",
+        "1029614",
+        "1029614",
+        "1029614",
+        "1029614"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ Christmas Duet  ",
+      "index": 199,
+      "dtype": "int64",
+      "sample_values": [
+        "1029615",
+        "1029615",
+        "1029615",
+        "1029615",
+        "1029615"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ Christmas Cake Suprise  ",
+      "index": 200,
+      "dtype": "int64",
+      "sample_values": [
+        "1029616",
+        "1029616",
+        "1029616",
+        "1029616",
+        "1029616"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ Birthday Message  ",
+      "index": 201,
+      "dtype": "int64",
+      "sample_values": [
+        "1029617",
+        "1029617",
+        "1029617",
+        "1029617",
+        "1029617"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Concept ID - 2 CZ Valentine Message  ",
+      "index": 202,
+      "dtype": "int64",
+      "sample_values": [
+        "1029618",
+        "1029618",
+        "1029618",
+        "1029618",
+        "1029618"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ Christmas AR Message  ",
+      "index": 203,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ Elf Yourself  ",
+      "index": 204,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ AR Christmas Mini Game  ",
+      "index": 205,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ Christmas Lip Sync  ",
+      "index": 206,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ Christmas Duet  ",
+      "index": 207,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ Christmas Cake Suprise  ",
+      "index": 208,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ Birthday Message  ",
+      "index": 209,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Weight - 2 CZ Valentine Message  ",
+      "index": 210,
+      "dtype": "int64",
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ Christmas AR Message  ",
+      "index": 211,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ Elf Yourself  ",
+      "index": 212,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ AR Christmas Mini Game  ",
+      "index": 213,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ Christmas Lip Sync  ",
+      "index": 214,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ Christmas Duet  ",
+      "index": 215,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ Christmas Cake Suprise  ",
+      "index": 216,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ Birthday Message  ",
+      "index": 217,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Parent ID - 2 CZ Valentine Message  ",
+      "index": 218,
+      "dtype": "int64",
+      "sample_values": [
+        "99",
+        "99",
+        "99",
+        "99",
+        "99"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Inertia 1 Other Category - The cost is too small to worry about / It is too expensive to buy/use/subscribe to as I might not like it once I've bought/used/subscribed to it",
+      "index": 219,
+      "dtype": "object",
+      "sample_values": [
+        "(3) 3",
+        "(4) 4",
+        "(6) 6",
+        "(2) 2",
+        "(4) 4"
+      ],
+      "unique_count": 7,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Inertia 1 Other Category - I'm not at all concerned what others think about new products/offers/services before I buy/use/subscribe to them / I would not buy/use/subscribe to a new product/offer/service until others could reassure me about it",
+      "index": 220,
+      "dtype": "object",
+      "sample_values": [
+        "(4) 4",
+        "(4) 4",
+        "(6) 6",
+        "(2) 2",
+        "(4) 4"
+      ],
+      "unique_count": 7,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Inertia 2 Other Category - I always know exactly which brand I'm going to choose / I don't decide which brand I will choose/buy until I have seen all the options",
+      "index": 221,
+      "dtype": "object",
+      "sample_values": [
+        "(5) 5",
+        "(4) 4",
+        "(6) 6",
+        "(1) 1 - I always know exactly which brand I'm going to choose / I always choose the same brand",
+        "(4) 4"
+      ],
+      "unique_count": 7,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Inertia 2 Other Category - I always choose the same brand / I always choose a different brand",
+      "index": 222,
+      "dtype": "object",
+      "sample_values": [
+        "(3) 3",
+        "(2) 2",
+        "(6) 6",
+        "(2) 2",
+        "(4) 4"
+      ],
+      "unique_count": 7,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Inertia 3 Other Category - I'm completely satisfied with the offer of product/services currently available / There are currently no product/services available that meet my needs",
+      "index": 223,
+      "dtype": "object",
+      "sample_values": [
+        "(2) 2",
+        "(3) 3",
+        "(5) 5",
+        "(1) 1 - I'm completely satisfied with the offer of product/services currently available",
+        "(4) 4"
+      ],
+      "unique_count": 7,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Stores pri from URL which should be a persistent respondent id from Cint",
+      "index": 224,
+      "dtype": "float64",
+      "sample_values": [],
+      "unique_count": 0,
+      "null_count": 400,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "(SAMPLE_GROUP) SAMPLE GROUP",
+      "index": 225,
+      "dtype": "object",
+      "sample_values": [
+        "Main",
+        "Main",
+        "Main",
+        "Main",
+        "Main"
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    },
+    {
+      "name": "Unnamed: 226",
+      "index": 226,
+      "dtype": "object",
+      "sample_values": [
+        " ",
+        " ",
+        " ",
+        " ",
+        " "
+      ],
+      "unique_count": 1,
+      "null_count": 0,
+      "belongs_to_concept": null
+    }
+  ],
+  "demographic_columns": [
+    "SERIAL",
+    "DATE",
+    "Gender",
+    "(SEX) SEX",
+    "AGE",
+    "(GROUPFMR) SAMPLE TYPE",
+    "Dummy : Position - 2 CZ Christmas AR Message  ",
+    "Dummy : Position - 2 CZ Birthday Message  ",
+    "Dummy : Position - 2 CZ Valentine Message  ",
+    "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Christmas AR Message  ",
+    "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Birthday Message  ",
+    "(PRPURINT) PRICED PURCHASE INTENT - 2 CZ Valentine Message  ",
+    "(UNIQNESS) UNIQUENESS - 2 CZ Christmas AR Message  ",
+    "(UNIQNESS) UNIQUENESS - 2 CZ Birthday Message  ",
+    "(UNIQNESS) UNIQUENESS - 2 CZ Valentine Message  ",
+    "(PRVALMNY) VALUE FOR MONEY - 2 CZ Christmas AR Message  ",
+    "(PRVALMNY) VALUE FOR MONEY - 2 CZ Birthday Message  ",
+    "(PRVALMNY) VALUE FOR MONEY - 2 CZ Valentine Message  ",
+    "(LIKBILTY) LIKEABILITY - 2 CZ Christmas AR Message  ",
+    "(LIKBILTY) LIKEABILITY - 2 CZ Birthday Message  ",
+    "(LIKBILTY) LIKEABILITY - 2 CZ Valentine Message  ",
+    "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Christmas AR Message  ",
+    "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Birthday Message  ",
+    "(INCREMNT) BUY INSTEAD IF NOT AVAILABLE - 2 CZ Valentine Message  ",
+    "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Christmas AR Message  ",
+    "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Birthday Message  ",
+    "(PRTINCR_RESP) PORTFOLIO INCREMENTALITY - 2 CZ Valentine Message  ",
+    "(RELVANCE) RELEVANCE - 2 CZ Christmas AR Message  ",
+    "(RELVANCE) RELEVANCE - 2 CZ Birthday Message  ",
+    "(RELVANCE) RELEVANCE - 2 CZ Valentine Message  ",
+    "(EXCITMENT) EXCITEMENT - 2 CZ Christmas AR Message  ",
+    "(EXCITMENT) EXCITEMENT - 2 CZ Birthday Message  ",
+    "(EXCITMENT) EXCITEMENT - 2 CZ Valentine Message  ",
+    "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Christmas AR Message  ",
+    "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Birthday Message  ",
+    "Understanding Other Category - I don't know what to expect at all / I know exactly what to expect - 2 CZ Valentine Message  ",
+    "(BELVBLTY) BELIEVEABILITY - 2 CZ Christmas AR Message  ",
+    "(BELVBLTY) BELIEVEABILITY - 2 CZ Birthday Message  ",
+    "(BELVBLTY) BELIEVEABILITY - 2 CZ Valentine Message  ",
+    "(LIKES_STD) LIKES - 2 CZ Christmas AR Message  ",
+    "(LIKES_STD) LIKES - 2 CZ Birthday Message  ",
+    "(LIKES_STD) LIKES - 2 CZ Valentine Message  ",
+    "(LIKES_STD) LIKES - Codes - 2 CZ Christmas AR Message  ",
+    "(LIKES_STD) LIKES - Codes - 2 CZ Birthday Message  ",
+    "(LIKES_STD) LIKES - Codes - 2 CZ Valentine Message  ",
+    "(DISLIKES_STD) DISLIKES - 2 CZ Christmas AR Message  ",
+    "(DISLIKES_STD) DISLIKES - 2 CZ Birthday Message  ",
+    "(DISLIKES_STD) DISLIKES - 2 CZ Valentine Message  ",
+    "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Christmas AR Message  ",
+    "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Birthday Message  ",
+    "(DISLIKES_STD) DISLIKES - Codes - 2 CZ Valentine Message  ",
+    "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Christmas AR Message  ",
+    "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Birthday Message  ",
+    "(HIGHLIGHTER_DRIVERS_TEXT) HIGHLIGHTER DRIVERS - 2 CZ Valentine Message  ",
+    "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Christmas AR Message  ",
+    "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Birthday Message  ",
+    "(HIGHLIGHTER_BARRIERS_TEXT) HIGHLIGHTER BARRIERS - 2 CZ Valentine Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Christmas AR Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Christmas AR Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Christmas AR Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Christmas AR Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Christmas AR Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Christmas AR Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Birthday Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Birthday Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Birthday Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Birthday Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Birthday Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Birthday Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Inovativní Dárek  - 2 CZ Valentine Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Tento Dárek By Mě Potěšil  - 2 CZ Valentine Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Dobré Využití Technologií  - 2 CZ Valentine Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Velmi Zábavné Využití Stíracích Losů  - 2 CZ Valentine Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Vhodné Pro Každého  - 2 CZ Valentine Message  ",
+    "(CONC_IMG_1) CONCEPT DIAGNOSTIC - Zábavný Nápad  - 2 CZ Valentine Message  ",
+    "Concept ID - 2 CZ Christmas AR Message  ",
+    "Concept ID - 2 CZ Birthday Message  ",
+    "Concept ID - 2 CZ Valentine Message  ",
+    "Weight - 2 CZ Christmas AR Message  ",
+    "Weight - 2 CZ Birthday Message  ",
+    "Weight - 2 CZ Valentine Message  ",
+    "Parent ID - 2 CZ Christmas AR Message  ",
+    "Parent ID - 2 CZ Birthday Message  ",
+    "Parent ID - 2 CZ Valentine Message  ",
+    "(SAMPLE_GROUP) SAMPLE GROUP"
+  ],
+  "question_columns": {},
+  "id_columns": [
+    "SERIAL",
+    "Concept ID - 2 CZ Christmas AR Message  ",
+    "Concept ID - 2 CZ Elf Yourself  ",
+    "Concept ID - 2 CZ AR Christmas Mini Game  ",
+    "Concept ID - 2 CZ Christmas Lip Sync  ",
+    "Concept ID - 2 CZ Christmas Duet  ",
+    "Concept ID - 2 CZ Christmas Cake Suprise  ",
+    "Concept ID - 2 CZ Birthday Message  ",
+    "Concept ID - 2 CZ Valentine Message  ",
+    "Parent ID - 2 CZ Christmas AR Message  ",
+    "Parent ID - 2 CZ Elf Yourself  ",
+    "Parent ID - 2 CZ AR Christmas Mini Game  ",
+    "Parent ID - 2 CZ Christmas Lip Sync  ",
+    "Parent ID - 2 CZ Christmas Duet  ",
+    "Parent ID - 2 CZ Christmas Cake Suprise  ",
+    "Parent ID - 2 CZ Birthday Message  ",
+    "Parent ID - 2 CZ Valentine Message  ",
+    "Inertia 2 Other Category - I always know exactly which brand I'm going to choose / I don't decide which brand I will choose/buy until I have seen all the options",
+    "Stores pri from URL which should be a persistent respondent id from Cint"
+  ]
+}

@@ -1,0 +1,60 @@
+# Configuration for Synthetic Survey Respondent System
+
+# API Keys (set these as environment variables or update here)
+openai_api_key: ${OPENAI_API_KEY}  # or paste your key here
+
+# Model Configuration
+models:
+  llm: "gpt-4o"
+  embedding: "text-embedding-3-small"
+  temperature: 0.5
+  max_tokens: 500
+
+# SSR Configuration
+ssr:
+  normalization_method: "softmax"  # "softmax" or "linear"
+  temperature: 0.5  # Temperature for probability normalization
+  selection_method: "argmax"  # "argmax" or "sample"
+
+# Persona Generation
+persona:
+  random_seed: 42  # Set to null for random generation
+  apply_screening: true
+  default_sample_size: 200
+
+# File Paths
+paths:
+  questionnaire: "source docs/Board games_questionnaire EN MASTER.docx"
+  concepts: "source docs/Tech_Enabled_CZ_Concepts_EN.pptx"
+  ground_truth_data: "source docs/KAP400232611_Respondent_Data_Tech Enabled CZ.xlsx"
+  scales_config: "config/scales.json"
+  parsed_data_dir: "data/parsed"
+  synthetic_data_dir: "data/synthetic"
+  validation_results_dir: "data/validation"
+
+# Survey Configuration
+survey:
+  num_concepts: 8
+  questions_to_implement:
+    - B2   # Purchase intent (primary)
+    - B3   # Uniqueness
+    - B4   # Value for money
+    - B6   # Likeability
+    - B7   # Increment
+    - B11  # Relevance
+    - B11a # Playfulness
+    - B12  # Excitement
+    - B13  # Understanding
+    - B14  # Believability
+    - B22  # Gift intent
+    - B24  # Gift satisfaction
+
+# Validation Configuration
+validation:
+  human_reliability: 0.85  # Test-retest reliability from paper
+  metrics:
+    - kl_divergence
+    - ks_statistic
+    - correlation
+    - correlation_attainment
+    - mean_absolute_error

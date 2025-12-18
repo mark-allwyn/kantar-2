@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Question Reference Guide</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension searKing.preview-vscode */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.preview-vscode-error {
+	color: var(--vscode-editorError-foreground);
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="question-reference-guide" tabindex="-1" id="question-reference-guide">Question Reference Guide</h1>
+<p>Complete reference of all survey questions, options, and conditional logic.</p>
+<hr>
+<h2 id="screening-questions-(section-s)" tabindex="-1" id="screening-questions-section-s">Screening Questions (Section S)</h2>
+<h3 id="s1%3A-gender" tabindex="-1" id="s1-gender">S1: Gender</h3>
+<p><strong>Question:</strong> &quot;What is your gender?&quot;</p>
+<p><strong>Type:</strong> Single-coded</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Male</li>
+<li>Female</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="s2%3A-age" tabindex="-1" id="s2-age">S2: Age</h3>
+<p><strong>Question:</strong> &quot;What is your age?&quot;</p>
+<p><strong>Type:</strong> Single-coded (derived into age bands)</p>
+<p><strong>Age Bands:</strong></p>
+<ul>
+<li>S2_1: 18-35 years</li>
+<li>S2_2: 36-55 years</li>
+<li>S2_3: 56-75 years</li>
+</ul>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Screening:</strong> Age must be 18-75 inclusive</p>
+<hr>
+<h3 id="s3%3A-occupation-screener" tabindex="-1" id="s3-occupation-screener">S3: Occupation Screener</h3>
+<p><strong>Question:</strong> &quot;What is your occupation?&quot;</p>
+<p><strong>Type:</strong> Single-coded</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Advertising/PR</li>
+<li>Marketing/Market Research</li>
+<li>Lottery sales/distribution</li>
+<li>Tobacco shop salesperson</li>
+<li>Other</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Screening:</strong> If occupation is any of options 1-4, screen out</p>
+<hr>
+<h3 id="s4%3A-category-buyer-(products%2Fservices-bought)" tabindex="-1" id="s4-category-buyer-productsservices-bought">S4: Category Buyer (Products/Services Bought)</h3>
+<p><strong>Question:</strong> &quot;Which of the following products or services have you bought in the last 6 months?&quot;</p>
+<p><strong>Type:</strong> Multi-select (minimum 1 selection required)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Lottery played in-store/person</li>
+<li>Lottery played online/app</li>
+<li>Paper scratchcards bought in person</li>
+<li>None of the above</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Screening (Compound Rule):</strong></p>
+<ul>
+<li>If age band is 56-75 (S2_3=2,3) AND S4 does not contain option 3 (Paper scratchcards bought in person) → Screen out</li>
+</ul>
+<hr>
+<h3 id="s5%3A-category-non-rejector-(would-never-spend-money-on)" tabindex="-1" id="s5-category-non-rejector-would-never-spend-money-on">S5: Category Non Rejector (Would Never Spend Money On)</h3>
+<p><strong>Question:</strong> &quot;Which of the following would you NEVER spend money on?&quot;</p>
+<p><strong>Type:</strong> Multi-select (maximum 3 selections)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Lottery played in-store/person</li>
+<li>Lottery played online/app</li>
+<li>Paper scratchcards bought in person</li>
+<li>None of the above</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Screening:</strong></p>
+<ul>
+<li>If S5 contains option 3 (Paper scratchcards bought in person) → Screen out</li>
+</ul>
+<hr>
+<h3 id="s7%3A-target-group" tabindex="-1" id="s7-target-group">S7: Target Group</h3>
+<p><strong>Question:</strong> DERIVED FIELD (not asked directly)</p>
+<p><strong>Type:</strong> Derived from S2 (age) and S4 (category buyer)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>
+<p>Young nonrejectors 18-35 (players or nonplayers)</p>
+<ul>
+<li>Logic: S2_1=1 (age 18-35) AND (S4=3 OR S5≠3)</li>
+<li>Meaning: Age 18-35 AND (buys paper scratchcards OR doesn't reject paper scratchcards)</li>
+</ul>
+</li>
+<li>
+<p>Current SC players 36-75</p>
+<ul>
+<li>Logic: S2_3=2,3 (age 36-75) AND S4=3</li>
+<li>Meaning: Age 36-75 AND buys paper scratchcards</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conditions:</strong> Always derived</p>
+<hr>
+<h3 id="s8%3A-sc-player-type" tabindex="-1" id="s8-sc-player-type">S8: SC Player Type</h3>
+<p><strong>Question:</strong> DERIVED FIELD (not asked directly)</p>
+<p><strong>Type:</strong> Derived from S4 (category buyer)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>
+<p>SC Players</p>
+<ul>
+<li>Logic: If S4 contains option 3 (Paper scratchcards bought in person)</li>
+</ul>
+</li>
+<li>
+<p>SC Non Players</p>
+<ul>
+<li>Logic: If S4 does not contain option 3</li>
+</ul>
+</li>
+</ol>
+<p><strong>Conditions:</strong> Always derived</p>
+<hr>
+<h3 id="s9%3A-brand-buyers-(brands-bought)" tabindex="-1" id="s9-brand-buyers-brands-bought">S9: Brand Buyers (Brands Bought)</h3>
+<p><strong>Question:</strong> &quot;Which of the following lottery brands have you bought in the last 6 months?&quot;</p>
+<p><strong>Type:</strong> Multi-select (minimum 1 selection required)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Zlatá rybka</li>
+<li>Černá perla</li>
+<li>Vánoční losy</li>
+<li>Rentiér</li>
+<li>Sázka na 6</li>
+<li>Sportka</li>
+<li>EuroJackpot</li>
+<li>EuroMillions</li>
+<li>Šťastných 10</li>
+<li>Kasička</li>
+<li>Loterie</li>
+<li>Other</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h2 id="concept-test-questions-(section-b)" tabindex="-1" id="concept-test-questions-section-b">Concept Test Questions (Section B)</h2>
+<p>All Section B questions are asked per concept tested. Each respondent sees multiple concepts in randomized order.</p>
+<hr>
+<h3 id="b2%3A-priced-purchase-intent" tabindex="-1" id="b2-priced-purchase-intent">B2: Priced Purchase Intent</h3>
+<p><strong>Question:</strong> &quot;How likely would you be to buy this product at the stated price?&quot;</p>
+<p><strong>Type:</strong> Single-coded (5-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Definitely will buy</li>
+<li>Probably will buy</li>
+<li>Might or might not buy</li>
+<li>Probably won't buy</li>
+<li>Definitely won't buy</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Note:</strong> This is a key branching question - responses determine if B21 and B22 are asked</p>
+<hr>
+<h3 id="b21%3A-barriers-to-purchase" tabindex="-1" id="b21-barriers-to-purchase">B21: Barriers to Purchase</h3>
+<p><strong>Question:</strong> &quot;Why wouldn't you buy this product?&quot;</p>
+<p><strong>Type:</strong> Multi-select (minimum 1 selection required, random order)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>I don't play board games</li>
+<li>The game mechanics didn't appeal to me</li>
+<li>The rules are too complicated</li>
+<li>The game's theme is not appealing to me</li>
+<li>The ticket price is too high</li>
+<li>The main prize is too low</li>
+<li>Other reason, please specify</li>
+</ol>
+<p><strong>Conditions:</strong> Only show if B2=4,5 (low purchase intent)</p>
+<p><strong>Logic:</strong> Only ask about barriers when respondent has low purchase intent</p>
+<hr>
+<h3 id="b3%3A-uniqueness" tabindex="-1" id="b3-uniqueness">B3: Uniqueness</h3>
+<p><strong>Question:</strong> &quot;How unique is this product compared to other products on the market?&quot;</p>
+<p><strong>Type:</strong> Single-coded (5-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Very unique</li>
+<li>Somewhat unique</li>
+<li>Neither unique nor common</li>
+<li>Somewhat common</li>
+<li>Very common</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="b4%3A-value-for-money" tabindex="-1" id="b4-value-for-money">B4: Value for Money</h3>
+<p><strong>Question:</strong> &quot;Do you think this product offers good value for money at [PRICE]?&quot;</p>
+<p><strong>Type:</strong> Single-coded (5-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Excellent value</li>
+<li>Good value</li>
+<li>Fair value</li>
+<li>Poor value</li>
+<li>Very poor value</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Note:</strong> Price is dynamically inserted from concept</p>
+<hr>
+<h3 id="b6%3A-likeability" tabindex="-1" id="b6-likeability">B6: Likeability</h3>
+<p><strong>Question:</strong> &quot;How much do you like this product overall?&quot;</p>
+<p><strong>Type:</strong> Single-coded (6-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Like it very much</li>
+<li>Like it quite a bit</li>
+<li>Like it somewhat</li>
+<li>Dislike it somewhat</li>
+<li>Dislike it quite a bit</li>
+<li>Dislike it very much</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="b7%3A-increment-(buy-instead-if-not-available)" tabindex="-1" id="b7-increment-buy-instead-if-not-available">B7: Increment (Buy Instead if Not Available)</h3>
+<p><strong>Question:</strong> &quot;If this product was not available, would you buy a different scratchcard instead?&quot;</p>
+<p><strong>Type:</strong> Binary (Yes/No)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Yes - I would buy a different scratchcard</li>
+<li>No - I would not buy any scratchcard</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Note:</strong> This is a branching question - if B7=1, then B8 is asked (though B8 not in current implementation)</p>
+<hr>
+<h3 id="b11%3A-relevance" tabindex="-1" id="b11-relevance">B11: Relevance</h3>
+<p><strong>Question:</strong> &quot;How relevant is this product to you personally?&quot;</p>
+<p><strong>Type:</strong> Single-coded (5-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Very relevant</li>
+<li>Somewhat relevant</li>
+<li>Neither relevant nor irrelevant</li>
+<li>Somewhat irrelevant</li>
+<li>Very irrelevant</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="b11a%3A-playfulness" tabindex="-1" id="b11a-playfulness">B11a: Playfulness</h3>
+<p><strong>Question:</strong> &quot;How playful and fun does this product seem?&quot;</p>
+<p><strong>Type:</strong> Single-coded (5-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Very playful</li>
+<li>Somewhat playful</li>
+<li>Neither playful nor serious</li>
+<li>Somewhat serious</li>
+<li>Very serious</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="b12%3A-excitement" tabindex="-1" id="b12-excitement">B12: Excitement</h3>
+<p><strong>Question:</strong> &quot;How exciting is this product?&quot;</p>
+<p><strong>Type:</strong> Single-coded (4-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Very exciting</li>
+<li>Somewhat exciting</li>
+<li>Not very exciting</li>
+<li>Not at all exciting</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="b13%3A-understanding-(other-category)" tabindex="-1" id="b13-understanding-other-category">B13: Understanding (Other Category)</h3>
+<p><strong>Question:</strong> &quot;How well do you understand what this product is about?&quot;</p>
+<p><strong>Type:</strong> Slider (9-point scale)</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li>Scale: 1-9</li>
+<li>1 = Don't understand at all</li>
+<li>9 = Understand completely</li>
+</ul>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="b14%3A-believability" tabindex="-1" id="b14-believability">B14: Believability</h3>
+<p><strong>Question:</strong> &quot;How believable is the product concept?&quot;</p>
+<p><strong>Type:</strong> Single-coded (4-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Very believable</li>
+<li>Somewhat believable</li>
+<li>Not very believable</li>
+<li>Not at all believable</li>
+</ol>
+<p><strong>Conditions:</strong> Always show</p>
+<hr>
+<h3 id="b15%3A-likes-(open-ended)" tabindex="-1" id="b15-likes-open-ended">B15: Likes (Open-ended)</h3>
+<p><strong>Question:</strong> &quot;What do you like most about this product?&quot;</p>
+<p><strong>Type:</strong> Open text</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li>Free-text response</li>
+<li>OR &quot;Nothing&quot; / blank response (respondent has nothing to like)</li>
+</ul>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Note:</strong> Respondents can leave blank or indicate &quot;nothing&quot; if they have no positive feedback</p>
+<hr>
+<h3 id="b16%3A-dislikes-(open-ended)" tabindex="-1" id="b16-dislikes-open-ended">B16: Dislikes (Open-ended)</h3>
+<p><strong>Question:</strong> &quot;What do you like least about this product?&quot;</p>
+<p><strong>Type:</strong> Open text</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li>Free-text response</li>
+<li>OR &quot;Nothing&quot; / blank response (respondent has no dislikes)</li>
+</ul>
+<p><strong>Conditions:</strong> Always show</p>
+<p><strong>Note:</strong> Respondents can leave blank or indicate &quot;nothing&quot; if they have no negative feedback</p>
+<hr>
+<h3 id="b22%3A-would-buy-as-gift" tabindex="-1" id="b22-would-buy-as-gift">B22: Would Buy as Gift</h3>
+<p><strong>Question:</strong> &quot;Would you consider buying this product as a gift?&quot;</p>
+<p><strong>Type:</strong> Single-coded (5-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Definitely would buy as gift</li>
+<li>Probably would buy as gift</li>
+<li>Might or might not buy as gift</li>
+<li>Probably wouldn't buy as gift</li>
+<li>Definitely wouldn't buy as gift</li>
+</ol>
+<p><strong>Conditions:</strong> Only show if B2=1,2,3 (any positive purchase intent)</p>
+<p><strong>Logic:</strong> Only ask about gift intent when respondent has some purchase intent</p>
+<p><strong>Note:</strong> This is a branching question - responses determine if B23 is asked</p>
+<hr>
+<h3 id="b23%3A-gift-occasions" tabindex="-1" id="b23-gift-occasions">B23: Gift Occasions</h3>
+<p><strong>Question:</strong> &quot;For what occasions do you think this scratch card / board game is suitable?&quot;</p>
+<p><strong>Type:</strong> Multi-select (minimum 1 selection required, random order)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>To play at home with family or a partner</li>
+<li>For a party with friends</li>
+<li>For a cottage stay, weekend getaway, or vacation</li>
+<li>For another occasion, please specify</li>
+</ol>
+<p><strong>Conditions:</strong> Only show if B22=1,2,3 (any positive gift intent)</p>
+<p><strong>Logic:</strong> Only ask about occasions when respondent would consider buying as gift</p>
+<hr>
+<h3 id="b24%3A-pleased-with-gift" tabindex="-1" id="b24-pleased-with-gift">B24: Pleased with Gift</h3>
+<p><strong>Question:</strong> &quot;How pleased would you be to receive this product as a gift?&quot;</p>
+<p><strong>Type:</strong> Single-coded (5-point Likert)</p>
+<p><strong>Options:</strong></p>
+<ol>
+<li>Very pleased</li>
+<li>Somewhat pleased</li>
+<li>Neither pleased nor displeased</li>
+<li>Somewhat displeased</li>
+<li>Very displeased</li>
+</ol>
+<p><strong>Conditions:</strong> ALWAYS SHOW (no conditions)</p>
+<p><strong>Note:</strong> This question has no conditional logic - it is asked regardless of B22 response</p>
+<hr>
+<h2 id="conditional-logic-summary" tabindex="-1" id="conditional-logic-summary">Conditional Logic Summary</h2>
+<h3 id="screening-flow" tabindex="-1" id="screening-flow">Screening Flow</h3>
+<ol>
+<li><strong>S3 (Occupation)</strong> → If excluded occupation → Screen out</li>
+<li><strong>S2 (Age)</strong> → If outside 18-75 → Screen out</li>
+<li><strong>S4 (Category Buyer)</strong> + <strong>S2 (Age)</strong> → If age 56-75 AND doesn't buy paper scratchcards → Screen out</li>
+<li><strong>S5 (Category Non Rejector)</strong> → If would never spend on paper scratchcards → Screen out</li>
+</ol>
+<h3 id="question-flow-(per-concept)" tabindex="-1" id="question-flow-per-concept">Question Flow (Per Concept)</h3>
+<ol>
+<li>
+<p><strong>B2</strong> → Always show (BRANCHING POINT)</p>
+<ul>
+<li>If B2=4,5 → Show <strong>B21</strong> (Barriers)</li>
+<li>If B2=1,2,3 → Show <strong>B22</strong> (Gift Intent)</li>
+</ul>
+</li>
+<li>
+<p><strong>B3-B16</strong> → Always show</p>
+</li>
+<li>
+<p><strong>B22</strong> → Only if B2=1,2,3 (BRANCHING POINT)</p>
+<ul>
+<li>If B22=1,2,3 → Show <strong>B23</strong> (Occasions)</li>
+</ul>
+</li>
+<li>
+<p><strong>B24</strong> → Always show</p>
+</li>
+</ol>
+<h3 id="questions-not-implemented" tabindex="-1" id="questions-not-implemented">Questions NOT Implemented</h3>
+<p>The following questions from the source questionnaire are <strong>NOT implemented</strong> in this system:</p>
+<ul>
+<li>
+<p><strong>B1: Concept Intro</strong></p>
+<ul>
+<li>Type: Informational text (not a question)</li>
+<li>Reason: Not a measurable question, just concept presentation text</li>
+</ul>
+</li>
+<li>
+<p><strong>B8: Portfolio Incrementality</strong></p>
+<ul>
+<li>Condition: Only if B7=1 (would buy different scratchcard)</li>
+<li>Reason: Not present in ground truth data</li>
+</ul>
+</li>
+<li>
+<p><strong>B17: Highlighter Drivers</strong></p>
+<ul>
+<li>Type: Visual/image-based question</li>
+<li>Reason: Not present in ground truth data, requires visual interaction</li>
+</ul>
+</li>
+<li>
+<p><strong>B18: Highlighter Barriers</strong></p>
+<ul>
+<li>Type: Visual/image-based question</li>
+<li>Reason: Not present in ground truth data, requires visual interaction</li>
+</ul>
+</li>
+<li>
+<p><strong>B20: Imagery</strong></p>
+<ul>
+<li>Type: Imagery attributes question</li>
+<li>Reason: Not present in ground truth data</li>
+</ul>
+</li>
+</ul>
+<p><strong>Why not implemented:</strong> These questions are either non-questions (B1), visual/interactive questions not suitable for synthetic generation (B17, B18), or not present in the ground truth dataset used for validation (B8, B17, B18, B20).</p>
+<hr>
+<h2 id="question-order" tabindex="-1" id="question-order">Question Order</h2>
+<h3 id="screening-section-(s)" tabindex="-1" id="screening-section-s">Screening Section (S)</h3>
+<ol>
+<li>S1 - Gender</li>
+<li>S2 - Age</li>
+<li>S3 - Occupation (SCREENER)</li>
+<li>S4 - Category Buyer (SCREENER with compound rule)</li>
+<li>S5 - Category Non Rejector (SCREENER)</li>
+<li>S7 - Target Group (DERIVED)</li>
+<li>S8 - SC Player Type (DERIVED)</li>
+<li>S9 - Brand Buyers</li>
+</ol>
+<h3 id="concept-test-section-(b)---per-concept" tabindex="-1" id="concept-test-section-b---per-concept">Concept Test Section (B) - Per Concept</h3>
+<ol>
+<li>B2 - Purchase Intent</li>
+<li>B21 - Barriers (conditional)</li>
+<li>B3 - Uniqueness</li>
+<li>B4 - Value for Money</li>
+<li>B6 - Likeability</li>
+<li>B7 - Increment</li>
+<li>B11 - Relevance</li>
+<li>B11a - Playfulness</li>
+<li>B12 - Excitement</li>
+<li>B13 - Understanding</li>
+<li>B14 - Believability</li>
+<li>B15 - Likes (open)</li>
+<li>B16 - Dislikes (open)</li>
+<li>B22 - Would Buy as Gift (conditional)</li>
+<li>B23 - Gift Occasions (conditional)</li>
+<li>B24 - Pleased with Gift</li>
+</ol>
+<hr>
+<h2 id="scale-types-used" tabindex="-1" id="scale-types-used">Scale Types Used</h2>
+<ul>
+<li><strong>LIKERT_4:</strong> 4-point Likert scale (B12, B14)</li>
+<li><strong>LIKERT_5:</strong> 5-point Likert scale (B2, B3, B4, B11, B11a, B22, B24)</li>
+<li><strong>LIKERT_6:</strong> 6-point Likert scale (B6)</li>
+<li><strong>SLIDER_9:</strong> 9-point slider scale (B13)</li>
+<li><strong>BINARY:</strong> Yes/No question (B7)</li>
+<li><strong>MULTI_SELECT:</strong> Multiple selection questions (S4, S5, S9, B21, B23)</li>
+<li><strong>OPEN_TEXT:</strong> Free-text response (B15, B16)</li>
+</ul>
+<hr>
+<h2 id="important-notes" tabindex="-1" id="important-notes">Important Notes</h2>
+<ol>
+<li>
+<p><strong>Text Labels vs Codes:</strong> The system uses text labels (e.g., &quot;Definitely will buy&quot;) not numeric codes (996, 998)</p>
+</li>
+<li>
+<p><strong>Open-Text Questions (B15, B16) - FULLY IMPLEMENTED:</strong></p>
+<ul>
+<li><strong>B15</strong> uses specific prompt: &quot;What do you like most about this product?&quot;</li>
+<li><strong>B16</strong> uses specific prompt: &quot;What do you like least about this product?&quot;</li>
+<li>Both prompts explicitly encourage honest responses including &quot;Nothing&quot;</li>
+<li>System detects &quot;nothing&quot; variants and converts to blank strings</li>
+<li>Blank responses are valid and expected for some personas/concepts</li>
+<li>Implementation includes post-processing to handle minimal responses</li>
+</ul>
+</li>
+<li>
+<p><strong>Random Order:</strong> Multi-select questions B21 and B23 randomize option order</p>
+</li>
+<li>
+<p><strong>Minimum Selections:</strong> Multi-select questions require minimum 1 selection (except S5 which allows 0 for &quot;None&quot;)</p>
+</li>
+<li>
+<p><strong>Derived Fields:</strong> S7 and S8 are calculated, not asked</p>
+</li>
+<li>
+<p><strong>Conditional Chains:</strong></p>
+<ul>
+<li>B2 → B21 (if low intent)</li>
+<li>B2 → B22 (if positive intent) → B23 (if positive gift intent)</li>
+</ul>
+</li>
+<li>
+<p><strong>Price Dynamic:</strong> B4 includes concept price dynamically</p>
+</li>
+<li>
+<p><strong>Ground Truth Alignment:</strong> All questions match exactly to source questionnaire document</p>
+</li>
+<li>
+<p><strong>Questions Not Implemented:</strong> B1, B8, B17, B18, B20 are not implemented (see &quot;Questions NOT Implemented&quot; section above)</p>
+</li>
+</ol>
+<hr>
+<p><strong>Generated:</strong> December 12, 2024
+<strong>Source:</strong> Board games_questionnaire EN MASTER.docx
+<strong>Implementation:</strong> S.A.G.E Test System</p>
+
+            
+            
+        </body>
+        </html>

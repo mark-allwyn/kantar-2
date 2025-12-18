@@ -186,64 +186,64 @@ def create_default_scales() -> ScaleRegistry:
             "Not at all new and different"
         ],
         anchor_texts=[
-            "Level 1 - HIGHEST uniqueness (most positive): This concept is extremely new and different - I've never seen anything like this before. It's completely revolutionary and groundbreaking. The AR and personalization features are incredibly innovative.",
-            "Level 2 - High uniqueness: This concept is very new and different. The combination of physical scratchcard with digital AR features is quite novel and stands out significantly.",
-            "Level 3 - Moderate uniqueness: This concept is somewhat new and different. The AR element adds novelty, though scratchcards themselves are familiar. It's a fresh take on something known.",
-            "Level 4 - Low uniqueness: This concept is only slightly new and different. The digital addition is a small twist, but scratchcards are common. Mostly conventional.",
-            "Level 5 - LOWEST uniqueness (least positive): This concept is not at all new and different. Scratchcards are everywhere and this feels like just another one. Nothing stands out."
+            "This is extremely new and different. I've never seen anything quite like this before in the scratchcard category. It feels very unique and stands out completely.",
+            "This is very new and different. It has distinctive features that make it notably unique compared to typical scratchcards.",
+            "This is somewhat new and different. It has some unique elements that give it a fresh feel, though aspects are familiar.",
+            "This is slightly new and different. It has minor unique touches but feels mostly like other scratchcards I've seen.",
+            "This is not at all new and different. It feels like a standard scratchcard without any particularly unique features."
         ],
         description="Measures perceived uniqueness and novelty",
         language="en",
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Moderate, contextual framing (FIXED 2025-12-17)
+            # Set 0: Contextual framing - balanced
             [
-                "This is quite new and different for a scratchcard. It offers features I haven't seen before in this category.",
-                "This is fairly new and different. It has some distinctive elements that make it stand out from typical scratchcards.",
-                "This is somewhat new and different. It has a few unique touches but feels familiar overall.",
-                "This is only slightly new. It's similar to other scratchcards with minor variations.",
-                "This is not new at all. It's a standard scratchcard concept I've seen many times before."
+                "This is extremely new and different for a scratchcard. It offers features that really set it apart in this category.",
+                "This is very new and different. It has distinctive elements that clearly differentiate it from typical scratchcards.",
+                "This is somewhat new and different. It has unique touches mixed with familiar scratchcard elements.",
+                "This is only slightly new and different. It's similar to other scratchcards with minor variations.",
+                "This is not new and different at all. It's a standard scratchcard concept like many others."
             ],
-            # Set 1: Innovation framing with level guidance
+            # Set 1: Innovation framing - moderate tone
             [
-                "Level 1 - Highest innovation: This is highly innovative. A truly groundbreaking concept.",
-                "Level 2: This is quite innovative. It brings new ideas to the table.",
-                "Level 3: This is moderately innovative. Some creative elements present.",
-                "Level 4: This is barely innovative. Just minor tweaks to the usual.",
-                "Level 5 - No innovation: This is not innovative at all. Completely conventional."
+                "This is highly innovative. It brings genuinely new ideas to scratchcards.",
+                "This is quite innovative. It introduces fresh concepts to the category.",
+                "This is moderately innovative. It has some creative elements alongside familiar ones.",
+                "This is barely innovative. It's mostly conventional with minor tweaks.",
+                "This is not innovative at all. It follows the standard scratchcard formula completely."
             ],
-            # Set 2: Distinctiveness framing with level guidance
+            # Set 2: Distinctiveness framing - balanced
             [
-                "Level 1 - Most distinctive: This is extremely distinctive. It stands out completely.",
-                "Level 2: This is very distinctive. It has clear unique qualities.",
-                "Level 3: This is somewhat distinctive. Has some special features.",
-                "Level 4: This is barely distinctive. Mostly blends in with others.",
-                "Level 5 - Not distinctive: This is not distinctive at all. Completely generic."
+                "This is extremely distinctive. It really stands out among scratchcards.",
+                "This is very distinctive. It has clear unique qualities that set it apart.",
+                "This is somewhat distinctive. It has special features but also familiar aspects.",
+                "This is barely distinctive. It mostly blends in with other scratchcards.",
+                "This is not distinctive at all. It's completely typical of the category."
             ],
-            # Set 3: Originality framing with level guidance
+            # Set 3: Originality framing - measured
             [
-                "Level 1 - Highly original: This is highly original. A truly fresh take.",
-                "Level 2: This is quite original. Brings something new to the mix.",
-                "Level 3: This is moderately original. Has some unique aspects.",
-                "Level 4: This is slightly original. Mostly derivative with small changes.",
-                "Level 5 - Not original: This is not original at all. It's a carbon copy."
+                "This is highly original. It's a truly fresh approach to scratchcards.",
+                "This is quite original. It brings new perspectives to the category.",
+                "This is moderately original. It has unique aspects mixed with conventional ones.",
+                "This is slightly original. It's mostly derivative with small changes.",
+                "This is not original at all. It follows exactly what's already available."
             ],
-            # Set 4: Uniqueness direct with level guidance
+            # Set 4: Uniqueness direct - balanced
             [
-                "Level 1 - Completely unique: This is completely unique. One of a kind.",
-                "Level 2: This is very unique. Clearly different from alternatives.",
-                "Level 3: This is somewhat unique. Has distinguishing features.",
-                "Level 4: This is barely unique. Quite similar to others.",
-                "Level 5 - Not unique: This is not unique at all. Identical to everything else."
+                "This is extremely unique among scratchcards. It's truly one of a kind.",
+                "This is very unique. It's clearly different from other scratchcards available.",
+                "This is somewhat unique. It has distinguishing features alongside common ones.",
+                "This is barely unique. It's quite similar to most other scratchcards.",
+                "This is not unique at all. It's essentially identical to many others."
             ],
-            # Set 5: Familiarity (reverse framing) with level guidance
+            # Set 5: Novelty framing - balanced
             [
-                "Level 1 - Most unfamiliar: This is completely unfamiliar. I've never seen this before.",
-                "Level 2: This is quite unfamiliar. Much different than I'm used to.",
-                "Level 3: This is moderately unfamiliar. Some new and some familiar.",
-                "Level 4: This is mostly familiar. Just slight variations from the norm.",
-                "Level 5 - Totally familiar: This is totally familiar. I've seen this countless times."
+                "This feels completely novel to me. I haven't encountered anything like this in scratchcards.",
+                "This feels very novel to me. It's notably different from what I've seen before.",
+                "This feels moderately novel to me. It mixes new elements with familiar ones.",
+                "This feels only slightly novel to me. It's mostly familiar with minor differences.",
+                "This doesn't feel novel at all to me. It's exactly like scratchcards I've seen before."
             ]
         ]
     ))

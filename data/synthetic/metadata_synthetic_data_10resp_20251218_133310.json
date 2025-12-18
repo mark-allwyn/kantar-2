@@ -1,0 +1,17 @@
+{
+  "generation_timestamp": "2025-12-18T13:33:11.816809",
+  "n_respondents": 10,
+  "n_concepts": 8,
+  "concepts_per_respondent": 3,
+  "questions_asked": "all",
+  "random_seed": 42,
+  "valid_respondents": 10,
+  "screened_respondents": 0,
+  "output_file": "data/synthetic/synthetic_data_10resp_20251218_133310.xlsx",
+  "models": {
+    "llm": "gpt-4o-mini",
+    "embedding": "text-embedding-3-small",
+    "temperature": 0.5
+  },
+  "parallel_workers": 3
+}

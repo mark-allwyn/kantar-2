@@ -1,0 +1,32 @@
+# Environment files
+.env
+.env.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (optional - keeping generated data out of repo)
+# Uncomment if you want to exclude large data files
+# data/synthetic/*.xlsx
+# data/synthetic/*.json

@@ -102,71 +102,71 @@ def create_default_scales() -> ScaleRegistry:
         num_levels=5,
         level_values=[1, 2, 3, 4, 5],
         level_labels=[
-            "Definitely would",
-            "Probably would",
-            "Might or might not",
+            "Definitely would not",
             "Probably would not",
-            "Definitely would not"
+            "Might or might not",
+            "Probably would",
+            "Definitely would"
         ],
         anchor_texts=[
-            "I would definitely buy this scratchcard. It looks perfect for me and I'm very interested in purchasing it.",
-            "I would probably buy this scratchcard. It seems appealing and I'd likely purchase it if I saw it.",
-            "I might or might not buy this scratchcard. I'm unsure and would need to think about it more before deciding.",
+            "I would definitely not buy this scratchcard. It doesn't interest me at all and I have no intention of purchasing it.",
             "I probably would not buy this scratchcard. It doesn't really appeal to me and I'd likely pass on it.",
-            "I would definitely not buy this scratchcard. It doesn't interest me at all and I have no intention of purchasing it."
+            "I might or might not buy this scratchcard. I'm unsure and would need to think about it more before deciding.",
+            "I would probably buy this scratchcard. It seems appealing and I'd likely purchase it if I saw it.",
+            "I would absolutely buy this scratchcard! No question about it - I'm completely committed to purchasing this!"
         ],
         description="Measures purchase intent for scratchcard concepts",
         language="en",
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Direct purchase intention
+            # Set 0: Direct purchase intention (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "It's very likely I'd buy it. This looks like something I'd definitely purchase.",
-                "I'd probably buy it. It seems like a good option that I'd likely purchase.",
-                "I might or might not buy it. I'm uncertain about purchasing this.",
+                "It's rather unlikely I'd buy it. I don't see myself purchasing this.",
                 "I probably wouldn't buy it. It doesn't really appeal to me as a purchase.",
-                "It's rather unlikely I'd buy it. I don't see myself purchasing this."
+                "I might or might not buy it. I'm uncertain about purchasing this.",
+                "I'd probably buy it. It seems like a good option that I'd likely purchase.",
+                "I'd absolutely buy it! This is exactly what I want and I'm completely committed to purchasing it!"
             ],
-            # Set 1: Formal purchase intent
+            # Set 1: Formal purchase intent (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I would certainly purchase this product. It matches my preferences perfectly.",
-                "I would likely purchase this product. It appears to be a suitable choice.",
-                "I am undecided about purchasing this product. More consideration is needed.",
+                "I would not purchase this product under any circumstances. It holds no appeal.",
                 "I would be unlikely to purchase this product. It does not align with my interests.",
-                "I would not purchase this product under any circumstances. It holds no appeal."
+                "I am undecided about purchasing this product. More consideration is needed.",
+                "I would likely purchase this product. It appears to be a suitable choice.",
+                "I would absolutely purchase this product! It matches my preferences perfectly and I'm fully committed!"
             ],
-            # Set 2: Casual purchase expression
+            # Set 2: Casual purchase expression (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "Yeah, I'd definitely get this. Looks great to me.",
-                "I'd probably get this. Seems pretty good.",
-                "Not sure if I'd get this or not. Could go either way.",
+                "No way I'd get this. Not interested at all.",
                 "I'd probably skip this one. Not really for me.",
-                "No way I'd get this. Not interested at all."
+                "Not sure if I'd get this or not. Could go either way.",
+                "I'd probably get this. Seems pretty good.",
+                "Yeah, I'd absolutely get this! Looks perfect to me and I'm totally buying it!"
             ],
-            # Set 3: Interest-based framing
+            # Set 3: Interest-based framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I'm very interested in buying this. It's exactly what I want.",
-                "I'm quite interested in buying this. It looks appealing.",
-                "I'm somewhat on the fence about buying this. Need to think it over.",
+                "I have no interest in buying this whatsoever. It's not for me.",
                 "I'm not very interested in buying this. It doesn't excite me.",
-                "I have no interest in buying this whatsoever. It's not for me."
+                "I'm somewhat on the fence about buying this. Need to think it over.",
+                "I'm quite interested in buying this. It looks appealing.",
+                "I'm incredibly interested in buying this! It's exactly what I want and I'm definitely going to buy it!"
             ],
-            # Set 4: Action-oriented framing
+            # Set 4: Action-oriented framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I will definitely make this purchase. No hesitation.",
-                "I will probably make this purchase. Seems worth it.",
-                "I may or may not make this purchase. Still deciding.",
+                "I will absolutely not make this purchase. Not worth my money.",
                 "I will probably not make this purchase. Doesn't seem worth it.",
-                "I will absolutely not make this purchase. Not worth my money."
+                "I may or may not make this purchase. Still deciding.",
+                "I will probably make this purchase. Seems worth it.",
+                "I will absolutely make this purchase! No hesitation whatsoever - I'm completely committed!"
             ],
-            # Set 5: Likelihood-based framing
+            # Set 5: Likelihood-based framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "There's a very high chance I'd buy this. Almost certainly.",
-                "There's a good chance I'd buy this. More likely than not.",
-                "There's about a 50-50 chance I'd buy this. Could see it going either way.",
+                "There's essentially no chance I'd buy this. Definitely not.",
                 "There's a low chance I'd buy this. Probably not.",
-                "There's essentially no chance I'd buy this. Definitely not."
+                "There's about a 50-50 chance I'd buy this. Could see it going either way.",
+                "There's a good chance I'd buy this. More likely than not.",
+                "There's an absolutely certain chance I'd buy this! 100% - no doubt about it!"
             ]
         ]
     ))
@@ -179,71 +179,71 @@ def create_default_scales() -> ScaleRegistry:
         num_levels=5,
         level_values=[1, 2, 3, 4, 5],
         level_labels=[
-            "Extremely new and different",
-            "Very new and different",
-            "Somewhat new and different",
+            "Not at all new and different",
             "Slightly new and different",
-            "Not at all new and different"
+            "Somewhat new and different",
+            "Very new and different",
+            "Extremely new and different"
         ],
         anchor_texts=[
-            "Level 1 - HIGHEST uniqueness (most positive): This concept is extremely new and different - I've never seen anything like this before. It's completely revolutionary and groundbreaking. The AR and personalization features are incredibly innovative.",
-            "Level 2 - High uniqueness: This concept is very new and different. The combination of physical scratchcard with digital AR features is quite novel and stands out significantly.",
-            "Level 3 - Moderate uniqueness: This concept is somewhat new and different. The AR element adds novelty, though scratchcards themselves are familiar. It's a fresh take on something known.",
-            "Level 4 - Low uniqueness: This concept is only slightly new and different. The digital addition is a small twist, but scratchcards are common. Mostly conventional.",
-            "Level 5 - LOWEST uniqueness (least positive): This concept is not at all new and different. Scratchcards are everywhere and this feels like just another one. Nothing stands out."
+            "Level 5 - LOWEST uniqueness: This is not at all new and different. This feels like just another standard option. Nothing stands out.",
+            "Level 4 - Low uniqueness: This is only slightly new and different. Just a small twist on something common. Mostly conventional.",
+            "Level 3 - Moderate uniqueness: This is somewhat new and different. It adds some novelty, though parts are familiar. It's a fresh take on something known.",
+            "Level 2 - High uniqueness: This is very new and different. The features are quite novel and this stands out significantly from what I usually see.",
+            "Level 1 - HIGHEST uniqueness: This is incredibly new and different! I've genuinely never seen anything like this before - it's completely revolutionary and groundbreaking! Absolutely innovative!"
         ],
         description="Measures perceived uniqueness and novelty",
         language="en",
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Moderate, contextual framing (FIXED 2025-12-17)
+            # Set 0: Moderate, contextual framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This is quite new and different for a scratchcard. It offers features I haven't seen before in this category.",
-                "This is fairly new and different. It has some distinctive elements that make it stand out from typical scratchcards.",
+                "This is not new at all. It's a standard concept I've seen many times before.",
+                "This is only slightly new. It's similar to others with minor variations.",
                 "This is somewhat new and different. It has a few unique touches but feels familiar overall.",
-                "This is only slightly new. It's similar to other scratchcards with minor variations.",
-                "This is not new at all. It's a standard scratchcard concept I've seen many times before."
+                "This is fairly new and different. It has some distinctive elements that make it stand out from typical options.",
+                "This is incredibly new and different! It offers features I've genuinely never seen before - absolutely innovative!"
             ],
-            # Set 1: Innovation framing with level guidance
+            # Set 1: Innovation framing with level guidance (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "Level 1 - Highest innovation: This is highly innovative. A truly groundbreaking concept.",
-                "Level 2: This is quite innovative. It brings new ideas to the table.",
-                "Level 3: This is moderately innovative. Some creative elements present.",
+                "Level 5 - No innovation: This is not innovative at all. Completely conventional.",
                 "Level 4: This is barely innovative. Just minor tweaks to the usual.",
-                "Level 5 - No innovation: This is not innovative at all. Completely conventional."
+                "Level 3: This is moderately innovative. Some creative elements present.",
+                "Level 2: This is quite innovative. It brings new ideas to the table.",
+                "Level 1 - Highest innovation: This is incredibly innovative! A truly groundbreaking concept that's absolutely revolutionary!"
             ],
-            # Set 2: Distinctiveness framing with level guidance
+            # Set 2: Distinctiveness framing with level guidance (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "Level 1 - Most distinctive: This is extremely distinctive. It stands out completely.",
-                "Level 2: This is very distinctive. It has clear unique qualities.",
-                "Level 3: This is somewhat distinctive. Has some special features.",
+                "Level 5 - Not distinctive: This is not distinctive at all. Completely generic.",
                 "Level 4: This is barely distinctive. Mostly blends in with others.",
-                "Level 5 - Not distinctive: This is not distinctive at all. Completely generic."
+                "Level 3: This is somewhat distinctive. Has some special features.",
+                "Level 2: This is very distinctive. It has clear unique qualities.",
+                "Level 1 - Most distinctive: This is incredibly distinctive! It stands out completely and is genuinely unique!"
             ],
-            # Set 3: Originality framing with level guidance
+            # Set 3: Originality framing with level guidance (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "Level 1 - Highly original: This is highly original. A truly fresh take.",
-                "Level 2: This is quite original. Brings something new to the mix.",
-                "Level 3: This is moderately original. Has some unique aspects.",
+                "Level 5 - Not original: This is not original at all. It's a carbon copy.",
                 "Level 4: This is slightly original. Mostly derivative with small changes.",
-                "Level 5 - Not original: This is not original at all. It's a carbon copy."
+                "Level 3: This is moderately original. Has some unique aspects.",
+                "Level 2: This is quite original. Brings something new to the mix.",
+                "Level 1 - Highly original: This is incredibly original! A truly fresh take that's genuinely groundbreaking!"
             ],
-            # Set 4: Uniqueness direct with level guidance
+            # Set 4: Uniqueness direct with level guidance (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "Level 1 - Completely unique: This is completely unique. One of a kind.",
-                "Level 2: This is very unique. Clearly different from alternatives.",
-                "Level 3: This is somewhat unique. Has distinguishing features.",
+                "Level 5 - Not unique: This is not unique at all. Identical to everything else.",
                 "Level 4: This is barely unique. Quite similar to others.",
-                "Level 5 - Not unique: This is not unique at all. Identical to everything else."
+                "Level 3: This is somewhat unique. Has distinguishing features.",
+                "Level 2: This is very unique. Clearly different from alternatives.",
+                "Level 1 - Completely unique: This is absolutely unique! One of a kind and genuinely unlike anything else!"
             ],
-            # Set 5: Familiarity (reverse framing) with level guidance
+            # Set 5: Familiarity (reverse framing) with level guidance (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "Level 1 - Most unfamiliar: This is completely unfamiliar. I've never seen this before.",
-                "Level 2: This is quite unfamiliar. Much different than I'm used to.",
-                "Level 3: This is moderately unfamiliar. Some new and some familiar.",
+                "Level 5 - Totally familiar: This is totally familiar. I've seen this countless times.",
                 "Level 4: This is mostly familiar. Just slight variations from the norm.",
-                "Level 5 - Totally familiar: This is totally familiar. I've seen this countless times."
+                "Level 3: This is moderately unfamiliar. Some new and some familiar.",
+                "Level 2: This is quite unfamiliar. Much different than I'm used to.",
+                "Level 1 - Most unfamiliar: This is completely unfamiliar! I've genuinely never seen this before - absolutely new!"
             ]
         ]
     ))
@@ -335,14 +335,14 @@ def create_default_scales() -> ScaleRegistry:
         level_labels=[
             "Not at all relevant",
             "Slightly relevant",
-            "Moderately relevant",
+            "Somewhat relevant",
             "Very relevant",
             "Extremely relevant"
         ],
         anchor_texts=[
             "This is not at all relevant to me. It has nothing to do with my interests or needs.",
             "This is only slightly relevant to me. I can see some connection but it's pretty minimal.",
-            "This is moderately relevant to me. It relates to my interests to a reasonable degree.",
+            "This is somewhat relevant to me. It relates to my interests to a reasonable degree.",
             "This is very relevant to me. It aligns well with my interests and preferences.",
             "This is extremely relevant to me. It's perfectly suited to my interests and exactly what I'd want."
         ],
@@ -351,53 +351,53 @@ def create_default_scales() -> ScaleRegistry:
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Personal relevance framing
+            # Set 0: Personal relevance framing (FIXED 2025-01-12: Reversed order)
             [
-                "This has no relevance to me. Completely disconnected from my interests.",
-                "This has minimal relevance to me. A weak connection at best.",
-                "This has moderate relevance to me. Relates to my interests reasonably.",
+                "This has total relevance to me. Perfectly matches my interests.",
                 "This has strong relevance to me. Aligns well with my interests.",
-                "This has total relevance to me. Perfectly matches my interests."
+                "This has some relevance to me. Relates to my interests reasonably.",
+                "This has minimal relevance to me. A weak connection at best.",
+                "This has no relevance to me. Completely disconnected from my interests."
             ],
-            # Set 1: Applicability framing
+            # Set 1: Applicability framing (FIXED 2025-01-12: Reversed order)
             [
-                "This doesn't apply to me at all. Not suited for my situation.",
-                "This barely applies to me. Very limited applicability.",
-                "This somewhat applies to me. Has reasonable applicability.",
+                "This completely applies to me. Perfectly fits my situation.",
                 "This strongly applies to me. Well-suited to my situation.",
-                "This completely applies to me. Perfectly fits my situation."
+                "This somewhat applies to me. Has reasonable applicability.",
+                "This barely applies to me. Very limited applicability.",
+                "This doesn't apply to me at all. Not suited for my situation."
             ],
-            # Set 2: Fit and suitability
+            # Set 2: Fit and suitability (FIXED 2025-01-12: Reversed order)
             [
-                "This doesn't fit me at all. Totally unsuitable for me.",
-                "This barely fits me. Mostly unsuitable with slight connections.",
-                "This moderately fits me. Reasonably suitable overall.",
+                "This fits me perfectly. Ideally suited to my preferences.",
                 "This fits me very well. Highly suitable for my needs.",
-                "This fits me perfectly. Ideally suited to my preferences."
+                "This somewhat fits me. Reasonably suitable overall.",
+                "This barely fits me. Mostly unsuitable with slight connections.",
+                "This doesn't fit me at all. Totally unsuitable for me."
             ],
-            # Set 3: Interest alignment
+            # Set 3: Interest alignment (FIXED 2025-01-12: Reversed order)
             [
-                "This doesn't interest me at all. No alignment with my preferences.",
-                "This barely interests me. Minimal alignment with my preferences.",
-                "This moderately interests me. Decent alignment with my preferences.",
+                "This completely interests me. Perfect alignment with my preferences.",
                 "This strongly interests me. Good alignment with my preferences.",
-                "This completely interests me. Perfect alignment with my preferences."
+                "This somewhat interests me. Decent alignment with my preferences.",
+                "This barely interests me. Minimal alignment with my preferences.",
+                "This doesn't interest me at all. No alignment with my preferences."
             ],
-            # Set 4: Personal connection
+            # Set 4: Personal connection (FIXED 2025-01-12: Reversed order)
             [
-                "I feel no connection to this. It's completely irrelevant to me.",
-                "I feel little connection to this. It's mostly irrelevant to me.",
-                "I feel some connection to this. It's somewhat relevant to me.",
+                "I feel total connection to this. It's extremely relevant to me.",
                 "I feel strong connection to this. It's quite relevant to me.",
-                "I feel total connection to this. It's extremely relevant to me."
+                "I feel some connection to this. It's somewhat relevant to me.",
+                "I feel little connection to this. It's mostly irrelevant to me.",
+                "I feel no connection to this. It's completely irrelevant to me."
             ],
-            # Set 5: Importance to me
+            # Set 5: Importance to me (FIXED 2025-01-12: Reversed order)
             [
-                "This means nothing to me. Zero importance for my needs.",
-                "This means very little to me. Minimal importance for my needs.",
-                "This means something to me. Moderate importance for my needs.",
+                "This means everything to me. Critical importance for my needs.",
                 "This means a lot to me. High importance for my needs.",
-                "This means everything to me. Critical importance for my needs."
+                "This means something to me. Some importance for my needs.",
+                "This means very little to me. Minimal importance for my needs.",
+                "This means nothing to me. Zero importance for my needs."
             ]
         ]
     ))
@@ -490,79 +490,79 @@ def create_default_scales() -> ScaleRegistry:
         num_levels=6,
         level_values=[1, 2, 3, 4, 5, 6],
         level_labels=[
-            "Like extremely",
-            "Like very much",
-            "Like moderately",
+            "Do not like at all",
             "Like slightly",
-            "Neither like nor dislike",
-            "Do not like at all"
+            "Like somewhat",
+            "Like quite well",
+            "Like very well",
+            "Like extremely"
         ],
         anchor_texts=[
-            "I like this extremely. This is truly exceptional - I absolutely love this scratchcard concept.",
-            "I like this very much. It's very appealing and I find it really attractive overall.",
-            "I like this moderately. It's fairly good - I have a reasonably positive view of it.",
+            "I do not like this at all. I have negative feelings - this doesn't appeal to me.",
             "I like this slightly. It's okay - I find it somewhat acceptable but nothing special.",
-            "I neither like nor dislike this. I'm neutral - it doesn't particularly appeal or not appeal to me.",
-            "I do not like this at all. I have negative feelings - this doesn't appeal to me."
+            "I like this somewhat. It's fairly good - I have a reasonably positive view of it.",
+            "I like this quite well. It's very appealing and I'm impressed with it!",
+            "I like this very well! It's very appealing and I'm really impressed with it! Very positive feelings!",
+            "I like this extremely! This is outstanding and I absolutely love this scratchcard concept! Genuinely enthusiastic!"
         ],
         description="Measures overall likeability",
         language="en",
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Semantically distinct framing (FIXED 2025-12-17)
+            # Set 0: Semantically distinct framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I find this excellent. It really stands out and I'm genuinely enthusiastic about it.",
-                "I find this quite good. It appeals to me and I have a clearly positive view of it.",
-                "I find this decent. It's reasonably appealing with some positive aspects.",
+                "I find this unappealing. It doesn't work for me and I have negative feelings about it.",
                 "I find this just okay. It has mild appeal but nothing particularly stands out.",
-                "I feel neutral about this. It neither appeals nor fails to appeal - I have no strong opinion either way.",
-                "I find this unappealing. It doesn't work for me and I have negative feelings about it."
+                "I find this decent. It's reasonably appealing with some positive aspects.",
+                "I like this quite well. It's definitely appealing and I'm fairly impressed with it - clearly positive!",
+                "I find this very good! It appeals to me strongly and I have a clearly positive view of it!",
+                "I find this absolutely excellent! It really stands out and I'm genuinely enthusiastic and excited about it!"
             ],
-            # Set 1: Appeal framing - less superlative
+            # Set 1: Appeal framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This is extremely appealing to me. Very high appeal.",
-                "This is very appealing to me. Clear appeal.",
-                "This is moderately appealing to me. Decent appeal.",
+                "This is not appealing at all to me. Unappealing.",
                 "This is slightly appealing to me. Mild appeal.",
-                "This is neither appealing nor unappealing. Neutral - no opinion.",
-                "This is not appealing at all to me. Unappealing."
+                "This is moderately appealing to me. Decent appeal.",
+                "This is quite appealing to me. Good solid appeal and I definitely like it.",
+                "This is very appealing to me! Clear strong appeal and I really like it!",
+                "This is incredibly appealing to me! Very high appeal and I absolutely love it!"
             ],
-            # Set 2: Favorability framing - more measured
+            # Set 2: Favorability framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I'm extremely favorable toward this. Very positive view.",
-                "I'm very favorable toward this. Clearly positive view.",
-                "I'm moderately favorable toward this. Somewhat positive.",
+                "I'm completely unfavorable toward this. Negative view.",
                 "I'm slightly favorable toward this. Mildly positive.",
-                "I'm neither favorable nor unfavorable. Neutral stance with no opinion.",
-                "I'm completely unfavorable toward this. Negative view."
+                "I'm moderately favorable toward this. Somewhat positive.",
+                "I'm quite favorable toward this. Definitely positive view and I'm fairly impressed.",
+                "I'm very favorable toward this! Clearly positive view and I really like it!",
+                "I'm incredibly favorable toward this! Very positive view and genuinely excited!"
             ],
-            # Set 3: Enjoyment framing - reduced enthusiasm
+            # Set 3: Enjoyment framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I enjoy this extremely. I really like it.",
-                "I enjoy this very much. I find it quite pleasant.",
-                "I enjoy this moderately. It's reasonably enjoyable.",
+                "I do not enjoy this at all. I find it unpleasant.",
                 "I enjoy this slightly. Mildly enjoyable.",
-                "I neither enjoy nor disenjoy this. Indifferent with no feelings.",
-                "I do not enjoy this at all. I find it unpleasant."
+                "I enjoy this moderately. It's reasonably enjoyable.",
+                "I enjoy this quite well. It's definitely enjoyable and I'm fairly pleased with it.",
+                "I enjoy this very much! I find it really great and I'm very positive about it!",
+                "I enjoy this immensely! I absolutely love it and I'm genuinely enthusiastic!"
             ],
-            # Set 4: Attraction framing - balanced
+            # Set 4: Attraction framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I'm extremely attracted to this. Very drawn to it.",
-                "I'm very attracted to this. Clearly drawn to it.",
-                "I'm moderately attracted to this. Somewhat drawn to it.",
+                "I'm not attracted at all to this. Actually repelled by it.",
                 "I'm slightly attracted to this. Mildly drawn to it.",
-                "I'm neither attracted nor repelled. No feelings in either direction.",
-                "I'm not attracted at all to this. Actually repelled by it."
+                "I'm moderately attracted to this. Somewhat drawn to it.",
+                "I'm quite attracted to this. Definitely drawn to it with good positive feelings.",
+                "I'm very attracted to this! Clearly drawn to it and really like it!",
+                "I'm incredibly attracted to this! Very drawn to it and genuinely excited about it!"
             ],
-            # Set 5: Positive sentiment - moderate tone
+            # Set 5: Positive sentiment (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "My feelings are extremely positive. It's excellent.",
-                "My feelings are very positive. It's quite good.",
-                "My feelings are moderately positive. It's decent.",
+                "My feelings are very negative. It's poor.",
                 "My feelings are slightly positive. It's okay.",
-                "My feelings are neutral. Neither positive nor negative at all.",
-                "My feelings are very negative. It's poor."
+                "My feelings are moderately positive. It's decent.",
+                "My feelings are quite positive. It's good and I'm fairly impressed with it.",
+                "My feelings are very positive! It's really good and I'm very impressed!",
+                "My feelings are incredibly positive! It's absolutely excellent and I love it!"
             ]
         ]
     ))
@@ -577,63 +577,63 @@ def create_default_scales() -> ScaleRegistry:
         num_levels=4,
         level_values=[1, 2, 3, 4],
         level_labels=[
-            "Very exciting",
-            "Somewhat exciting",
+            "Not at all exciting",
             "Not very exciting",
-            "Not at all exciting"
+            "Quite exciting",
+            "Very exciting"
         ],
         anchor_texts=[
-            "This is very exciting. It really grabs my attention and generates enthusiasm.",
-            "This is somewhat exciting. It has some appeal and interest but isn't thrilling.",
+            "This is not at all exciting. It's completely boring and uninteresting.",
             "This is not very exciting. It doesn't generate much interest or enthusiasm.",
-            "This is not at all exciting. It's completely boring and uninteresting."
+            "This is quite exciting. It has good appeal and generates genuine interest.",
+            "This is absolutely thrilling and very exciting! I'm genuinely excited and energized by this!"
         ],
         description="Measures excitement level",
         language="en",
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Direct excitement framing
+            # Set 0: Direct excitement framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This is very exciting. It really grabs my attention.",
-                "This is somewhat exciting. It has decent appeal.",
-                "This is not very exciting. Limited appeal to me.",
-                "This is not at all exciting. Completely boring."
+                "Level 1 (Not at all exciting): This is not at all exciting. Completely boring and uninteresting.",
+                "Level 2 (Not very exciting): This is not very exciting. Limited appeal to me and doesn't generate much interest.",
+                "Level 3 (Quite exciting): This is quite exciting. It has good appeal and generates genuine interest.",
+                "Level 4 (Very exciting): This is absolutely thrilling! I'm genuinely excited and energized by this. It really grabs my attention and gets me fired up!"
             ],
-            # Set 1: Enthusiasm framing
+            # Set 1: Enthusiasm framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I'm very enthusiastic about this. It energizes me.",
-                "I'm moderately enthusiastic about this. It interests me.",
-                "I'm not very enthusiastic about this. Minimal interest.",
-                "I'm not at all enthusiastic about this. Zero interest."
+                "Level 1 - LEAST EXCITING: I'm not at all enthusiastic about this. Zero interest, completely dull.",
+                "Level 2: I'm not very enthusiastic about this. Minimal interest and weak appeal.",
+                "Level 3: I'm quite enthusiastic about this. It interests me and has good appeal.",
+                "Level 4 - MOST EXCITING: I'm incredibly enthusiastic about this! It energizes me and I'm genuinely pumped about it!"
             ],
-            # Set 2: Thrill and stimulation
+            # Set 2: Thrill and stimulation (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This is thrilling. Highly stimulating and engaging.",
-                "This is fairly interesting. Moderately stimulating.",
-                "This is rather dull. Not very stimulating.",
-                "This is completely dull. Utterly unstimulating."
+                "Level 1 = WORST: This is completely dull. Utterly unstimulating and boring.",
+                "Level 2: This is rather dull. Not very stimulating or interesting.",
+                "Level 3: This is quite interesting. Good stimulation with genuine appeal.",
+                "Level 4 = BEST: This is absolutely thrilling! Highly stimulating, totally engaging, and I'm genuinely excited!"
             ],
-            # Set 3: Captivation framing
+            # Set 3: Captivation framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This captivates me. Totally engaging and fascinating.",
-                "This somewhat captivates me. Reasonably engaging.",
-                "This barely captivates me. Minimally engaging.",
-                "This doesn't captivate me at all. Completely unengaging."
+                "1 = NOT AT ALL exciting: This doesn't captivate me at all. Completely unengaging and boring.",
+                "2 = Not very exciting: This barely captivates me. Minimally engaging and limited appeal.",
+                "3 = Quite exciting: This captivates me well. Engaging and interesting with good appeal.",
+                "4 = VERY EXCITING: This absolutely captivates me! Totally engaging, fascinating, and I'm genuinely thrilled!"
             ],
-            # Set 4: Interest generation
+            # Set 4: Interest generation (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This generates strong interest. Very compelling.",
-                "This generates some interest. Moderately compelling.",
-                "This generates little interest. Barely compelling.",
-                "This generates no interest. Not compelling at all."
+                "1 (Not at all exciting): This generates no interest. Not compelling at all, completely boring.",
+                "2 (Not very exciting): This generates little interest. Barely compelling and weak appeal.",
+                "3 (Quite exciting): This generates good interest. Quite compelling with genuine appeal.",
+                "4 (Very exciting): This generates tremendous interest! Very compelling and I'm genuinely excited about it!"
             ],
-            # Set 5: Appeal and attraction
+            # Set 5: Appeal and attraction (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This is highly appealing. Very attractive to me.",
-                "This is moderately appealing. Somewhat attractive.",
-                "This is barely appealing. Not very attractive.",
-                "This is not appealing at all. Completely unattractive."
+                "1st level (Not at all exciting): This is not appealing at all. Completely unattractive and boring.",
+                "2nd level (Not very exciting): This is barely appealing. Not very attractive or exciting.",
+                "3rd level (Quite exciting): This is quite appealing. Attractive with genuine excitement.",
+                "4th level (Very exciting): This is highly appealing and exciting! Very attractive and I'm genuinely enthusiastic!"
             ]
         ]
     ))
@@ -646,63 +646,63 @@ def create_default_scales() -> ScaleRegistry:
         num_levels=4,
         level_values=[1, 2, 3, 4],
         level_labels=[
-            "Very believable",
-            "Somewhat believable",
+            "Not at all believable",
             "Not very believable",
-            "Not at all believable"
+            "Somewhat believable",
+            "Very believable"
         ],
         anchor_texts=[
-            "This is very believable. It seems completely realistic and credible.",
-            "This is somewhat believable. It seems mostly realistic with perhaps minor doubts.",
-            "This is not very believable. It seems questionable and raises some doubts.",
-            "This is not at all believable. It seems completely unrealistic and not credible."
+            "This is not at all believable. It's completely unrealistic and not credible.",
+            "This is not very believable. It's questionable and raises some doubts.",
+            "This is somewhat believable. It's mostly realistic with perhaps minor doubts.",
+            "This is absolutely believable. It's completely realistic and credible - no doubts at all."
         ],
         description="Measures believability",
         language="en",
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Direct believability assessment
+            # Set 0: Direct believability assessment (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This is very believable. It sounds completely realistic and trustworthy.",
-                "This is somewhat believable. It sounds mostly realistic with a few questions.",
-                "This is not very believable. It sounds questionable and hard to accept.",
-                "This is not at all believable. It sounds completely unrealistic and false."
+                "This is not at all believable. It's completely unrealistic and false.",
+                "This is not very believable. It's questionable and hard to accept.",
+                "This is somewhat believable. It's mostly realistic with a few minor questions.",
+                "This is absolutely believable. It's completely realistic and trustworthy - I believe it 100%."
             ],
-            # Set 1: Credibility framing
+            # Set 1: Credibility framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I find this highly credible. It appears authentic and legitimate.",
-                "I find this moderately credible. It appears mostly authentic with minor concerns.",
-                "I find this poorly credible. It appears suspicious and doubtful.",
-                "I find this completely non-credible. It appears fabricated and fake."
+                "I find this completely non-credible. It's fabricated and fake.",
+                "I find this poorly credible. It's suspicious and doubtful.",
+                "I find this moderately credible. It's mostly authentic with minor concerns.",
+                "I find this highly credible. It's authentic and legitimate - totally believable."
             ],
-            # Set 2: Plausibility framing
+            # Set 2: Plausibility framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This seems very plausible to me. It makes perfect sense.",
-                "This seems fairly plausible to me. It makes reasonable sense overall.",
-                "This seems rather implausible to me. It doesn't make much sense.",
-                "This seems totally implausible to me. It makes no sense whatsoever."
+                "This is totally implausible to me. It makes no sense whatsoever.",
+                "This is rather implausible to me. It doesn't make much sense.",
+                "This is fairly plausible to me. It makes reasonable sense overall.",
+                "This is absolutely plausible to me. It makes perfect sense and I believe it completely."
             ],
-            # Set 3: Trust-based framing
+            # Set 3: Trust-based framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I fully trust this to be true. No doubts in my mind.",
-                "I generally trust this to be true. Only minor doubts.",
+                "I absolutely don't trust this to be true. Complete disbelief.",
                 "I don't really trust this to be true. Significant doubts.",
-                "I absolutely don't trust this to be true. Complete disbelief."
+                "I generally trust this to be true. Only minor doubts.",
+                "I completely trust this to be true. Absolutely no doubts in my mind - it's totally believable."
             ],
-            # Set 4: Realistic assessment
+            # Set 4: Realistic assessment (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "This feels very realistic. I can easily see this being real.",
-                "This feels somewhat realistic. I can see this being real with reservations.",
-                "This feels unrealistic. I have trouble seeing this being real.",
-                "This feels totally unrealistic. There's no way this is real."
+                "This is totally unrealistic. There's no way this is real.",
+                "This is unrealistic. I have trouble seeing this being real.",
+                "This is somewhat realistic. I can see this being real with some reservations.",
+                "This is absolutely realistic. I can easily see this being real - it's completely believable."
             ],
-            # Set 5: Convincing framing
+            # Set 5: Convincing framing (FIXED 2025-01-12: Reversed order to match GT)
             [
-                "I'm very convinced by this. It's highly persuasive.",
-                "I'm moderately convinced by this. It's reasonably persuasive.",
+                "I'm not at all convinced by this. It's completely unpersuasive.",
                 "I'm not very convinced by this. It's barely persuasive.",
-                "I'm not at all convinced by this. It's completely unpersuasive."
+                "I'm moderately convinced by this. It's reasonably persuasive.",
+                "I'm completely convinced by this. It's highly persuasive and absolutely believable."
             ]
         ]
     ))

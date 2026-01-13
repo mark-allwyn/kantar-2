@@ -248,7 +248,8 @@ def create_default_scales() -> ScaleRegistry:
         ]
     ))
 
-    # Value for Money (B4)
+    # Value for Money (B4) - UNPRICEP (Expected Price Comparison)
+    # FIXED 2026-01-13: Updated labels to match Kantar ground truth format
     registry.register_scale(Scale(
         id="likert5_value_v1",
         name="5-Point Value for Money",
@@ -256,71 +257,71 @@ def create_default_scales() -> ScaleRegistry:
         num_levels=5,
         level_values=[1, 2, 3, 4, 5],
         level_labels=[
-            "Worth very much more",
-            "Worth somewhat more",
-            "Worth about the same",
-            "Worth somewhat less",
-            "Worth very much less"
+            "A lot less",           # Level 1 (worst value - much cheaper than expected)
+            "Slightly less",        # Level 2
+            "Same as average",      # Level 3 (middle)
+            "Slightly more",        # Level 4
+            "Much more"             # Level 5 (best value - much more expensive than expected)
         ],
         anchor_texts=[
-            "This is worth very much more than the price. It's an excellent value and I'd pay significantly more for this.",
-            "This is worth somewhat more than the price. The value seems pretty good and it feels like a fair deal.",
-            "This is worth about the same as the price. The value matches the cost - neither a bargain nor overpriced.",
-            "This is worth somewhat less than the price. It feels a bit expensive for what you get.",
-            "This is worth very much less than the price. It's overpriced and definitely not worth the cost."
+            "This would cost a lot less than the average price. Much cheaper than I'd expect.",
+            "This would cost slightly less than the average price. A bit cheaper than expected.",
+            "This would cost about the same as average. Matches what I'd typically expect to pay.",
+            "This would cost slightly more than the average price. A bit more expensive than expected.",
+            "This would cost much more than the average price. Significantly more expensive than I'd expect."
         ],
         description="Measures perceived value for money",
         language="en",
         version="v1",
         num_reference_sets=6,
         anchor_text_sets=[
-            # Set 0: Worth-based framing
+            # Set 0: Direct price comparison (FIXED 2026-01-13)
             [
-                "This is worth far more than the price asked. Exceptional value.",
-                "This is worth a bit more than the price asked. Good value overall.",
-                "This is worth roughly what the price suggests. Fair value.",
-                "This is worth a bit less than the price asked. Slightly overpriced.",
-                "This is worth far less than the price asked. Very overpriced."
+                "Level 1 (A lot less): This would cost a lot less than average. Much cheaper than most similar options.",
+                "Level 2 (Slightly less): This would cost slightly less than average. A bit cheaper than most similar options.",
+                "Level 3 (Same as average): This would cost about the same as average. Typical price for this type.",
+                "Level 4 (Slightly more): This would cost slightly more than average. A bit pricier than most similar options.",
+                "Level 5 (Much more): This would cost much more than average. Significantly more expensive than most similar options."
             ],
-            # Set 1: Value proposition framing
+            # Set 1: Expected pricing framing (FIXED 2026-01-13)
             [
-                "The value here is excellent. I'd gladly pay more.",
-                "The value here is good. Seems like a fair deal.",
-                "The value here is acceptable. Price matches what you get.",
-                "The value here is poor. Feels somewhat expensive.",
-                "The value here is terrible. Completely overpriced."
+                "I'd expect to pay a lot less for this than for the average option.",
+                "I'd expect to pay slightly less for this than for the average option.",
+                "I'd expect to pay about the same for this as for the average option.",
+                "I'd expect to pay slightly more for this than for the average option.",
+                "I'd expect to pay much more for this than for the average option."
             ],
-            # Set 2: Price-quality relationship
+            # Set 2: Price point perception (FIXED 2026-01-13)
             [
-                "The price is very low for this quality. Great bargain.",
-                "The price is reasonable for this quality. Decent deal.",
-                "The price matches this quality. Neither cheap nor expensive.",
-                "The price is high for this quality. Not the best deal.",
-                "The price is way too high for this quality. Bad deal."
+                "The price point would be a lot lower than average. Well below typical pricing.",
+                "The price point would be slightly lower than average. Just under typical pricing.",
+                "The price point would be average. Right in line with typical pricing.",
+                "The price point would be slightly higher than average. Just above typical pricing.",
+                "The price point would be much higher than average. Well above typical pricing."
             ],
-            # Set 3: Money's worth framing
+            # Set 3: Cost comparison (FIXED 2026-01-13)
             [
-                "I'm getting way more than my money's worth. Fantastic deal.",
-                "I'm getting good money's worth. Reasonable investment.",
-                "I'm getting fair money's worth. Balanced price-value.",
-                "I'm not getting great money's worth. Bit of a stretch.",
-                "I'm getting poor money's worth. Waste of money."
+                "This would be much cheaper to buy than the typical option.",
+                "This would be a bit cheaper to buy than the typical option.",
+                "This would cost the same to buy as the typical option.",
+                "This would be a bit more expensive to buy than the typical option.",
+                "This would be much more expensive to buy than the typical option."
             ],
-            # Set 4: Affordability perception
+            # Set 4: Market pricing (FIXED 2026-01-13)
             [
-                "This is a steal for the price. Incredibly affordable.",
-                "This is fairly priced. Reasonably affordable.",
-                "This is adequately priced. Neither cheap nor pricey.",
-                "This is on the expensive side. Less affordable.",
-                "This is way overpriced. Completely unaffordable."
+                "Compared to market prices, this would be a lot cheaper.",
+                "Compared to market prices, this would be slightly cheaper.",
+                "Compared to market prices, this would be about average.",
+                "Compared to market prices, this would be slightly more expensive.",
+                "Compared to market prices, this would be much more expensive."
             ],
-            # Set 5: Cost-benefit assessment
+            # Set 5: Relative pricing (FIXED 2026-01-13)
             [
-                "The benefits far outweigh the cost. Excellent investment.",
-                "The benefits outweigh the cost. Worthwhile purchase.",
-                "The benefits equal the cost. Balanced trade-off.",
-                "The cost outweighs the benefits. Questionable purchase.",
-                "The cost far outweighs the benefits. Poor investment."
+                "Relative to similar products, this would be priced a lot lower.",
+                "Relative to similar products, this would be priced slightly lower.",
+                "Relative to similar products, this would be priced about the same.",
+                "Relative to similar products, this would be priced slightly higher.",
+                "Relative to similar products, this would be priced much higher."
             ]
         ]
     ))

@@ -61,6 +61,16 @@ class GroundTruthData:
                 summary[col] = self.df[col].value_counts().to_dict()
         return summary
 
+    def get_demographics_schema(self):
+        """
+        Extract demographics schema from ground truth.
+
+        Returns:
+            DemographicsSchema instance with valid categorical values
+        """
+        from .demographics_schema import DemographicsSchema
+        return DemographicsSchema(self.df)
+
 
 class GroundTruthLoader:
     """

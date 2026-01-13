@@ -10,7 +10,7 @@ Orchestrates the complete pipeline:
 
 import random
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 import logging
 from datetime import datetime
 
@@ -27,6 +27,8 @@ from .data_loader import GroundTruthLoader
 from .concept_extractor import ConceptExtractor
 from .column_mapper import ColumnMapper
 from .excel_formatter import KantarExcelFormatter
+from .market_profiles import get_market_profile, list_market_profiles
+from .concept_schema import validate_concepts, fill_concept_defaults
 
 logger = logging.getLogger(__name__)
 
@@ -68,7 +70,8 @@ class KantarSurveyRunner:
                            market_code: str,
                            num_respondents: Optional[int] = None,
                            output_dir: Optional[Path] = None,
-                           num_concepts_per_respondent: int = 3) -> Path:
+                           num_concepts_per_respondent: int = 3,
+                           use_ground_truth_demographics: bool = False) -> Path:
         """
         Generate synthetic data for a specific market.
 
@@ -78,6 +81,7 @@ class KantarSurveyRunner:
             num_respondents: Number of respondents (None = match ground truth)
             output_dir: Output directory (None = use default)
             num_concepts_per_respondent: Concepts per respondent (default: 3)
+            use_ground_truth_demographics: Sample demographics from ground truth (default: False)
 
         Returns:
             Path to generated Excel file
@@ -118,9 +122,22 @@ class KantarSurveyRunner:
             ground_truth.concept_names
         )
 
-        # Step 5: Initialize survey components
+        # Step 5: Extract demographics schema (MANDATORY in GT mode)
+        logger.info("Extracting demographics schema from ground truth...")
+        demographics_schema = ground_truth.get_demographics_schema()
+        logger.info(f"Extracted schema with {len(demographics_schema.schema)} demographic fields")
+
+        # Step 6: Initialize survey components
         logger.info("Initializing survey components...")
-        self._initialize_components()
+        gt_demographics = None
+        if use_ground_truth_demographics:
+            logger.info("Using ground truth demographics distributions for persona generation")
+            gt_demographics = ground_truth.get_demographics_summary()
+
+        self._initialize_components(
+            ground_truth_demographics=gt_demographics,
+            demographics_schema=demographics_schema
+        )
 
         # Convert concepts to dict format
         concept_dicts = [
@@ -261,8 +278,189 @@ class KantarSurveyRunner:
 
         return results
 
-    def _initialize_components(self):
-        """Initialize survey generation components."""
+    def generate_from_concepts(self,
+                               concepts: List[Dict],
+                               num_respondents: int,
+                               output_dir: Optional[Path] = None,
+                               output_name: Optional[str] = None,
+                               market_profile: str = 'generic',
+                               custom_demographics: Optional[Dict] = None,
+                               num_concepts_per_respondent: int = 3) -> Path:
+        """
+        Generate synthetic data from manually defined concepts (no ground truth needed).
+
+        This method allows testing new concepts without requiring PPTX files or ground truth data.
+        Uses market profiles or custom demographics for persona generation.
+
+        Args:
+            concepts: List of concept dictionaries with keys:
+                     - id (required): Unique identifier
+                     - name (required): Concept name
+                     - description (required): Concept description
+                     - price (optional): Price information
+                     - features (optional): List of features
+                     - occasion (optional): Usage occasion
+                     - full_text (optional): Complete description
+            num_respondents: Number of synthetic respondents to generate
+            output_dir: Output directory (default: data/synthetic/concepts/)
+            output_name: Output file name prefix (default: synthetic_concepts)
+            market_profile: Market profile name for demographics (default: 'generic')
+                          Options: 'US_gaming', 'UK_lottery', 'EU_general', 'generic'
+            custom_demographics: Custom demographics dict (overrides market_profile)
+            num_concepts_per_respondent: Concepts per respondent (default: 3)
+
+        Returns:
+            Path to generated Excel file
+
+        Raises:
+            ValueError: If concepts invalid or market_profile not found
+
+        Example:
+            >>> concepts = [
+            ...     {
+            ...         'id': 'NewConcept1',
+            ...         'name': 'Premium Lottery',
+            ...         'description': 'A lottery with enhanced odds',
+            ...         'price': '$5',
+            ...         'features': ['Better odds', 'Bigger prizes']
+            ...     }
+            ... ]
+            >>> runner = KantarSurveyRunner()
+            >>> output = runner.generate_from_concepts(
+            ...     concepts=concepts,
+            ...     num_respondents=50,
+            ...     market_profile='US_gaming'
+            ... )
+        """
+        logger.info("=" * 60)
+        logger.info("GENERATING SURVEY DATA FROM CUSTOM CONCEPTS")
+        logger.info("=" * 60)
+        logger.info(f"Concepts: {len(concepts)}")
+        logger.info(f"Respondents: {num_respondents}")
+        logger.info(f"Market profile: {market_profile}")
+
+        # Step 1: Validate concepts
+        logger.info("Validating concept schema...")
+        validate_concepts(concepts, strict=True)
+
+        # Fill in default values for optional fields
+        concepts = [fill_concept_defaults(c.copy()) for c in concepts]
+
+        concept_names = [c['name'] for c in concepts]
+        logger.info(f"Valid concepts: {concept_names}")
+
+        # Step 2: Get demographics
+        if custom_demographics:
+            logger.info("Using custom demographics")
+            demographics = custom_demographics
+        else:
+            logger.info(f"Loading market profile: {market_profile}")
+            profile = get_market_profile(market_profile)
+            demographics = profile['demographics']
+            logger.info(f"Profile: {profile['name']} - {profile['description']}")
+
+        # Step 3: Create demographics schema from profile
+        logger.info("Creating demographics schema from market profile...")
+        from .demographics_schema import DemographicsSchema
+        demographics_schema = DemographicsSchema.from_profile(demographics)
+        logger.info(f"Created schema with {len(demographics_schema.schema)} demographic fields")
+
+        # Step 4: Initialize survey components
+        logger.info("Initializing survey components...")
+        self._initialize_components(
+            ground_truth_demographics=None,
+            custom_distributions=demographics,
+            demographics_schema=demographics_schema
+        )
+
+        # Update survey engine with concepts
+        self.survey_engine.concepts = concepts
+
+        # Step 4: Generate respondents
+        logger.info(f"Generating {num_respondents} synthetic respondents...")
+        respondent_data_list = []
+
+        for i in range(num_respondents):
+            if (i + 1) % 10 == 0:
+                logger.info(f"  Generated {i + 1}/{num_respondents} respondents")
+
+            # Generate persona
+            persona = self.persona_generator.generate_persona()
+
+            # Run survey
+            respondent_data = self.survey_engine.run_survey_for_respondent(
+                persona=persona,
+                concepts_to_test=concepts,
+                randomize_concepts=True,
+                num_concepts_per_respondent=num_concepts_per_respondent
+            )
+
+            respondent_data_list.append(respondent_data)
+
+        logger.info(f"Generated {len(respondent_data_list)} respondents")
+
+        # Step 5: Format output (no template - create natural column order)
+        logger.info("Formatting output to Excel...")
+        formatter = KantarExcelFormatter(
+            template_path=None,  # No template needed
+            concept_mapping={}   # No mapping needed
+        )
+
+        df = formatter.format_to_dataframe(respondent_data_list, concept_names)
+
+        # Step 6: Save to Excel
+        if output_dir is None:
+            output_dir = Path("data/synthetic/concepts")
+        output_dir = Path(output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        if output_name is None:
+            output_name = "synthetic_concepts"
+        output_file = output_dir / f"{output_name}_{num_respondents}resp_{timestamp}.xlsx"
+
+        formatter.save_to_excel(df, str(output_file))
+        logger.info(f"Saved to: {output_file}")
+
+        # Also save metadata
+        metadata = {
+            'mode': 'custom_concepts',
+            'num_respondents': num_respondents,
+            'num_concepts': len(concepts),
+            'concepts': concept_names,
+            'concept_details': concepts,
+            'market_profile': market_profile if not custom_demographics else 'custom',
+            'demographics_source': 'custom' if custom_demographics else 'profile',
+            'model': self.model,
+            'num_concepts_per_respondent': num_concepts_per_respondent,
+            'timestamp': timestamp,
+            'synthetic_path': str(output_file)
+        }
+
+        import json
+        metadata_file = output_dir / f"metadata_{output_name}_{timestamp}.json"
+        with open(metadata_file, 'w') as f:
+            json.dump(metadata, f, indent=2)
+        logger.info(f"Saved metadata to: {metadata_file}")
+
+        logger.info("=" * 60)
+        logger.info("GENERATION COMPLETE")
+        logger.info("=" * 60)
+
+        return output_file
+
+    def _initialize_components(self,
+                               ground_truth_demographics: Optional[Dict] = None,
+                               custom_distributions: Optional[Dict] = None,
+                               demographics_schema: Optional[Any] = None):
+        """
+        Initialize survey generation components.
+
+        Args:
+            ground_truth_demographics: Optional GT demographics distributions
+            custom_distributions: Optional custom distributions (from profiles)
+            demographics_schema: Optional DemographicsSchema for categorical validation
+        """
         # LLM client
         self.llm_client = LLMClient(model=self.model)
 
@@ -290,48 +488,130 @@ class KantarSurveyRunner:
             concepts=[]
         )
 
-        # Persona generator
-        self.persona_generator = PersonaGenerator()
+        # Persona generator (with optional GT demographics, distributions, and schema)
+        self.persona_generator = PersonaGenerator(
+            ground_truth_demographics=ground_truth_demographics,
+            custom_distributions=custom_distributions,
+            demographics_schema=demographics_schema
+        )
 
 
 def main():
     """CLI entry point for testing."""
     import sys
     import argparse
+    import json
 
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
 
-    parser = argparse.ArgumentParser(description='Generate synthetic Kantar survey data')
-    parser.add_argument('--study', required=True, help='Study ID (e.g., 61405445-01)')
-    parser.add_argument('--market', help='Market code (e.g., US)')
-    parser.add_argument('--all-markets', action='store_true', help='Generate for all markets')
+    parser = argparse.ArgumentParser(
+        description='Generate synthetic Kantar survey data',
+        epilog="""
+Examples:
+  # Generate from existing study
+  python -m src.kantar.survey_runner --study 61405445-01 --market US --num-respondents 50
+
+  # Generate from custom concepts (no ground truth needed)
+  python -m src.kantar.survey_runner --concepts-file concepts.json --num-respondents 100 --market-profile US_gaming
+
+  # List available market profiles
+  python -m src.kantar.survey_runner --list-profiles
+        """,
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+
+    # Mode selection
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument('--study', help='Study ID (e.g., 61405445-01) for ground truth mode')
+    mode_group.add_argument('--concepts-file', help='JSON file with concept definitions (no ground truth mode)')
+    mode_group.add_argument('--list-profiles', action='store_true', help='List available market profiles and exit')
+
+    # Study mode arguments
+    parser.add_argument('--market', help='Market code (e.g., US) - required for study mode')
+    parser.add_argument('--all-markets', action='store_true', help='Generate for all markets in study')
+    parser.add_argument('--use-gt-demographics', action='store_true',
+                       help='Sample demographics from ground truth data')
+
+    # Concepts mode arguments
+    parser.add_argument('--market-profile', default='generic',
+                       help='Market profile for demographics (default: generic). Options: US_gaming, UK_lottery, EU_general, generic')
+    parser.add_argument('--output-name', help='Output file name prefix (default: synthetic_concepts)')
+
+    # Common arguments
     parser.add_argument('--num-respondents', type=int, help='Number of respondents')
-    parser.add_argument('--model', default='gpt-4o-mini', help='LLM model')
+    parser.add_argument('--model', default='gpt-4o-mini', help='LLM model (default: gpt-4o-mini)')
     parser.add_argument('--output-dir', help='Output directory')
 
     args = parser.parse_args()
 
+    # Handle --list-profiles
+    if args.list_profiles:
+        print("\n=== Available Market Profiles ===\n")
+        profiles = list_market_profiles()
+        for name, description in profiles.items():
+            print(f"{name}:")
+            print(f"  {description}\n")
+        sys.exit(0)
+
     runner = KantarSurveyRunner(model=args.model)
 
-    if args.all_markets:
-        results = runner.generate_for_study(
-            study_id=args.study,
+    # Concepts mode (no ground truth)
+    if args.concepts_file:
+        if not args.num_respondents:
+            print("Error: --num-respondents required for concepts mode")
+            sys.exit(1)
+
+        # Load concepts from JSON file
+        concepts_path = Path(args.concepts_file)
+        if not concepts_path.exists():
+            print(f"Error: Concepts file not found: {concepts_path}")
+            sys.exit(1)
+
+        with open(concepts_path) as f:
+            concepts = json.load(f)
+
+        if not isinstance(concepts, list):
+            print("Error: Concepts file must contain a JSON array of concept objects")
+            sys.exit(1)
+
+        print(f"\nLoaded {len(concepts)} concepts from {concepts_path}")
+
+        output_file = runner.generate_from_concepts(
+            concepts=concepts,
             num_respondents=args.num_respondents,
-            output_dir=Path(args.output_dir) if args.output_dir else None
-        )
-    elif args.market:
-        output_file = runner.generate_for_market(
-            study_id=args.study,
-            market_code=args.market,
-            num_respondents=args.num_respondents,
-            output_dir=Path(args.output_dir) if args.output_dir else None
+            output_dir=Path(args.output_dir) if args.output_dir else None,
+            output_name=args.output_name,
+            market_profile=args.market_profile
         )
         print(f"\n✓ Generated: {output_file}")
+
+    # Study mode (with ground truth)
+    elif args.study:
+        if args.all_markets:
+            results = runner.generate_for_study(
+                study_id=args.study,
+                num_respondents=args.num_respondents,
+                output_dir=Path(args.output_dir) if args.output_dir else None
+            )
+        elif args.market:
+            output_file = runner.generate_for_market(
+                study_id=args.study,
+                market_code=args.market,
+                num_respondents=args.num_respondents,
+                output_dir=Path(args.output_dir) if args.output_dir else None,
+                use_ground_truth_demographics=args.use_gt_demographics
+            )
+            print(f"\n✓ Generated: {output_file}")
+        else:
+            print("Error: Must specify either --market or --all-markets with --study")
+            sys.exit(1)
+
     else:
-        print("Error: Must specify either --market or --all-markets")
+        print("Error: Must specify either --study (ground truth mode) or --concepts-file (no ground truth mode)")
+        print("Use --help for usage information or --list-profiles to see available market profiles")
         sys.exit(1)
 
 

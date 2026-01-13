@@ -31,12 +31,13 @@ Your profile: You are {description}.
 When answering questions:
 - Respond naturally and authentically as this specific person would
 - Base your opinions on your demographic and psychographic characteristics
-- Be honest and specific in your responses
+- Be honest, specific, and DECISIVE in your responses - don't hedge or be overly cautious
+- Express STRONG genuine opinions when you feel them, both positive and negative
 - Vary your language naturally (don't be repetitive)
-- Express genuine opinions, both positive and negative
+- Use enthusiastic language when you genuinely like something
 - Keep responses concise (1-3 sentences typically)
 
-Remember: You are not an AI assistant - you are a real consumer with real opinions about products."""
+Remember: You are not an AI assistant - you are a real consumer with real, often strong, opinions about products. Real people express clear preferences and enthusiasm or disappointment - you should too!"""
 
         return system_prompt
 
@@ -49,7 +50,7 @@ Remember: You are not an AI assistant - you are a real consumer with real opinio
 
 Question: How likely would you be to buy this scratchcard at this price?
 
-Please explain your purchase intent in your own words. What do you think about this product? Would you buy it or not, and why?"""
+Please explain your purchase intent clearly and decisively. Would you definitely buy it, probably buy it, or not? Be direct and specific about your commitment level."""
 
     @staticmethod
     def build_uniqueness_prompt(concept_description: str) -> str:
@@ -60,7 +61,7 @@ Please explain your purchase intent in your own words. What do you think about t
 
 Question: How new and different is this scratchcard compared to others you've seen?
 
-Please share your thoughts on how unique or familiar this concept feels to you."""
+Be direct about how innovative this feels. Is it genuinely groundbreaking, or just another standard option?"""
 
     @staticmethod
     def build_value_prompt(concept_description: str, price: str) -> str:
@@ -84,7 +85,7 @@ Please explain whether you think the price is fair, too high, or too low for wha
 
 Question: Overall, how much do you like or dislike this scratchcard concept?
 
-Please share your overall feelings and reactions to this product."""
+Express your genuine feelings clearly. Do you love it, like it, feel neutral, or dislike it? Be direct about your reaction."""
 
     @staticmethod
     def build_relevance_prompt(concept_description: str) -> str:
@@ -117,7 +118,7 @@ Please share whether you'd enjoy this as a social activity with others."""
 
 Question: How exciting is this scratchcard to you?
 
-Please describe how much this concept excites or interests you."""
+Be direct about your excitement level. Are you genuinely thrilled, somewhat interested, or completely bored by this?"""
 
     @staticmethod
     def build_understanding_prompt(concept_description: str) -> str:
@@ -139,7 +140,7 @@ Please explain how clear or unclear this concept is to you."""
 
 Question: How believable is this scratchcard concept? Does it seem realistic or too good to be true?
 
-Please share your thoughts on whether this seems credible and realistic."""
+Be direct about your confidence in this. Is it completely believable, somewhat credible, or totally unrealistic?"""
 
     @staticmethod
     def build_gift_intent_prompt(concept_description: str) -> str:

@@ -135,11 +135,22 @@ class ColumnMapper:
         """
         mapping = {}
 
+        # Filter out "Codes - " versions - prefer the clean concept names
+        # Ground truth may have both "Codes - US Pulse Play" and "US Pulse Play"
+        # We want to match to the version without "Codes -" for question columns
+        filtered_gt = []
+        for gt in ground_truth_concepts:
+            # Skip concepts that start with "Codes -"
+            if not gt.startswith('Codes - '):
+                filtered_gt.append(gt)
+
+        logger.debug(f"Filtered GT concepts from {len(ground_truth_concepts)} to {len(filtered_gt)}")
+
         for extracted in extracted_concepts:
             best_match = None
             best_score = 0
 
-            for gt in ground_truth_concepts:
+            for gt in filtered_gt:
                 score = self._concept_similarity(extracted, gt)
                 if score > best_score:
                     best_score = score

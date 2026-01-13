@@ -168,6 +168,10 @@ class KantarExcelFormatter(ExcelFormatter):
         """Build question columns for a concept."""
         columns = {}
 
+        # DEBUG: Log what responses are available
+        logger.debug(f"Building columns for concept: {concept_name}")
+        logger.debug(f"Available response keys: {list(concept_response.responses.keys())}")
+
         # Question ID to column mapping
         question_mapping = {
             'B2': 'UNPURINT',  # Unpriced purchase intent
@@ -203,6 +207,7 @@ class KantarExcelFormatter(ExcelFormatter):
                         concept_name
                     )
 
+                logger.debug(f"Adding {question_id} -> {col_name}: {response.formatted_response}")
                 columns[col_name] = response.formatted_response
             else:
                 # Add empty column if question not answered
@@ -226,11 +231,18 @@ class KantarExcelFormatter(ExcelFormatter):
 
     def _reorder_to_template(self, df: pd.DataFrame) -> pd.DataFrame:
         """Reorder DataFrame columns to match template."""
+        logger.debug(f"Before reorder: {len(df)} rows, {len(df.columns)} columns")
+        logger.debug(f"Template has: {len(self.template_columns)} columns")
+
         # Get columns that exist in both
         common_cols = [col for col in self.template_columns if col in df.columns]
 
         # Get columns in df but not in template
         extra_cols = [col for col in df.columns if col not in self.template_columns]
+
+        logger.debug(f"Common: {len(common_cols)}, Extra: {len(extra_cols)}")
+        if len(extra_cols) > 0:
+            logger.debug(f"Extra columns (first 10): {extra_cols[:10]}")
 
         # Reorder: template columns first, then extras
         ordered_cols = common_cols + extra_cols
@@ -244,6 +256,7 @@ class KantarExcelFormatter(ExcelFormatter):
         df = df[self.template_columns]
 
         logger.info(f"Reordered to template: {len(common_cols)} matching, {len(extra_cols)} extra")
+        logger.debug(f"After reorder: {len(df)} rows")
 
         return df
 

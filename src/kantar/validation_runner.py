@@ -86,6 +86,22 @@ class KantarValidationRunner:
         ]
         logger.info(f"Found {len(question_cols)} question columns to validate")
 
+        # NEW: Check categorical alignment (hard fail on mismatch)
+        logger.info("Checking categorical alignment...")
+        categorical_issues = self._check_categorical_alignment(gt_df, syn_df)
+        if categorical_issues:
+            error_msg = "CATEGORICAL VALUE MISMATCH DETECTED:\n"
+            error_msg += "Synthetic data contains categorical values that don't exist in ground truth.\n\n"
+            for field, issues in categorical_issues.items():
+                error_msg += f"  {field}:\n"
+                error_msg += f"    Invalid values: {issues['invalid_values']}\n"
+                error_msg += f"    Valid GT values: {issues['valid_values']}\n\n"
+            error_msg += "This indicates demographics generation is not using ground truth schema.\n"
+            error_msg += "Check that demographics_schema was properly extracted and passed to PersonaGenerator."
+            logger.error(error_msg)
+            raise ValueError(error_msg)
+        logger.info("  Categorical alignment check: PASSED")
+
         # Run validation metrics
         logger.info("Calculating validation metrics...")
 
@@ -203,6 +219,10 @@ class KantarValidationRunner:
         # Save results
         output_dir = synthetic_path.parent
         results_file = output_dir / f"validation_{market_code}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+
+        # Add validation file path to results
+        results['validation_file'] = str(results_file)
+
         with open(results_file, 'w') as f:
             json.dump(results, f, indent=2)
         logger.info(f"Saved validation results to: {results_file}")
@@ -321,6 +341,45 @@ class KantarValidationRunner:
 
         return study_results
 
+    def _check_categorical_alignment(self, gt_df: pd.DataFrame, syn_df: pd.DataFrame) -> Dict[str, Dict]:
+        """
+        Check if synthetic categorical values exist in ground truth.
+
+        Args:
+            gt_df: Ground truth DataFrame
+            syn_df: Synthetic DataFrame
+
+        Returns:
+            Dict of issues: {field: {'invalid_values': [...], 'valid_values': [...]}}
+            Empty dict if no issues found
+        """
+        issues = {}
+
+        # Demographic columns to check
+        demo_cols = {
+            '(SEX_NONBINARY) SEX': 'Gender',
+            '(AGEQUOTA) AGEBANDS': 'Age Bands',
+            '(OCCUPATION_SCR) OCCUPATION SCREENER': 'Occupation',
+            '(GROUPFMR) SAMPLE TYPE': 'Sample Type',
+            '(BRDBUY) BRANDS BOUGHT': 'Brand Buyers'
+        }
+
+        for col, display_name in demo_cols.items():
+            if col not in gt_df.columns or col not in syn_df.columns:
+                continue
+
+            gt_values = set(gt_df[col].dropna().unique())
+            syn_values = set(syn_df[col].dropna().unique())
+
+            invalid = syn_values - gt_values
+            if invalid:
+                issues[display_name] = {
+                    'invalid_values': sorted(list(invalid)),
+                    'valid_values': sorted(list(gt_values))
+                }
+
+        return issues
+
 
 def main():
     """CLI entry point for testing."""
@@ -336,6 +395,10 @@ def main():
     parser.add_argument('--market', help='Market code (optional, validates all if not specified)')
     parser.add_argument('--synthetic', help='Path to synthetic Excel file')
     parser.add_argument('--ground-truth', help='Path to ground truth Excel file')
+    parser.add_argument('--generate-report', action='store_true',
+                       help='Generate HTML validation report with visualizations')
+    parser.add_argument('--no-plots', action='store_true',
+                       help='Skip generating visualization plots (faster)')
 
     args = parser.parse_args()
 
@@ -352,6 +415,19 @@ def main():
         print(f"\n✓ Validation complete")
         print(f"  Mean KL: {results['aggregate_metrics']['mean_kl_divergence']:.3f}")
         print(f"  KS Similarity: {results['aggregate_metrics']['ks_similarity']:.3f}")
+
+        # Generate report if requested
+        if args.generate_report:
+            from .reports import generate_validation_report
+            validation_json = Path(results.get('validation_file', ''))
+            if validation_json.exists():
+                print(f"\n  Generating HTML report...")
+                report_outputs = generate_validation_report(
+                    validation_json,
+                    include_plots=not args.no_plots
+                )
+                for report_type, report_path in report_outputs.items():
+                    print(f"  Generated {report_type} report: {report_path}")
     else:
         # Validate entire study
         results = runner.validate_study(study_id=args.study)

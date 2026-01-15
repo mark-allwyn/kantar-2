@@ -9,8 +9,29 @@ import logging
 from pathlib import Path
 from typing import Optional, Dict, Any, List
 from datetime import datetime
+from dataclasses import asdict, is_dataclass
 
 logger = logging.getLogger(__name__)
+
+
+def _convert_to_serializable(obj):
+    """
+    Convert dataclasses and other non-serializable objects to JSON-serializable format.
+
+    Args:
+        obj: Object to convert
+
+    Returns:
+        JSON-serializable version of the object
+    """
+    if is_dataclass(obj) and not isinstance(obj, type):
+        return asdict(obj)
+    elif isinstance(obj, list):
+        return [_convert_to_serializable(item) for item in obj]
+    elif isinstance(obj, dict):
+        return {key: _convert_to_serializable(value) for key, value in obj.items()}
+    else:
+        return obj
 
 
 class CheckpointManager:
@@ -56,6 +77,9 @@ class CheckpointManager:
         Returns:
             Path to checkpoint file
         """
+        # Convert dataclasses to serializable format
+        serializable_respondents = _convert_to_serializable(completed_respondents)
+
         checkpoint_data = {
             'job_id': job_id,
             'checkpoint_time': datetime.now().isoformat(),
@@ -64,7 +88,7 @@ class CheckpointManager:
             'progress_pct': (len(completed_respondents) / total_respondents) * 100,
             'generation_config': generation_config,
             'metadata': metadata or {},
-            'respondent_data': completed_respondents
+            'respondent_data': serializable_respondents
         }
 
         checkpoint_file = self.checkpoint_dir / f"{job_id}_checkpoint.json"

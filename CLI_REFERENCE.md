@@ -44,6 +44,7 @@ python3 -m src.cli.main generate study STUDY_ID MARKET [OPTIONS]
 - `--model TEXT` - LLM model to use (default: gpt-4o-mini)
 - `--verify-first` - Verify study structure before generating
 - `--checkpoint-every INTEGER` - Save checkpoint every N respondents (default: 10)
+- `--resume` - Resume from checkpoint if available
 - `--output-dir PATH` - Custom output directory
 
 **Examples:**
@@ -56,6 +57,12 @@ python3 -m src.cli.main generate study 61407017 UK -n 100 --model gpt-4o
 
 # Verify first, then generate
 python3 -m src.cli.main generate study 61407069 US -n 50 --verify-first
+
+# Resume interrupted generation
+python3 -m src.cli.main generate study 61405445-01 US -n 50 --resume
+
+# Custom checkpoint frequency (every 5 respondents)
+python3 -m src.cli.main generate study 61407017 UK -n 100 --checkpoint-every 5
 ```
 
 #### Generate from Custom Concepts (No Ground Truth)
@@ -93,6 +100,7 @@ Generates 50 respondents using ground truth demographics and gpt-4o-mini.
 **Options:**
 - `-n, --respondents INTEGER` - Number of respondents (default: 50)
 - `--verify-first` - Verify study structure first
+- `--resume` - Resume from checkpoint if available
 
 **Examples:**
 ```bash
@@ -101,6 +109,9 @@ python3 -m src.cli.main quick-gen 61405445-01 US
 
 # Quick 100-respondent generation with verification
 python3 -m src.cli.main quick-gen 61407017 UK --respondents 100 --verify-first
+
+# Resume interrupted generation
+python3 -m src.cli.main quick-gen 61405445-01 US --resume
 ```
 
 ### Validation Commands
@@ -442,14 +453,58 @@ Check version:
 python3 -m src.cli.main --version
 ```
 
+## Progress Tracking and Checkpointing
+
+### Real-Time Progress Bars
+
+All generation commands now display real-time progress with:
+- Progress percentage (e.g., 40% complete)
+- Completed/total respondents (e.g., 20/50)
+- Generation rate (e.g., 1.5 resp/min)
+- Estimated time remaining (ETA)
+
+Progress bars automatically appear during generation and provide visibility into long-running processes.
+
+### Checkpoint and Resume
+
+Long-running generations automatically save checkpoints to protect against failures:
+
+**Automatic Checkpointing:**
+- Saves state every N respondents (default: 10)
+- Configurable with `--checkpoint-every N`
+- Stored in `data/checkpoints/`
+- Includes all completed respondent data
+
+**Resume Capability:**
+- Use `--resume` flag to continue from last checkpoint
+- Detects existing checkpoint automatically
+- Restarts from exact point of failure
+- Works with API errors, network issues, or manual interruptions
+
+**Examples:**
+```bash
+# Start new generation with checkpoints every 5 respondents
+python3 -m src.cli.main generate study 61405445-01 US -n 100 --checkpoint-every 5
+
+# Resume after interruption
+python3 -m src.cli.main generate study 61405445-01 US -n 100 --resume
+
+# Quick generate with resume
+python3 -m src.cli.main quick-gen 61405445-01 US -n 50 --resume
+```
+
+**Checkpoint Management:**
+- Checkpoints auto-delete on successful completion
+- Failed generations keep checkpoints for resume
+- Checkpoints stored as JSON with full state
+- Job ID format: `{study_id}_{market}_{num_respondents}resp`
+
 ## Future Enhancements
 
 Planned features for future releases:
 
 - **Cost Estimation** - Show estimated API costs before generation
 - **Budget Controls** - Set spending limits
-- **Progress Bars** - Real-time progress indicators with ETA
-- **Checkpoint/Resume** - Resume failed generations
 - **Study Scaffolding** - Automated study folder creation
 - **Advanced Validation** - Custom thresholds, multiple report formats
 - **Batch Operations** - Generate multiple studies in parallel

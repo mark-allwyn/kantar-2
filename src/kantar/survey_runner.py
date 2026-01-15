@@ -29,6 +29,8 @@ from .column_mapper import ColumnMapper
 from .excel_formatter import KantarExcelFormatter
 from .market_profiles import get_market_profile, list_market_profiles
 from .concept_schema import validate_concepts, fill_concept_defaults
+from .progress_tracker import GenerationProgressTracker
+from .checkpoint_manager import CheckpointManager, create_job_id, create_job_id_custom
 
 logger = logging.getLogger(__name__)
 
@@ -71,7 +73,9 @@ class KantarSurveyRunner:
                            num_respondents: Optional[int] = None,
                            output_dir: Optional[Path] = None,
                            num_concepts_per_respondent: int = 3,
-                           use_ground_truth_demographics: bool = False) -> Path:
+                           use_ground_truth_demographics: bool = False,
+                           checkpoint_every: int = 10,
+                           resume: bool = False) -> Path:
         """
         Generate synthetic data for a specific market.
 
@@ -82,6 +86,8 @@ class KantarSurveyRunner:
             output_dir: Output directory (None = use default)
             num_concepts_per_respondent: Concepts per respondent (default: 3)
             use_ground_truth_demographics: Sample demographics from ground truth (default: False)
+            checkpoint_every: Save checkpoint every N respondents (default: 10)
+            resume: Resume from checkpoint if available (default: False)
 
         Returns:
             Path to generated Excel file
@@ -156,28 +162,71 @@ class KantarSurveyRunner:
         # Update survey engine with concepts
         self.survey_engine.concepts = concept_dicts
 
-        # Step 6: Generate respondents
-        logger.info("Generating synthetic respondents...")
+        # Step 6: Setup checkpoint manager
+        checkpoint_manager = CheckpointManager()
+        job_id = create_job_id(study_id, market_code, num_respondents)
+
+        # Check for existing checkpoint
         respondent_data_list = []
+        start_index = 0
 
-        for i in range(num_respondents):
-            if (i + 1) % 10 == 0:
-                logger.info(f"  Generated {i + 1}/{num_respondents} respondents")
+        if resume:
+            checkpoint_data = checkpoint_manager.load_checkpoint(job_id)
+            if checkpoint_data:
+                logger.info(f"Resuming from checkpoint: {checkpoint_data['completed']}/{num_respondents} completed")
+                respondent_data_list = checkpoint_data['respondent_data']
+                start_index = len(respondent_data_list)
+            else:
+                logger.info("No checkpoint found, starting from beginning")
 
-            # Generate persona
-            persona = self.persona_generator.generate_persona()
+        # Step 7: Generate respondents
+        logger.info(f"Generating synthetic respondents (starting from {start_index})...")
 
-            # Run survey
-            respondent_data = self.survey_engine.run_survey_for_respondent(
-                persona=persona,
-                concepts_to_test=concept_dicts,
-                randomize_concepts=True,
-                num_concepts_per_respondent=num_concepts_per_respondent
-            )
+        generation_config = {
+            'study_id': study_id,
+            'market_code': market_code,
+            'num_respondents': num_respondents,
+            'num_concepts_per_respondent': num_concepts_per_respondent,
+            'model': self.model,
+            'use_ground_truth_demographics': use_ground_truth_demographics
+        }
 
-            respondent_data_list.append(respondent_data)
+        with GenerationProgressTracker(
+            total_respondents=num_respondents,
+            description=f"Generating {market_code} respondents"
+        ) as progress:
+            # Update progress for already-completed respondents
+            if start_index > 0:
+                progress.update(start_index)
+
+            for i in range(start_index, num_respondents):
+                # Generate persona
+                persona = self.persona_generator.generate_persona()
+
+                # Run survey
+                respondent_data = self.survey_engine.run_survey_for_respondent(
+                    persona=persona,
+                    concepts_to_test=concept_dicts,
+                    randomize_concepts=True,
+                    num_concepts_per_respondent=num_concepts_per_respondent
+                )
+
+                respondent_data_list.append(respondent_data)
+                progress.update(1)
+
+                # Save checkpoint
+                if (i + 1) % checkpoint_every == 0:
+                    checkpoint_manager.save_checkpoint(
+                        job_id=job_id,
+                        completed_respondents=respondent_data_list,
+                        total_respondents=num_respondents,
+                        generation_config=generation_config
+                    )
 
         logger.info(f"Generated {len(respondent_data_list)} respondents")
+
+        # Clean up checkpoint on successful completion
+        checkpoint_manager.delete_checkpoint(job_id)
 
         # Step 7: Format output using Kantar formatter
         logger.info("Formatting output to Kantar Excel structure...")
@@ -380,22 +429,24 @@ class KantarSurveyRunner:
         logger.info(f"Generating {num_respondents} synthetic respondents...")
         respondent_data_list = []
 
-        for i in range(num_respondents):
-            if (i + 1) % 10 == 0:
-                logger.info(f"  Generated {i + 1}/{num_respondents} respondents")
+        with GenerationProgressTracker(
+            total_respondents=num_respondents,
+            description="Generating respondents"
+        ) as progress:
+            for i in range(num_respondents):
+                # Generate persona
+                persona = self.persona_generator.generate_persona()
 
-            # Generate persona
-            persona = self.persona_generator.generate_persona()
+                # Run survey
+                respondent_data = self.survey_engine.run_survey_for_respondent(
+                    persona=persona,
+                    concepts_to_test=concepts,
+                    randomize_concepts=True,
+                    num_concepts_per_respondent=num_concepts_per_respondent
+                )
 
-            # Run survey
-            respondent_data = self.survey_engine.run_survey_for_respondent(
-                persona=persona,
-                concepts_to_test=concepts,
-                randomize_concepts=True,
-                num_concepts_per_respondent=num_concepts_per_respondent
-            )
-
-            respondent_data_list.append(respondent_data)
+                respondent_data_list.append(respondent_data)
+                progress.update(1)
 
         logger.info(f"Generated {len(respondent_data_list)} respondents")
 

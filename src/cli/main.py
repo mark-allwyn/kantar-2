@@ -54,7 +54,8 @@ cli.add_command(profile)
 @click.argument("market", default="US")
 @click.option("--respondents", "-n", default=50, help="Number of respondents (default: 50)")
 @click.option("--verify-first", is_flag=True, help="Verify study structure before generating")
-def quick_generate(study_id, market, respondents, verify_first):
+@click.option("--resume", is_flag=True, help="Resume from checkpoint if available")
+def quick_generate(study_id, market, respondents, verify_first, resume):
     """
     Quick generate with sensible defaults.
 
@@ -63,8 +64,11 @@ def quick_generate(study_id, market, respondents, verify_first):
     Example:
         kantar-synthetic quick-gen 61405445-01 US
         kantar-synthetic quick-gen 61407017 UK --respondents 100
+        kantar-synthetic quick-gen 61405445-01 US --resume
     """
     click.echo(f"Quick Generate: {study_id} - {market}")
+    if resume:
+        click.echo("Resume mode: Will resume from checkpoint if available")
 
     if verify_first:
         click.echo("Verifying study structure...")
@@ -82,7 +86,8 @@ def quick_generate(study_id, market, respondents, verify_first):
             study_id=study_id,
             market_code=market,
             num_respondents=respondents,
-            use_ground_truth_demographics=True
+            use_ground_truth_demographics=True,
+            resume=resume
         )
 
         click.secho(f"\n✓ SUCCESS", fg="green", bold=True)

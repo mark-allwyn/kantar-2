@@ -22,10 +22,11 @@ def generate():
 @click.option("--model", default="gpt-4o-mini", help="LLM model to use")
 @click.option("--verify-first", is_flag=True, help="Verify study structure before generating")
 @click.option("--checkpoint-every", type=int, default=10,
-              help="Save checkpoint every N respondents")
+              help="Save checkpoint every N respondents (default: 10)")
+@click.option("--resume", is_flag=True, help="Resume from checkpoint if available")
 @click.option("--output-dir", type=click.Path(), help="Custom output directory")
 def generate_study(study_id, market, respondents, use_gt_demographics, model,
-                  verify_first, checkpoint_every, output_dir):
+                  verify_first, checkpoint_every, resume, output_dir):
     """
     Generate synthetic data for an existing Kantar study.
 
@@ -42,6 +43,9 @@ def generate_study(study_id, market, respondents, use_gt_demographics, model,
     click.echo(f"Respondents: {respondents}")
     click.echo(f"Model: {model}")
     click.echo(f"Ground truth demographics: {use_gt_demographics}")
+    click.echo(f"Checkpoint every: {checkpoint_every} respondents")
+    if resume:
+        click.echo("Resume mode: Will resume from checkpoint if available")
 
     if verify_first:
         click.echo("\nVerifying study structure...")
@@ -51,7 +55,6 @@ def generate_study(study_id, market, respondents, use_gt_demographics, model,
     try:
         runner = KantarSurveyRunner(model=model)
 
-        # TODO: Add progress tracking integration
         click.echo("\nStarting generation...")
 
         output_path = runner.generate_for_market(
@@ -59,6 +62,8 @@ def generate_study(study_id, market, respondents, use_gt_demographics, model,
             market_code=market,
             num_respondents=respondents,
             use_ground_truth_demographics=use_gt_demographics,
+            checkpoint_every=checkpoint_every,
+            resume=resume,
             output_dir=Path(output_dir) if output_dir else None
         )
 

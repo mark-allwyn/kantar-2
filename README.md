@@ -14,15 +14,17 @@ This system creates high-quality synthetic survey data that mimics real human re
 
 ## Key Features
 
-- **Fully Generalized**: Works with all Kantar survey formats (tested on 5 complete studies)
+- **Fully Generalized**: Works with all Kantar survey formats (validated on 4 standard studies, 15 markets)
 - **Template-Based**: Automatically matches ground truth Excel column structure
 - **Concept Extraction**: Uses GPT-4o to extract concepts from PPTX files
 - **Two Generation Modes**: Ground truth mode (with PPTX/Excel) or no-ground-truth mode (test new concepts)
 - **Ground Truth Demographics**: Optional flag to sample demographics from real data
 - **Market Profiles**: Pre-built demographic profiles (US_gaming, UK_lottery, EU_general, generic)
-- **Comprehensive Reporting**: HTML reports with validation metrics and visualizations
-- **Robust Matching**: Handles concept name variations across studies (2-24 concepts)
-- **Production Ready**: 100% compliance rate across all testable Kantar studies
+- **Concept Rotation**: 3 concepts per respondent sampling (matches real Kantar methodology)
+- **Comprehensive Validation**: KL divergence, KS similarity, correlation metrics vs ground truth
+- **HTML Reporting**: Validation reports with metrics and visualizations
+- **Robust Matching**: Handles concept name variations across studies (5-24 concepts)
+- **Production Ready**: Validated across 4 standard studies with consistent quality
 
 ## Project Structure
 
@@ -49,10 +51,17 @@ kantar-replica/
 ├── data/
 │   ├── kantar-survey-source/  # Ground truth data
 │   └── synthetic/kantar/       # Generated synthetic data
+├── docs/                    # Documentation (organized by category)
+│   ├── technical/           # Technical specs, system design
+│   ├── poc/                 # POC presentations and deliverables
+│   ├── validation/          # Validation reports and templates
+│   └── reference/           # Historical docs and cost models
 ├── notebooks/               # Jupyter notebooks (interactive front-end)
 │   ├── 01_quick_start.ipynb
 │   ├── 02_synthetic_data_generation.ipynb
 │   └── 03_validation_and_reporting.ipynb
+├── scripts/                 # Utility scripts
+│   └── validation/          # Validation and analysis scripts
 ├── tests/                   # Test files
 └── .archive/                # Archived old experiments
 ```
@@ -279,21 +288,31 @@ print(f"Generated: {output_file}")
 
 ## System Capabilities
 
-### Tested Studies (100% Compliance)
+### Validated Studies
+
+**Standard Studies (Non-Segmented):**
 
 | Study ID | Name | Markets | Concepts | Status |
 |----------|------|---------|----------|--------|
-| 61405445-01 | iGaming Concept Evaluate | 5 | 5 | ✅ COMPLIANT |
-| 61407017 | 24 Ideas Screening | 3 | 24 | ✅ COMPLIANT |
-| 61407069 | Tech-Enabled ScratchCards | 4 | 8 | ✅ COMPLIANT |
-| 61407185 | Innovation Concepts | 3 | 8 | ✅ COMPLIANT |
-| 61407240 | Thunderball Concept | 5 | 2 | ✅ COMPLIANT |
+| 61405445-01 | iGaming Concept Evaluate | 5 (AT, CZ, GR, UK, US) | 5 | ✅ VALIDATED |
+| 61407017 | 24 Ideas Screening | 3 (CZ, UK, US) | 24 | ✅ VALIDATED |
+| 61407069 | Tech-Enabled ScratchCards | 4 (AT, CZ, GR, US) | 8 | ✅ VALIDATED |
+| 61407185 | Innovation Concepts 2025 | 3 (CZ, UK, US) | 8 | ✅ VALIDATED |
 
-**Total Coverage:**
-- 5/5 testable studies = **100% compliance**
-- 20 complete markets tested
-- Handles 2-24 concepts per study
-- Adapts to 71-227 column templates
+**Segmented Studies (Excluded from Validation):**
+
+| Study ID | Name | Markets | Segments | Status |
+|----------|------|---------|----------|--------|
+| 61406317 | iGaming Concept Evaluate | 5 | iGaming + Multiplayer | ⊘ EXCLUDED |
+| 61407240 | Thunderball Concept | 5 | Standard + 2 UK variants | ⊘ EXCLUDED |
+
+**Coverage Summary:**
+- **4 standard studies validated** across 15 markets
+- **5 base markets**: AT, CZ, GR, UK, US
+- **Concept range**: 5-24 concepts per study
+- **3 concepts per respondent** sampling (matches Kantar design)
+- **Template adaptation**: 71-227 column templates
+- **Respondent generation**: 50 respondents per market with ground truth demographics
 
 ### Question Types Supported
 
@@ -387,32 +406,46 @@ Validation Runner → Metrics vs Ground Truth
 
 ## Documentation
 
-- **README.md**: This file - complete system overview
-- **notebooks/README.md**: Jupyter notebooks documentation
-- **KANTAR_SYSTEM_COMPLIANCE.md**: Detailed compliance testing results
-- **QUESTION_REFERENCE.md**: Question ID to Kantar mapping
+Comprehensive documentation is organized in the `docs/` directory:
+
+- **[docs/](docs/)**: All project documentation (see [docs/index.md](docs/index.md) for complete index)
+  - **[Technical Documentation](docs/technical/)**: System specifications, question reference, compliance, tuning guide
+  - **[POC Materials](docs/poc/)**: Presentations, summary, and deliverables
+  - **[Validation Reports](docs/validation/)**: Statistical validation results and templates
+  - **[Reference Materials](docs/reference/)**: Historical documentation and cost models
+- **[notebooks/README.md](notebooks/README.md)**: Jupyter notebooks documentation
+- **[scripts/](scripts/)**: Utility scripts for validation and analysis (see [scripts/README.md](scripts/README.md))
 
 ## Development Status
 
 ### ✅ Completed (Production Ready)
-- Full Kantar integration for all 7 survey formats
-- Two generation modes: ground truth + no-ground-truth
-- Market demographic profiles (US_gaming, UK_lottery, EU_general, generic)
-- Concept extraction from PPTX (GPT-4o)
-- Ground truth data loading and analysis
-- Concept-to-column name matching (handles variations)
-- Template-based Excel formatting
-- All question types implemented
-- Persona generation (generic + GT demographics)
-- SSR engine with all scales
-- Validation metrics (KL divergence, KS statistic, correlation)
-- HTML reporting with visualizations
-- Interactive Jupyter notebooks
-- CLI tools for generation and validation
-- Python API
+- **Kantar Integration**: 4 standard studies validated (15 markets total)
+- **Generation Modes**: Ground truth + no-ground-truth modes
+- **Market Profiles**: US_gaming, UK_lottery, EU_general, generic
+- **Concept Extraction**: PPTX parsing with GPT-4o
+- **Ground Truth Sampling**: Demographics from real survey data
+- **Concept Matching**: Handles name variations across studies
+- **Template Formatting**: Exact Kantar Excel structure replication
+- **Question Types**: All Kantar standard questions (Purchase Intent, Uniqueness, Likeability, etc.)
+- **Persona Generation**: Generic + GT demographics modes
+- **SSR Engine**: Semantic Similarity Rating for all scale types
+- **Concept Rotation**: 3 concepts per respondent (matches Kantar methodology)
+- **Validation Metrics**: KL divergence, KS statistic, correlation
+- **HTML Reporting**: Validation reports with visualizations
+- **Interactive Notebooks**: Jupyter notebooks for generation & validation
+- **CLI Tools**: Survey runner and validation runner
+- **Python API**: Programmatic access to all functionality
+
+### 📊 Current Validation Status
+- **US Market Validation**: In progress for all 4 standard studies
+- **Target Metrics**: KL < 0.20, KS similarity > 0.85, correlation > 0.85
+- **Respondent Count**: 50 respondents per market with GT demographics
+- **Model**: gpt-4o-mini (cost-effective, production-ready)
 
 ### 🎯 Future Enhancements
+- Validation of remaining 11 markets (AT, CZ, GR, UK across studies)
 - Response distribution sampling from GT (beyond demographics)
+- Segmented study support (61406317, 61407240)
 - Market-specific psychographic patterns
 - Multi-language support
 - Batch processing optimization

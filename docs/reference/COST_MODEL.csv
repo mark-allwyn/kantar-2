@@ -1,0 +1,116 @@
+# Synthetic vs Kantar Cost Model
+
+## ASSUMPTIONS
+,,,,
+Parameter,Value,Notes,,
+GPT-4o-mini cost per 1M input tokens,$0.15,OpenAI pricing,,
+GPT-4o-mini cost per 1M output tokens,$0.60,OpenAI pricing,,
+Text-embedding-3-small per 1M tokens,$0.02,OpenAI pricing,,
+Avg tokens per respondent (input),15000,Estimate based on 3 concepts x 7-10 questions,,
+Avg tokens per respondent (output),3000,Estimate based on responses,,
+Avg embedding tokens per respondent,5000,For SSR mapping,,
+Kantar cost per market (low),$15000,Estimate - UPDATE WITH ACTUAL,,
+Kantar cost per market (mid),$25000,Estimate - UPDATE WITH ACTUAL,,
+Kantar cost per market (high),$40000,Estimate - UPDATE WITH ACTUAL,,
+Kantar turnaround time (weeks),6,Typical timeline,,
+,,,,
+
+## SYNTHETIC DATA COST BREAKDOWN
+,,,,
+Component,Cost per Respondent,Cost per 50 Respondents,Cost per 100 Respondents,Notes
+Input tokens (LLM),$ 0.00225,$ 0.11,$ 0.23,"15k tokens × $0.15/1M"
+Output tokens (LLM),$ 0.00180,$ 0.09,$ 0.18,"3k tokens × $0.60/1M"
+Embedding tokens,$ 0.00010,$ 0.01,$ 0.01,"5k tokens × $0.02/1M"
+Total API cost per respondent,$ 0.00415,$ 0.21,$ 0.42,
+Add 20% buffer for variations,,$ 0.25,$ 0.50,
+Processing time (minutes),,30-45,60-90,
+,,,,
+
+## SCENARIO ANALYSIS
+,,,,
+Scenario,Description,Synthetic Cost,Kantar Cost (Low),Kantar Cost (Mid),Kantar Cost (High)
+Single study (50 resp),"Test 1 concept set, 50 respondents",$ 0.25,"$ 15,000","$ 25,000","$ 40,000"
+Quarterly screening,"Test 10 concept sets, validate top 3","$ 2.50","$ 150,000","$ 250,000","$ 400,000"
+Iterative refinement,"5 variants × 3 rounds (15 tests)","$ 3.75","$ 225,000","$ 375,000","$ 600,000"
+Annual program,"40 concept sets tested","$ 10.00","$ 600,000","$ 1,000,000","$ 1,600,000"
+,,,,
+
+## COST SAVINGS ANALYSIS
+,,,,
+Scenario,Synthetic Cost,Kantar Tests Avoided,Kantar Cost Saved (Low),Kantar Cost Saved (Mid),Kantar Cost Saved (High),ROI (Low),ROI (Mid),ROI (High)
+Quarterly screening (10 → 3),"$ 2.50",7,"$ 105,000","$ 175,000","$ 280,000",42000x,70000x,112000x
+Iterative refinement (15 → 3),"$ 3.75",12,"$ 180,000","$ 300,000","$ 480,000",48000x,80000x,128000x
+Annual program (40 → 10),"$ 10.00",30,"$ 450,000","$ 750,000","$ 1,200,000",45000x,75000x,120000x
+,,,,
+
+## TIME-TO-MARKET IMPACT
+,,,,
+Workflow,Steps,Synthetic Time,Kantar Time,Time Saved,Revenue Impact (if 1 week = $X)
+Traditional,"Test all 10 concepts → Select → Refine → Retest",0 weeks,12 weeks,0 weeks,Baseline
+Synthetic-Augmented,"Screen 10 → Select top 3 → Refine → Validate top 3",1 day,6 weeks,6 weeks,"$X × 6 weeks earlier"
+,,,,
+
+## BREAKEVEN ANALYSIS
+,,,,
+Kantar Price Point,Concepts Needed to Break Even (Quarterly),Concepts Needed to Break Even (Annual),
+"$ 15,000",1,1
+"$ 25,000",1,1
+"$ 40,000",1,1
+,,,,
+Note: Given synthetic cost < $50 per study,Any use of synthetic to avoid even 1 Kantar study produces massive savings,
+,,,,
+
+## QUALITY-ADJUSTED COST
+,,,,
+Metric,Synthetic (50 resp),Kantar (typical),Notes
+Cost,$ 0.25,"$ 15,000 - $ 40,000",
+Turnaround,< 1 hour,4-6 weeks,
+Quality (vs GT),TBD% match,100% (is GT),Based on validation metrics
+Use Case,Screening only,Final validation,Synthetic not intended to replace final validation
+,,,,
+
+## RISK-ADJUSTED ROI
+,,,,
+Risk Factor,Impact,Mitigation,Residual Risk
+False positive (bad concept passes screening),Wasted Kantar spend on 1 concept,Quality gates (PASS/WARN/FAIL),Low - caught in final Kantar validation
+False negative (good concept rejected),Missed opportunity,Review WARN concepts manually,Medium - requires process discipline
+System failure (poor quality),Fallback to all-Kantar,Continuous validation monitoring,Low - quality metrics provide early warning
+Over-reliance,Loss of research capability,Maintain Kantar partnership,Medium - requires training and guidelines
+,,,,
+
+## RECOMMENDED DECISION FRAMEWORK
+,,,,
+Decision Type,Data Quality Needed,Recommended Approach,Cost,Timeline
+Early screening,Medium (eliminate obvious failures),Synthetic,$ 0.25 per study,< 1 day
+Concept refinement,Medium-High (directional feedback),Synthetic → Manual review,$ 0.25 + review time,1-2 days
+Finalist validation,High (go/no-go decision),Kantar,"$ 15k - $ 40k",4-6 weeks
+Regulatory submission,Maximum (legal requirement),Kantar,"$ 15k - $ 40k",4-6 weeks
+New geography/category,High (unvalidated use case),Kantar (first time) → Synthetic (after calibration),"$ 15k - $ 40k first, $ 0.25 after",Varies
+,,,,
+
+## PILOT PROGRAM ECONOMICS
+,,,,
+Phase,Activity,Cost,Expected Benefit,Success Criteria
+Phase 1 (Q1 2026),"Run 3 parallel tests: Synthetic + Kantar on same concepts","$ 0.75 (synthetic) + Kantar budget","Measure decision concordance, validate quality","Synthetic correctly identifies top 3 concepts in 2/3 tests"
+Phase 2 (Q2 2026),"Use synthetic for 5 concept screenings, Kantar for finalists","$ 1.25 (synthetic) + reduced Kantar (2-3 studies vs 5)","Cost savings + faster iteration","Save $ 30k - $ 120k, 2-3 week time reduction"
+Phase 3 (Q3 2026),"Full adoption: 10 synthetic screenings, 3 Kantar validations","$ 2.50 (synthetic) + 3 Kantar studies","Ongoing cost reduction + velocity improvement","Save $ 90k - $ 360k annually, 4-6 week faster TTM"
+,,,,
+
+## NOTES
+,,,,
+1. All synthetic costs include 20% buffer for API pricing variations and edge cases,,
+2. Kantar cost ranges are estimates - UPDATE WITH ACTUAL PRICING FROM CONTRACTS,,
+3. ROI calculations assume synthetic screens out concepts that would have required Kantar testing,,
+4. Time-to-market impact requires estimation of revenue per week of delay,,
+5. Quality metrics (KL divergence KS similarity correlation) will determine actual usability,,
+6. First-time setup costs (validation studies) not included - these are one-time investments,,
+,,,,
+
+## SENSITIVITY ANALYSIS
+,,,,
+Variable,Low Estimate,Base Estimate,High Estimate,Impact on ROI
+Synthetic cost per study,$ 0.15,$ 0.25,$ 0.50,Minimal (ROI still >10000x)
+Kantar cost per study,"$ 10,000","$ 25,000","$ 50,000","Proportional (higher Kantar cost = higher ROI for synthetic)"
+Concepts screened per quarter,5,10,20,"Linear (more screening = more savings)"
+False positive rate (bad concepts pass),1%,5%,10%,"Low impact (caught in Kantar validation)"
+False negative rate (good concepts rejected),1%,5%,10%,"Higher risk (missed opportunities)"

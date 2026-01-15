@@ -1,0 +1,148 @@
+================================================================================
+SYNTHETIC SURVEY SYSTEM: ACCURACY & CONSISTENCY ISSUES
+Presentation Summary
+================================================================================
+
+EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+
+The synthetic survey system shows MIXED RESULTS:
+
+✓ WHAT WORKS (2/7 questions):
+   - Excitement and Relevance show acceptable accuracy and consistency
+   - Suitable for concrete, emotional, personal fit questions
+
+✗ WHAT DOESN'T WORK (4/7 questions):
+   - Believability, Uniqueness, Likeability, Value show systematic bias
+   - Abstract evaluative questions underestimate by 16-33%
+   - Poor distribution matching (KL > 0.20)
+
+⚠ PARTIALLY WORKS (1/7 questions):
+   - Purchase Intent has good distribution but 16% positive bias
+
+DETAILED FINDINGS
+================================================================================
+
+ACCURACY ANALYSIS
+--------------------------------------------------------------------------------
+Question     GT Mean    Syn Mean   Bias       Bias %     Status    
+--------------------------------------------------------------------------------
+BELVBLTY     3.03       2.24       -0.79          -26.2% ✗ FAIL    
+EXCITMENT    2.59       2.26       -0.33          -12.7% ✗ FAIL    
+LIKBILTY     3.71       3.14       -0.58          -15.5% ✗ FAIL    
+PRPURINT     3.21       3.73       +0.52          +16.2% ✗ FAIL    
+PRVALMNY     3.54       2.97       -0.56          -15.9% ✗ FAIL    
+RELVANCE     2.44       2.72       +0.27          +11.1% ✗ FAIL    
+UNIQNESS     3.64       2.45       -1.19          -32.6% ✗ FAIL    
+--------------------------------------------------------------------------------
+Average Bias: -0.38 (-10.8%)
+
+KEY FINDINGS:
+  • 5/7 questions show SIGNIFICANT BIAS (>15% error)
+  • Believability: -26% (worst performer)
+  • Uniqueness: -33% (second worst)
+
+✓ QUESTIONS THAT WORK (2/7):
+  • EXCITMENT: -12.7% bias (acceptable)
+  • RELVANCE: +11.1% bias (acceptable)
+
+CONSISTENCY ANALYSIS
+--------------------------------------------------------------------------------
+Question     KL Div     Target     Status          Issue
+--------------------------------------------------------------------------------
+BELVBLTY     0.52       <0.20      ✗ FAIL          Poor dist. match
+EXCITMENT    0.11       <0.20      ✓ PASS          Good match
+LIKBILTY     0.32       <0.20      ✗ FAIL          Poor dist. match
+PRPURINT     0.18       <0.20      ✓ PASS          Good match
+PRVALMNY     0.24       <0.20      ✗ FAIL          Poor dist. match
+RELVANCE     0.08       <0.20      ✓ PASS          Good match
+UNIQNESS     0.47       <0.20      ✗ FAIL          Poor dist. match
+--------------------------------------------------------------------------------
+Mean KL Divergence: 0.275 (Target: <0.20)
+Questions Failing: 4/7
+
+KEY FINDINGS:
+  • 4/7 questions EXCEED acceptable KL divergence
+  • Believability (KL=0.52) - distribution completely wrong
+  • Uniqueness (KL=0.47) - severe mismatch
+
+✓ QUESTIONS THAT WORK (3/7):
+  • EXCITMENT: KL=0.11 (good match)
+  • PRPURINT: KL=0.18 (good match)
+  • RELVANCE: KL=0.08 (good match)
+
+CORRELATION METRICS
+--------------------------------------------------------------------------------
+Current Correlation Attainment: 41.4%
+Target Correlation: >85%
+GAP: 43.6 percentage points below target
+
+Performance vs Benchmarks:
+  • 54% below published research paper results
+  • Needs ~2x improvement to reach minimum targets
+
+INSIGHTS FROM ANALYSIS
+================================================================================
+
+PATTERN: Question Type Matters More Than Expected
+
+✓ SSR Works Well For:
+   - Concrete behavioral questions (excitement, relevance)
+   - Emotional/feeling-based responses
+   - Personal fit assessments ('relevant to me')
+   - Questions with clear semantic progressions
+
+✗ SSR Struggles With:
+   - Abstract evaluative judgments (believability, uniqueness)
+   - Questions requiring cultural/market context
+   - Category expertise-dependent assessments
+   - Multi-level scales with subtle distinctions
+
+KEY FINDING:
+   The systematic conservative bias is NOT universal - it's
+   construct-specific. This suggests the issue is in how the LLM
+   interprets different question types, not the SSR methodology itself.
+
+RECOMMENDED NEXT STEPS FOR EXPERIMENTATION
+--------------------------------------------------------------------------------
+
+Based on the pattern that SSR works for some question types but not others,
+we recommend focused experiments to understand and address the root causes:
+
+EXPERIMENT 1: Isolate Response Generation vs SSR Mapping
+  Objective: Determine if bias is in LLM responses or SSR conversion
+  Method: Run direct scale responses (LLM outputs 1-5 directly)
+  Time: 2-3 hours
+  What we'll learn: Whether to focus on prompts vs anchor optimization
+
+EXPERIMENT 2: Analyze Free-Text Responses
+  Objective: Understand what language LLM generates for failing questions
+  Method: Save and manually review LLM responses before SSR mapping
+  Time: 1 day
+  What we'll learn: If responses are genuinely conservative or mapping fails
+
+EXPERIMENT 3: Test Question-Specific Prompt Engineering
+  Objective: Fix abstract evaluative questions with targeted prompts
+  Method: Add construct-specific context for failing questions
+  Time: 3-5 days
+  What we'll learn: If prompt customization can fix the bias
+
+EXPERIMENT 4: Anchor Text Systematic Redesign
+  Objective: Improve anchors for failing questions based on learnings
+  Method: Apply successful patterns from working questions
+  Time: 1-2 weeks
+  What we'll learn: If anchor design can address distribution mismatch
+
+EXPERIMENT 5: Alternative Embedding Models
+  Objective: Test if higher-dimensional embeddings improve SSR
+  Method: Compare text-embedding-3-small vs text-embedding-3-large
+  Time: 2-3 days
+  What we'll learn: If embedding quality affects semantic similarity
+
+PRIORITIZATION:
+  Start with Experiments 1-2 (diagnostic) before 3-5 (optimization)
+  These will tell us WHERE to focus improvement efforts
+
+================================================================================
+END OF REPORT
+================================================================================

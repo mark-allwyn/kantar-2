@@ -1,0 +1,49 @@
+{
+  "study_id": "61407017",
+  "market": "US",
+  "timestamp": "2026-01-15T09:47:42.688008",
+  "ground_truth_file": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61407017_QN_IdeaEvaluate - 24 ideas screening/US/KAP400226177_24 ideas screening_US_Respondent_Data_1.xlsx",
+  "synthetic_file": "data/synthetic/kantar/61407017/US/synthetic_US_50resp_20260114_201237.xlsx",
+  "respondent_counts": {
+    "ground_truth": 600,
+    "synthetic": 49
+  },
+  "column_counts": {
+    "ground_truth": 223,
+    "synthetic": 223,
+    "common": 223,
+    "questions": 148
+  },
+  "question_metrics": [
+    {
+      "column": "(AGEQUOTA) AGEBANDS",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 600,
+      "syn_count": 49
+    },
+    {
+      "column": "(SEX_NONBINARY) SEX",
+      "kl_divergence": 0.11216205220096859,
+      "ks_statistic": 0.011054421768707483,
+      "correlation": null,
+      "gt_count": 600,
+      "syn_count": 49
+    }
+  ],
+  "aggregate_metrics": {
+    "mean_kl_divergence": 0.056081026100484294,
+    "median_kl_divergence": 0.11216205220096859,
+    "mean_ks_statistic": 0.0055272108843537416,
+    "ks_similarity": 0.9944727891156463,
+    "mean_correlation": null,
+    "questions_validated": 2
+  },
+  "success_criteria": {
+    "kl_below_0_20": true,
+    "ks_similarity_above_0_85": true,
+    "correlation_above_0_85": false
+  },
+  "validation_file": "data/synthetic/kantar/61407017/US/validation_US_20260115_094742.json"
+}

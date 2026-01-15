@@ -1,0 +1,339 @@
+[
+  {
+    "id": "Concept 1",
+    "name": "Game on",
+    "description": "Compete in random daily challenges.\nFeatures:\n- Get streaks & compete for big wins against friends and rivals\n- No one masters all, but everyone has fun",
+    "price": null,
+    "features": [
+      "Get streaks & compete for big wins against friends and rivals",
+      "No one masters all, but everyone has fun"
+    ],
+    "occasion": null,
+    "full_text": "Game on\nCompete in random daily challenges. \nGet streaks & compete for big wins against \nfriends and rivals. \nNo one masters all, but everyone has fun.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 2",
+    "name": "Pass it On",
+    "description": "Complete a challenge and pass the next one to a friend. Play against other groups for real world prizes.\nFeatures:\n- Complete a challenge\n- Pass the next one to a friend\n- Play against other groups\n- Real world prizes",
+    "price": null,
+    "features": [
+      "Complete a challenge",
+      "Pass the next one to a friend",
+      "Play against other groups",
+      "Real world prizes"
+    ],
+    "occasion": null,
+    "full_text": "Pass it On\nComplete a challenge \nand pass the next one to a friend. \nPlay against \nother groups \nfor real world prizes. \nWill you accept the challenge?",
+    "image_description": null
+  },
+  {
+    "id": "Concept 3",
+    "name": "Trivia Royal",
+    "description": "Jeopardy, luck and skill collide in this quiz challenge.\nFeatures:\n- Pass to save the streak\n- Too many skips and you’ll fall\n- Choose wisely",
+    "price": null,
+    "features": [
+      "Pass to save the streak",
+      "Too many skips and you’ll fall",
+      "Choose wisely"
+    ],
+    "occasion": null,
+    "full_text": "Trivia Royal\nWhich friend is next? Jeopardy, luck and skill collide in this quiz challenge. \nPass to save the streak, but too many skips and you’ll fall! Choose wisely!",
+    "image_description": null
+  },
+  {
+    "id": "Concept 4",
+    "name": "One Tap",
+    "description": "Tap at the right time and WIN BIG.\nFeatures:\n- 86,400 seconds in a day",
+    "price": null,
+    "features": [
+      "86,400 seconds in a day"
+    ],
+    "occasion": null,
+    "full_text": "One Tap\n86,400 seconds \nin a day … \nTap at the right time and WIN BIG.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 5",
+    "name": "Scavenger",
+    "description": "Your city, reimagined! AR treasure hunts completed local or global for real world rewards.\nFeatures:\n- Create custom hunts for friends\n- Add your own treasures",
+    "price": null,
+    "features": [
+      "Create custom hunts for friends",
+      "Add your own treasures"
+    ],
+    "occasion": null,
+    "full_text": "Scavenger\nYour city, reimagined! AR treasure hunts completed \nlocal or global \nfor real world rewards. Create custom hunts for friends and \nadd your own treasures.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 6",
+    "name": "Game Vibes",
+    "description": "Personalized game experience based on your preferences.\nFeatures:\n- Personalized game\n- Customizable experience",
+    "price": null,
+    "features": [
+      "Personalized game",
+      "Customizable experience"
+    ],
+    "occasion": null,
+    "full_text": "Game Vibes\nWhat’s today’s vibe? Tell us the game \nyou want to play, \nand we will personalize it \nfor you, just the way you want it.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 7",
+    "name": "Someday",
+    "description": "What if you could be the person you always wanted to be? Watch AI bring your dreams to life.\nFeatures:\n- AI brings your dreams to life",
+    "price": null,
+    "features": [
+      "AI brings your dreams to life"
+    ],
+    "occasion": null,
+    "full_text": "Someday\nWhat if you could be the person \nyou always \nwanted to be? \nWatch AI bring \nyour dreams to life.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 8",
+    "name": "Dream Vote",
+    "description": "Discover, share and connect with others around aspirations. Support each other and vote to make dreams come true.\nFeatures:\n- Discover\n- Share\n- Connect with others\n- Support each other\n- Vote to make dreams come true",
+    "price": null,
+    "features": [
+      "Discover",
+      "Share",
+      "Connect with others",
+      "Support each other",
+      "Vote to make dreams come true"
+    ],
+    "occasion": null,
+    "full_text": "Dream Vote\nDiscover, share \nand connect \nwith others \naround aspirations. Support each other and vote to make dreams come true.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 9",
+    "name": "Dream Match",
+    "description": "Have a dream that needs a boost? Make a plan, commit to it, and we’ll reward your progress with prizes that matter.\nFeatures:\n- Make a plan\n- Commit to it\n- Reward your progress with prizes",
+    "price": null,
+    "features": [
+      "Make a plan",
+      "Commit to it",
+      "Reward your progress with prizes"
+    ],
+    "occasion": null,
+    "full_text": "Dream Match\nHave a dream \nthat needs a boost? Make a plan, \ncommit to it, \nand we’ll reward your progress \nwith prizes \nthat matter.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 10",
+    "name": "Future Treats",
+    "description": "Set goals, earn chosen rewards at every milestone. From coffee to cars - prove your progress to unlock prizes!\nFeatures:\n- Set goals\n- Earn chosen rewards\n- Unlock prizes at milestones",
+    "price": null,
+    "features": [
+      "Set goals",
+      "Earn chosen rewards",
+      "Unlock prizes at milestones"
+    ],
+    "occasion": null,
+    "full_text": "Future Treats\nDreams, meet reality! \nSet goals, \nearn chosen rewards \nat every milestone. From coffee to cars - prove your progress to unlock prizes!",
+    "image_description": null
+  },
+  {
+    "id": "Concept 11",
+    "name": "Shared Win",
+    "description": "Set group goals, earn points together, and multiply your success.\nFeatures:\n- Set group goals\n- Earn points together\n- Multiply your success\n- One slip sets everyone back",
+    "price": null,
+    "features": [
+      "Set group goals",
+      "Earn points together",
+      "Multiply your success",
+      "One slip sets everyone back"
+    ],
+    "occasion": null,
+    "full_text": "Shared Win\nAll for one, \nrewards for all! \nSet group goals, \nearn points together, and multiply your success. \nBut be careful – \none slip \nsets everyone back!",
+    "image_description": null
+  },
+  {
+    "id": "Concept 12",
+    "name": "Boost bank",
+    "description": "Back your dreams with action!\nFeatures:\n- Lock in funds\n- Have friends verify your progress\n- Unlock big and small rewards as you achieve your goals",
+    "price": null,
+    "features": [
+      "Lock in funds",
+      "Have friends verify your progress",
+      "Unlock big and small rewards as you achieve your goals"
+    ],
+    "occasion": null,
+    "full_text": "Boost bank\nBack your dreams with action! \nLock in funds, \nhave friends verify your progress, \nand unlock big and small rewards as you achieve your goals.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 13",
+    "name": "Pocket Prophet",
+    "description": "Unlock tomorrow’s secrets today! Play quirky games that reveal your future.\nFeatures:\n- quirky games\n- personalized predictions",
+    "price": null,
+    "features": [
+      "quirky games",
+      "personalized predictions"
+    ],
+    "occasion": null,
+    "full_text": "Pocket Prophet\nUnlock tomorrow’s secrets today! \nPlay quirky games \nthat reveal your future. The more you play \nthe more personalized it gets! What will it predict about you?",
+    "image_description": null
+  },
+  {
+    "id": "Concept 14",
+    "name": "Lucky Day",
+    "description": "Discover opportunities aligned with your luck today based on your zodiac, location and personal data.\nFeatures:\n- Get alerts when conditions favor better winning odds",
+    "price": null,
+    "features": [
+      "Get alerts when conditions favor better winning odds"
+    ],
+    "occasion": null,
+    "full_text": "Lucky Day\nDiscover opportunities aligned with your luck today based on your zodiac, location and personal data. Get alerts \nwhen conditions favor better \nwinning odds!",
+    "image_description": null
+  },
+  {
+    "id": "Concept 15",
+    "name": "Cosmic Connections",
+    "description": "Find your cosmic gaming bestie and crush zodiac challenges together! Win big when your stars align.\nFeatures:\n- cosmic gaming\n- zodiac challenges\n- win big",
+    "price": null,
+    "features": [
+      "cosmic gaming",
+      "zodiac challenges",
+      "win big"
+    ],
+    "occasion": null,
+    "full_text": "Cosmic \nConnections\nFind your \ncosmic gaming bestie and crush zodiac challenges together! Win big when \nyour stars align.",
+    "image_description": "gaming"
+  },
+  {
+    "id": "Concept 16",
+    "name": "Game for Causes",
+    "description": "Play for incredible experiences and good causes.\nFeatures:\n- Win or lose, your money always goes to your chosen cause",
+    "price": null,
+    "features": [
+      "Win or lose, your money always goes to your chosen cause"
+    ],
+    "occasion": null,
+    "full_text": "Game for \nCauses\nPlay for incredible experiences and good causes.  Whether you \nwin or lose, \nyour money \nalways goes to \nyour chosen cause.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 17",
+    "name": "Karma",
+    "description": "What goes around comes around - literally!\nFeatures:\n- Help others\n- Earn points\n- Get help when you need it\n- Every good deed enters you to win big",
+    "price": null,
+    "features": [
+      "Help others",
+      "Earn points",
+      "Get help when you need it",
+      "Every good deed enters you to win big"
+    ],
+    "occasion": null,
+    "full_text": "Karma\nWhat goes around comes around - literally! \nHelp others, \nearn points, get help when you need it. Plus, every good deed enters you to win big.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 18",
+    "name": "Group Gains",
+    "description": "Pool funds with friends, unlock exclusive rewards, and watch your shared dreams become reality. Make saving social!\nFeatures:\n- Pool funds with friends\n- Unlock exclusive rewards\n- Make saving social",
+    "price": null,
+    "features": [
+      "Pool funds with friends",
+      "Unlock exclusive rewards",
+      "Make saving social"
+    ],
+    "occasion": null,
+    "full_text": "Group Gains\nSave together, celebrate together! Pool funds \nwith friends, unlock exclusive rewards, and watch your shared dreams become reality. \nMake saving social!",
+    "image_description": null
+  },
+  {
+    "id": "Concept 19",
+    "name": "FinSims",
+    "description": "Master investing through play!\nFeatures:\n- Pick stocks\n- Build your virtual portfolio\n- Learn real skills as markets move\n- No textbooks – just gains",
+    "price": null,
+    "features": [
+      "Pick stocks",
+      "Build your virtual portfolio",
+      "Learn real skills as markets move",
+      "No textbooks – just gains"
+    ],
+    "occasion": null,
+    "full_text": "FinSims\nMaster investing through play! \nPick stocks, build your virtual portfolio, and learn real skills as markets move. \nNo textbooks – \njust gains.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 20",
+    "name": "Wealth Buddy",
+    "description": "Use data, insight and AI to make tracking your journey to financial freedom more manageable.\nFeatures:\n- Use data\n- Insight\n- AI\n- Track financial journey\n- Unearth insights\n- Replace guess work with growth",
+    "price": null,
+    "features": [
+      "Use data",
+      "Insight",
+      "AI",
+      "Track financial journey",
+      "Unearth insights",
+      "Replace guess work with growth"
+    ],
+    "occasion": null,
+    "full_text": "Wealth Buddy\nUse data, insight \nand AI to make tracking your journey to financial freedom more manageable. Unearth insights \nand replace guess work with growth.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 21",
+    "name": "Hidden Hustle",
+    "description": "One stop apps for making more money.\nFeatures:\n- Tools to find your next side hustle\n- Finding treasure you already own\n- Learning about new income streams",
+    "price": null,
+    "features": [
+      "Tools to find your next side hustle",
+      "Finding treasure you already own",
+      "Learning about new income streams"
+    ],
+    "occasion": null,
+    "full_text": "Hidden Hustle\nOne stop apps for making more money. Tools to find \nyour next side hustle, \nfinding treasure \nyou already own, learning about \nnew income streams.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 22",
+    "name": "MicroPitch",
+    "description": "Turn spare change into startup dreams with 60-sec pitches. Small investments today, big returns tomorrow!\nFeatures:\n- Swipe\n- Watch\n- Invest\n- 60-sec pitches\n- Small investments\n- Big returns",
+    "price": null,
+    "features": [
+      "Swipe",
+      "Watch",
+      "Invest",
+      "60-sec pitches",
+      "Small investments",
+      "Big returns"
+    ],
+    "occasion": null,
+    "full_text": "MicroPitch\nSwipe, watch, invest! \nTurn spare change into startup dreams with 60-sec pitches. Small investments today, big returns tomorrow!",
+    "image_description": null
+  },
+  {
+    "id": "Concept 23",
+    "name": "Turn Numbers Into Fortune",
+    "description": "Pick your lucky numbers and win big if they match the draw. Your chance to turn your favorite numbers into real money.\nFeatures:\n- Pick your lucky numbers\n- Win big if they match the draw\n- Turn favorite numbers into real money",
+    "price": null,
+    "features": [
+      "Pick your lucky numbers",
+      "Win big if they match the draw",
+      "Turn favorite numbers into real money"
+    ],
+    "occasion": null,
+    "full_text": "Turn Numbers Into Fortune\nPick your lucky numbers — \nand win big if they match the draw. \nYour chance to turn your favorite \nnumbers into \nreal money.",
+    "image_description": null
+  },
+  {
+    "id": "Concept 24",
+    "name": "Uncover Hidden Rewards",
+    "description": "Tap on and instantly discover if you’ve won a cash prize. Quick excitement, instant rewards right under the surface.\nFeatures:\n- instant discovery\n- cash prize\n- quick excitement\n- instant rewards",
+    "price": null,
+    "features": [
+      "instant discovery",
+      "cash prize",
+      "quick excitement",
+      "instant rewards"
+    ],
+    "occasion": null,
+    "full_text": "Uncover Hidden Rewards\nTap on and instantly discover if you’ve won a cash prize. Quick excitement, instant rewards right under the surface.",
+    "image_description": null
+  }
+]

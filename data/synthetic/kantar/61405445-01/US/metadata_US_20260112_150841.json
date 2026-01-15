@@ -1,0 +1,26 @@
+{
+  "study_id": "61405445-01",
+  "study_name": "61405445-01_QN_iGaming Concept Evaluate",
+  "market_code": "US",
+  "num_respondents": 5,
+  "num_concepts": 5,
+  "concepts": [
+    "Pulse Play",
+    "Standard or VIP Mode",
+    "Happy Hour",
+    "Bet-Volume Must-Win Jackpots",
+    "Time-Locked Must-Win Jackpots"
+  ],
+  "concept_mapping": {
+    "Pulse Play": "US Pulse Play",
+    "Standard or VIP Mode": "US Standard Or VIP Mode",
+    "Happy Hour": "US Happy Hour",
+    "Bet-Volume Must-Win Jackpots": "US 1 Bet-Volume Must-Win Jackpots",
+    "Time-Locked Must-Win Jackpots": "US Time-Locked Must-Win Jackpots"
+  },
+  "model": "gpt-4o-mini",
+  "num_concepts_per_respondent": 3,
+  "timestamp": "20260112_150841",
+  "ground_truth_path": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61405445-01_QN_iGaming Concept Evaluate/US/KAP400231371_iGaming_US_Respondent_Data_1.xlsx",
+  "synthetic_path": "data/synthetic/kantar/61405445-01/US/synthetic_US_5resp_20260112_150841.xlsx"
+}

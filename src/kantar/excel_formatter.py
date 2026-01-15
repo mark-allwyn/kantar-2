@@ -133,11 +133,13 @@ class KantarExcelFormatter(ExcelFormatter):
             demographics['(CATBUYER) PRODUCTS / SERVICES BOUGHT'] = str(category_buyer)
 
         # Add brand buyers
+        # Brand buyers is a single-select field in persona (list with one item)
+        # The value may already contain commas (e.g., "Brand A,Brand B") which are atomic
         brand_buyers = persona.psychographics.get('brand_buyers', [])
-        if isinstance(brand_buyers, list):
-            demographics['(BRDBUY) BRANDS BOUGHT'] = ','.join(brand_buyers)
+        if isinstance(brand_buyers, list) and len(brand_buyers) > 0:
+            demographics['(BRDBUY) BRANDS BOUGHT'] = brand_buyers[0]
         else:
-            demographics['(BRDBUY) BRANDS BOUGHT'] = str(brand_buyers)
+            demographics['(BRDBUY) BRANDS BOUGHT'] = str(brand_buyers) if brand_buyers else ''
 
         return demographics
 

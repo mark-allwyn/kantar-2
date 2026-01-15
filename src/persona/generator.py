@@ -305,27 +305,30 @@ class PersonaGenerator:
         return list(set(selected))
 
     def _sample_brand_buyers(self) -> List[str]:
-        """Sample brand buyers (multi-select)"""
+        """
+        Sample brand buyers - SINGLE SELECT ONLY.
+
+        IMPORTANT: Ground truth values can contain commas (e.g., "Brand A,Brand B")
+        which are ATOMIC VALUES, not multi-select combinations. Therefore, we select
+        ONE value from the distribution and return it as a single-item list.
+
+        Example GT values:
+          - "Illinois lottery fast games" (98.8%)
+          - "Illinois lottery fast games,Other" (0.4%) <- Single atomic value!
+          - "Other" (0.8%)
+        """
         dist = self.distributions['brand_buyers']
         values = dist['values']
         weights = dist['weights']
-        max_selections = dist.get('max_selections', 5)  # Default to 5 if not specified
 
-        # Decide number of brands to select (1-max)
-        n_select = random.randint(1, min(max_selections, len(values)))
+        # Select ONE value using weighted sampling
+        if weights:
+            selected = random.choices(values, weights=weights, k=1)[0]
+        else:
+            selected = random.choice(values)
 
-        # Use weighted sampling
-        selected_brands = random.choices(values, weights=weights, k=n_select)
-
-        # Remove duplicates while preserving order
-        seen = set()
-        unique_brands = []
-        for brand in selected_brands:
-            if brand not in seen:
-                seen.add(brand)
-                unique_brands.append(brand)
-
-        return unique_brands
+        # Return as single-item list for consistency with other multi-select fields
+        return [selected]
 
     def _sample_inertia(self) -> int:
         """Sample inertia level"""

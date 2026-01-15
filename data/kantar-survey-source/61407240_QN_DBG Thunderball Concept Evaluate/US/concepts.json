@@ -1,0 +1,38 @@
+[
+  {
+    "id": "Concept 1",
+    "name": "Daily Millionaire",
+    "description": "An international lottery offering a chance to win $1 million daily by selecting 6 numbers out of 52.\nPrice: $2\nFeatures:\n- Chance to win $1 million every day\n- Special bonus 'Millionaire Flood'\n- Subscription options available\n- Purchase shares of long-term bets\n- Drawings every evening in Europe\n- Available at retail outlets, online, and via app",
+    "price": "$2",
+    "features": [
+      "Chance to win $1 million every day",
+      "Special bonus 'Millionaire Flood'",
+      "Subscription options available",
+      "Purchase shares of long-term bets",
+      "Drawings every evening in Europe",
+      "Available at retail outlets, online, and via app"
+    ],
+    "occasion": null,
+    "full_text": "Daily Millionaire - A new lottery game\nThis is an international lottery that offers players the chance to win a grand prize of $1million every day \u000bby correctly selecting 6 numbers out of 52.\nAnd that’s not the only way to become a millionaire. \u000bThis new lottery also includes a special bonus called the “Millionaire Flood.” A portion of the stakes from each draw is collected into the “Millionaire Fund.” \u000bThe money from this fund is distributed to lucky players on the day when all the drawn numbers are either even or odd. Statistically, this event occurs approximately every 6 weeks. For example, if there are $15.5 million in the “Millionaire Fund” on that day, 15 players will be randomly selected based on the serial number of their tickets. Each of these 15 players will win $1 million.\nThe price for one entry is $2.\nIt will be possible to subscribe to this lottery for a week, \u000ba month, or longer, ensuring that players won’t miss the draw during the “Millionaire Flood.” It will also be possible to purchase a share of a long-term bet, such as one-tenth of a monthly ticket for $4.50, and so on.\nDrawings will take place every evening in Europe.\nIn Illinois, tickets for this lottery will be available at usual retail outlets, online on the State lottery website, or via the gaming app.",
+    "image_description": "lottery"
+  },
+  {
+    "id": "Concept 2",
+    "name": "Thunderball inspired - A new lottery game",
+    "description": "An international lottery offering a chance to win $1 million daily by guessing numbers, with a special bonus event called 'Flood of Millionaires'.\nPrice: $2\nFeatures:\n- Win a grand prize of $1 million every day\n- Guess 5 numbers out of 39 and 1 number out of 14\n- Special bonus 'Flood of Millionaires'\n- Millionaire Fund distributed among players\n- Subscription options available\n- Long-term bet shares available\n- Draws every evening in Austria\n- Available at State Lottery sales points, online, and in app",
+    "price": "$2",
+    "features": [
+      "Win a grand prize of $1 million every day",
+      "Guess 5 numbers out of 39 and 1 number out of 14",
+      "Special bonus 'Flood of Millionaires'",
+      "Millionaire Fund distributed among players",
+      "Subscription options available",
+      "Long-term bet shares available",
+      "Draws every evening in Austria",
+      "Available at State Lottery sales points, online, and in app"
+    ],
+    "occasion": null,
+    "full_text": "Thunderball inspired - A new lottery game\nThis is an international lottery that offers players the chance to win a grand prize of  $1 million every day \u000bby correctly guessing 5 numbers out of 39 and \u000b1 number out of 14.\nAnd that's not the only way to become a millionaire. \u000bThis new lottery also includes a special bonus called the “Flood of Millionaires.” A portion of the stakes from each draw is collected in the “Millionaire Fund.” \u000bThe money from this Fund is distributed among lucky players on the day when all 5 drawn numbers are either even or all odd. This event is theoretically expected to happen every 8 weeks. For example, if on that day the “Millionaire Fund” has accumulated  $ 10.5 million, 10 players will be selected based on the serial number of their ticket. Each of these 10 players will win $1 million.\nThe price of one line is $2.\nIt will be possible to subscribe to this lottery for a week, \u000ba month, or longer, so players can be sure not to miss \u000ba draw when the “Flood of Millionaires“ occurs. \u000bIt will also be possible to buy a share in a long-term bet, e.g., one-tenth of a monthly ticket for $6, etc.\nThe draws would take place every evening in Austria.\nIn Illinois, this lottery would be available at all usual sales points of the State Lottery, online on the website, or in the lottery app.",
+    "image_description": "lottery"
+  }
+]

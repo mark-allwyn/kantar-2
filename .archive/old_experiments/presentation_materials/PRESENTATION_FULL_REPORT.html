@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Survey System - Testing Results & Experimental Recommendations</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .summary-box {
+            background: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .key-finding {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .works {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .fails {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .partial {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .experiment {
+            background: #e7f3ff;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .experiment h4 {
+            margin-top: 0;
+            color: #004085;
+        }
+        .priority-high {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .priority-medium {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .visualization {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .visualization img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .visualization-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+        ul {
+            line-height: 1.8;
+        }
+        .metric-card {
+            display: inline-block;
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            min-width: 200px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .metric-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        @media print {
+            @page {
+                margin: 0.75in;
+                size: letter;
+            }
+            .visualization img {
+                max-width: 90%;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Synthetic Survey System Testing Results</h1>
+<p><strong>Date:</strong> January 5, 2026<br>
+<strong>Project:</strong> Kantar Synthetic Survey Replica<br>
+<strong>Author:</strong> Mark Stent<br>
+<strong>Purpose:</strong> Present testing results and experimental recommendations</p>
+
+<div class="summary-box">
+    <h3>Executive Summary</h3>
+    <p>We tested the synthetic survey system against 400 real Czech consumers across 7 question types. <strong>Results show construct-specific performance</strong> - some question types work, others don't.</p>
+
+    <ul>
+        <li><strong>✓ WORKS (2/7):</strong> Excitement, Relevance</li>
+        <li><strong>⚠ PARTIAL (1/7):</strong> Purchase Intent</li>
+        <li><strong>✗ FAILS (4/7):</strong> Believability, Uniqueness, Likeability, Value</li>
+    </ul>
+</div>
+
+<h2>Methodology Overview</h2>
+
+<div class="summary-box">
+    <h3>How the System Works</h3>
+
+    <p>The synthetic survey system uses a three-stage process to simulate human survey responses:</p>
+
+    <h4>1. Persona Generation</h4>
+    <p>Synthetic respondents are generated with realistic demographics and psychographics including age, gender, occupation, category buyer behavior, brand preferences, and inertia levels. Each persona is screened using the same criteria as human recruitment to ensure comparability.</p>
+
+    <h4>2. LLM-Powered Response Generation</h4>
+    <p>For each question, a large language model (GPT-4.1) receives:</p>
+    <ul>
+        <li>The persona's complete demographic and psychographic profile</li>
+        <li>The product concept description (visual + text)</li>
+        <li>The survey question</li>
+    </ul>
+    <p>The LLM generates a natural language response expressing how that persona would feel about the concept. Temperature is set to 0.5 to balance consistency with realistic variation.</p>
+
+    <h4>3. Semantic Similarity Rating (SSR)</h4>
+    <p>The LLM's free-text response is converted to a numerical scale rating using semantic similarity:</p>
+    <ul>
+        <li>Each scale point has predefined "anchor text" (e.g., "Extremely exciting" for top box, "Not at all exciting" for bottom box)</li>
+        <li>Both the LLM response and anchor texts are converted to high-dimensional embeddings using OpenAI's text-embedding-3-small model (1536 dimensions)</li>
+        <li>Cosine similarity is calculated between the response and each anchor</li>
+        <li>The response is assigned to the closest matching anchor point</li>
+    </ul>
+
+    <h4>Validation Approach</h4>
+    <p>System performance is measured by comparing synthetic responses to ground truth data from 400 real Czech consumers across 8 lottery scratchcard concepts:</p>
+    <ul>
+        <li><strong>Accuracy:</strong> Mean absolute error and bias between synthetic and human response distributions</li>
+        <li><strong>Consistency:</strong> KL Divergence measuring how well synthetic distributions match human distributions (target: KL < 0.20)</li>
+        <li><strong>Correlation:</strong> Pearson correlation between concept rankings (target: r > 0.85)</li>
+    </ul>
+</div>
+
+<div class="key-finding">
+    <h3>Key Finding</h3>
+    <p>The systematic conservative bias is NOT universal - it's <strong>construct-specific</strong>. This suggests the issue is in how the LLM interprets different question types, not the SSR methodology itself.</p>
+</div>
+
+<h2>1. Question Definitions</h2>
+
+<p>The synthetic survey system was tested across 7 standard market research constructs:</p>
+
+<table>
+    <tr>
+        <th>Question Type</th>
+        <th>Definition</th>
+        <th>What It Measures</th>
+        <th>Scale</th>
+    </tr>
+    <tr>
+        <td><strong>Excitement</strong></td>
+        <td>How excited does this concept make you feel?</td>
+        <td>Emotional engagement and enthusiasm level</td>
+        <td>4-point</td>
+    </tr>
+    <tr>
+        <td><strong>Relevance</strong></td>
+        <td>How relevant is this product to you personally?</td>
+        <td>Personal fit and applicability to respondent's life</td>
+        <td>5-point</td>
+    </tr>
+    <tr>
+        <td><strong>Purchase Intent</strong></td>
+        <td>How likely are you to purchase this product at the stated price?</td>
+        <td>Willingness to buy and conversion likelihood</td>
+        <td>5-point</td>
+    </tr>
+    <tr>
+        <td><strong>Believability</strong></td>
+        <td>How believable are the product claims and features?</td>
+        <td>Credibility and trustworthiness of concept description</td>
+        <td>4-point</td>
+    </tr>
+    <tr>
+        <td><strong>Uniqueness</strong></td>
+        <td>How new and different is this product compared to others?</td>
+        <td>Perceived novelty and differentiation in category</td>
+        <td>5-point</td>
+    </tr>
+    <tr>
+        <td><strong>Likeability</strong></td>
+        <td>How much do you like this product concept overall?</td>
+        <td>General positive or negative sentiment</td>
+        <td>6-point</td>
+    </tr>
+    <tr>
+        <td><strong>Value for Money</strong></td>
+        <td>Does this product offer good value for the price?</td>
+        <td>Perceived worth relative to cost and alternatives</td>
+        <td>5-point</td>
+    </tr>
+</table>
+
+<h2>2. Overall Performance Metrics</h2>
+
+<div style="text-align: center;">
+    <div class="metric-card">
+        <div class="metric-value">41.4%</div>
+        <div class="metric-label">Correlation<br>(Target: >85%)</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">0.275</div>
+        <div class="metric-label">Mean KL Divergence<br>(Target: <0.20)</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">2/7</div>
+        <div class="metric-label">Questions Passing<br>(29%)</div>
+    </div>
+</div>
+
+<h2>3. Accuracy Analysis</h2>
+
+<div class="visualization">
+    <img src="presentation_accuracy.png" alt="Accuracy Comparison">
+    <div class="visualization-caption">
+        Figure 1: Accuracy comparison showing which questions work (dark colors) vs fail (light/red colors).
+        Left panel shows ground truth vs synthetic means. Right panel shows bias magnitude.
+    </div>
+</div>
+
+<h3>What Works ✓</h3>
+<div class="works">
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Definition</th>
+            <th>Accuracy</th>
+            <th>Consistency</th>
+            <th>Why It Works</th>
+        </tr>
+        <tr>
+            <td><strong>Excitement</strong></td>
+            <td>How excited does this concept make you feel? Measures emotional engagement and enthusiasm level.</td>
+            <td>-13% bias</td>
+            <td>KL=0.11</td>
+            <td>Direct emotional response, 4-level scale</td>
+        </tr>
+        <tr>
+            <td><strong>Relevance</strong></td>
+            <td>How relevant is this product to you personally? Measures personal fit and applicability to the respondent's life.</td>
+            <td>+11% bias</td>
+            <td>KL=0.08</td>
+            <td>Personal fit ("relevant to me"), clear progression</td>
+        </tr>
+    </table>
+    <p><strong>Pattern:</strong> Concrete, emotional, personally-framed questions with simple semantic progressions.</p>
+</div>
+
+<h3>What Partially Works ⚠</h3>
+<div class="partial">
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Definition</th>
+            <th>Accuracy</th>
+            <th>Consistency</th>
+            <th>Issue</th>
+        </tr>
+        <tr>
+            <td><strong>Purchase Intent</strong></td>
+            <td>How likely are you to purchase this product at the stated price? Measures willingness to buy and conversion likelihood.</td>
+            <td>+16% bias</td>
+            <td>KL=0.18</td>
+            <td>Good distribution match, but overestimates intent</td>
+        </tr>
+    </table>
+</div>
+
+<h3>What Doesn't Work ✗</h3>
+<div class="fails">
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Definition</th>
+            <th>Accuracy</th>
+            <th>Consistency</th>
+            <th>Why It Fails</th>
+        </tr>
+        <tr>
+            <td><strong>Believability</strong></td>
+            <td>How believable are the product claims and features? Measures credibility and trustworthiness of the concept description.</td>
+            <td>-26% bias</td>
+            <td>KL=0.52</td>
+            <td>Requires trust judgment, cultural context</td>
+        </tr>
+        <tr>
+            <td><strong>Uniqueness</strong></td>
+            <td>How new and different is this product compared to others in the category? Measures perceived novelty and differentiation.</td>
+            <td>-33% bias</td>
+            <td>KL=0.47</td>
+            <td>Needs category expertise, wrong reference frame</td>
+        </tr>
+        <tr>
+            <td><strong>Likeability</strong></td>
+            <td>How much do you like this product concept overall? Measures general positive or negative sentiment toward the product.</td>
+            <td>-16% bias</td>
+            <td>KL=0.32</td>
+            <td>Abstract preference, 6-level scale issues</td>
+        </tr>
+        <tr>
+            <td><strong>Value for Money</strong></td>
+            <td>Does this product offer good value for the price? Measures perceived worth relative to cost and competitive alternatives.</td>
+            <td>-16% bias</td>
+            <td>KL=0.24</td>
+            <td>Value judgment, requires market knowledge</td>
+        </tr>
+    </table>
+    <p><strong>Pattern:</strong> Abstract evaluative judgments requiring cultural/market context.</p>
+</div>
+
+<h2>4. Consistency Analysis (Distribution Matching)</h2>
+
+<div class="visualization">
+    <img src="presentation_consistency.png" alt="Consistency Analysis">
+    <div class="visualization-caption">
+        Figure 2: KL Divergence scores showing distribution matching quality.
+        Green zone (KL < 0.20) = acceptable. Red/orange bars = poor distribution match.
+    </div>
+</div>
+
+<p><strong>Results:</strong> 3 out of 7 questions achieve acceptable distribution matching (KL < 0.20):</p>
+<ul>
+    <li><strong>Relevance:</strong> KL=0.08 (excellent match)</li>
+    <li><strong>Excitement:</strong> KL=0.11 (good match)</li>
+    <li><strong>Purchase Intent:</strong> KL=0.18 (acceptable match)</li>
+</ul>
+
+<h2>5. Correlation Analysis</h2>
+
+<div class="visualization">
+    <img src="presentation_correlation.png" alt="Correlation Analysis">
+    <div class="visualization-caption">
+        Figure 3: Scatter plot showing correlation between ground truth and synthetic means.
+        Points near the diagonal line indicate good agreement. Current correlation: 41.4% vs 85% target.
+    </div>
+</div>
+
+<h2>6. The Pattern We Discovered</h2>
+
+<table>
+    <tr>
+        <th>SSR Works Well For</th>
+        <th>SSR Struggles With</th>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>Concrete behavioral questions</li>
+                <li>Emotional/feeling-based responses</li>
+                <li>Personal fit assessments ("relevant to me")</li>
+                <li>Questions with clear semantic progressions</li>
+                <li>4-5 level scales</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Abstract evaluative judgments</li>
+                <li>Questions requiring cultural/market context</li>
+                <li>Category expertise-dependent assessments</li>
+                <li>Multi-level scales (6+ levels)</li>
+                <li>Trust/credibility judgments</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2>7. What We Learned</h2>
+
+<h3>From Working Questions</h3>
+<ul>
+    <li>Concrete emotional questions are reliable</li>
+    <li>Personal framing ("to me") helps accuracy</li>
+    <li>4-5 level scales work better than 6+ levels</li>
+    <li>Clear semantic progressions enable good SSR mapping</li>
+</ul>
+
+<h3>From Failing Questions</h3>
+<ul>
+    <li>Abstract evaluations need cultural anchoring</li>
+    <li>Category expertise can't be easily simulated by LLM</li>
+    <li>Conservative bias specifically affects trust/novelty judgments</li>
+    <li>Distribution shape matters as much as the mean</li>
+</ul>
+
+<h3>From The Pattern</h3>
+<ul>
+    <li>This is <strong>NOT</strong> a universal SSR failure</li>
+    <li>This is a construct-specific LLM interpretation issue</li>
+    <li>We can potentially fix with better prompts/context</li>
+    <li>Or we can identify which question types work best with SSR</li>
+</ul>
+
+<h2>8. Conclusion</h2>
+
+<div class="summary-box">
+    <h3>Bottom Line</h3>
+    <p><strong>Good News:</strong></p>
+    <ul>
+        <li>SSR methodology works (proven by 2/7 success rate)</li>
+        <li>Clear construct-specific pattern discovered</li>
+        <li>Experimental roadmap is straightforward</li>
+        <li>Can diagnose root cause in 2-3 hours</li>
+    </ul>
+
+    <p><strong>Challenge:</strong></p>
+    <ul>
+        <li>Only 29% of questions work currently</li>
+        <li>Abstract questions need significant improvement</li>
+        <li>Cultural context is harder to simulate than expected</li>
+    </ul>
+
+    <p><strong>Recommendation:</strong></p>
+    <ul>
+        <li>Run diagnostic experiments to understand root cause</li>
+        <li>Then decide on optimization vs question selection approach</li>
+        <li>Don't assume deployment timeline yet - learn first</li>
+    </ul>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<p style="text-align: center; color: #666;">
+    <strong>Report Generated:</strong> January 5, 2026<br>
+    <strong>Supporting Files:</strong> PRESENTATION_GUIDE.md, RESULTS_SUMMARY.md, PRESENTATION_REPORT.txt<br>
+    <strong>Raw Data:</strong> data/validation/validation_metrics.csv
+</p>
+
+</body>
+</html>

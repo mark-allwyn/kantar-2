@@ -31,6 +31,8 @@ setup(
         "pytest>=7.4.0",
         "pytest-cov>=4.1.0",
         "tqdm>=4.65.0",
+        "click>=8.1.0",
+        "tabulate>=0.9.0",
     ],
     extras_require={
         "dev": [
@@ -38,5 +40,10 @@ setup(
             "flake8>=6.0.0",
             "mypy>=1.0.0",
         ]
+    },
+    entry_points={
+        "console_scripts": [
+            "kantar-synthetic=src.cli.main:main",
+        ],
     },
 )

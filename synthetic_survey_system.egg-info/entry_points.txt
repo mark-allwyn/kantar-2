@@ -1,0 +1,2 @@
+[console_scripts]
+kantar-synthetic = src.cli.main:main

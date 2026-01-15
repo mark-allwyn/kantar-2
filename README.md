@@ -14,6 +14,7 @@ This system creates high-quality synthetic survey data that mimics real human re
 
 ## Key Features
 
+### Core Functionality
 - **Fully Generalized**: Works with all Kantar survey formats (validated on 4 standard studies, 15 markets)
 - **Template-Based**: Automatically matches ground truth Excel column structure
 - **Concept Extraction**: Uses GPT-4o to extract concepts from PPTX files
@@ -24,6 +25,13 @@ This system creates high-quality synthetic survey data that mimics real human re
 - **Comprehensive Validation**: KL divergence, KS similarity, correlation metrics vs ground truth
 - **HTML Reporting**: Validation reports with metrics and visualizations
 - **Robust Matching**: Handles concept name variations across studies (5-24 concepts)
+
+### Production Features
+- **✨ Real-Time Progress**: Progress bars with ETA for all generations
+- **✨ Checkpoint & Resume**: Automatic checkpointing, resume from interruptions
+- **✨ Production CLI**: Unified command-line interface with simplified workflows
+- **✨ Status Tracking**: Check active/completed/resumed generations anytime
+- **✨ Study Management**: List, verify, and manage Kantar studies
 - **Production Ready**: Validated across 4 standard studies with consistent quality
 
 ## Project Structure
@@ -66,7 +74,107 @@ kantar-replica/
 └── .archive/                # Archived old experiments
 ```
 
-## Installation
+## Quick Start Tutorial
+
+### 1. Installation
+
+```bash
+# Clone the repository
+cd kantar-replica
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install CLI tool (optional, for easier commands)
+pip install -e .
+
+# Set up OpenAI API key
+export OPENAI_API_KEY="your-api-key-here"
+```
+
+### 2. List Available Studies
+
+```bash
+# See all complete studies ready for generation
+python3 -m src.cli.main study list --complete-only
+```
+
+Output example:
+```
+    Study ID     Name                                      Complete    Markets
+--  -----------  ----------------------------------------  ----------  ------------------
+✓   61405445-01  61405445-01_QN_iGaming Concept Evaluate   5/5         AT, CZ, GR, UK, US
+✓   61407017     61407017_QN_IdeaEvaluate - 24 ideas       3/3         CZ, UK, US
+```
+
+### 3. Generate Synthetic Data
+
+**Quick generation (recommended for getting started):**
+```bash
+# Generate 50 respondents with ground truth demographics
+python3 -m src.cli.main quick-gen 61405445-01 US
+
+# Progress bar will show:
+# Generating US respondents: 40%|████  | 20/50 [10:30<15:45, 2.1 resp/min]
+```
+
+**Advanced generation with checkpointing:**
+```bash
+# Generate with checkpoint every 10 respondents (resume if interrupted)
+python3 -m src.cli.main generate study 61405445-01 US -n 50 --checkpoint-every 10
+
+# Close your machine anytime - checkpoint saves your progress!
+```
+
+### 4. Check Generation Status
+
+```bash
+# See what's running, completed, or needs to be resumed
+python3 scripts/check_generation_status.py
+```
+
+Output shows:
+- Active checkpoints (incomplete generations you can resume)
+- Running processes (currently generating)
+- Completed files (ready for validation)
+
+### 5. Resume Interrupted Generation
+
+```bash
+# If you closed your machine during generation, resume where you left off
+python3 -m src.cli.main quick-gen 61405445-01 US --resume
+
+# The system automatically detects the checkpoint and continues from there!
+```
+
+### 6. Validate Synthetic Data
+
+```bash
+# Auto-detect latest synthetic file and validate
+python3 -m src.cli.main quick-validate 61405445-01 US
+
+# Generate HTML validation report
+python3 -m src.cli.main quick-validate 61405445-01 US --report
+```
+
+### 7. View Results
+
+```bash
+# Synthetic data (Kantar Excel format)
+ls data/synthetic/kantar/61405445-01/US/*.xlsx
+
+# Validation results (JSON)
+ls data/synthetic/kantar/61405445-01/US/validation_*.json
+
+# HTML reports (if generated)
+ls data/synthetic/kantar/61405445-01/US/*.html
+```
+
+**That's it!** You've generated and validated synthetic survey data.
+
+---
+
+## Detailed Installation & Setup
 
 1. **Install dependencies:**
    ```bash
@@ -89,6 +197,12 @@ kantar-replica/
 
 ## Usage
 
+### Production CLI (Recommended)
+
+The system has a unified production CLI with built-in progress tracking, checkpointing, and validation.
+
+**See [CLI_REFERENCE.md](CLI_REFERENCE.md) for complete documentation.**
+
 ### Two Modes of Operation
 
 The system supports two modes:
@@ -97,16 +211,28 @@ The system supports two modes:
 
 ### Mode 1: Generate from Existing Studies (Ground Truth)
 
-**Basic generation (generic demographics):**
+**Quick generation (recommended):**
 ```bash
-python -m src.kantar.survey_runner \
-  --study 61405445-01 \
-  --market US \
-  --num-respondents 50 \
-  --model gpt-4o-mini
+# Generate 50 respondents with ground truth demographics (default)
+python3 -m src.cli.main quick-gen 61405445-01 US
+
+# With checkpointing and resume
+python3 -m src.cli.main quick-gen 61405445-01 US --resume
 ```
 
-**With ground truth demographics:**
+**Advanced generation with full control:**
+```bash
+# Generate with custom settings
+python3 -m src.cli.main generate study 61405445-01 US -n 50 \
+  --use-gt-demographics \
+  --checkpoint-every 10 \
+  --model gpt-4o-mini
+
+# Resume interrupted generation
+python3 -m src.cli.main generate study 61405445-01 US -n 50 --resume
+```
+
+**Legacy Python API (still supported):**
 ```bash
 python -m src.kantar.survey_runner \
   --study 61405445-01 \
@@ -116,18 +242,21 @@ python -m src.kantar.survey_runner \
   --use-gt-demographics
 ```
 
-**Generate for all markets in a study:**
-```bash
-python -m src.kantar.survey_runner \
-  --study 61405445-01 \
-  --all-markets \
-  --num-respondents 50 \
-  --model gpt-4o-mini
-```
-
 ### Mode 2: Generate from Custom Concepts (No Ground Truth)
 
 Test brand new concepts without needing PPTX files or historical data.
+
+**CLI approach (recommended):**
+```bash
+# List available market profiles
+python3 -m src.cli.main profile list
+
+# Generate from concepts file
+python3 -m src.cli.main generate custom my_concepts.json -n 100 \
+  --profile US_gaming \
+  --validate-concepts \
+  --output-name my_test
+```
 
 **Step 1: Create a concepts JSON file** (`my_concepts.json`):
 ```json
@@ -180,20 +309,33 @@ Available profiles:
 
 ### Validate and Generate Reports
 
-**Run validation:**
+**Quick validation (recommended):**
 ```bash
-python -m src.kantar.validation_runner \
-  --study 61405445-01 \
-  --market US \
-  --synthetic data/synthetic/kantar/61405445-01/US/synthetic_US_50resp_*.xlsx
+# Auto-detect latest synthetic file and validate
+python3 -m src.cli.main quick-validate 61405445-01 US
+
+# Generate HTML validation report
+python3 -m src.cli.main quick-validate 61405445-01 US --report
 ```
 
-**Validation with HTML report:**
+**Advanced validation with custom files:**
+```bash
+# Validate specific synthetic file
+python3 -m src.cli.main validate study 61405445-01 US \
+  --synthetic path/to/synthetic.xlsx \
+  --report
+
+# Generate JSON report
+python3 -m src.cli.main validate study 61405445-01 US \
+  --report --report-format json
+```
+
+**Legacy Python API (still supported):**
 ```bash
 python -m src.kantar.validation_runner \
   --study 61405445-01 \
   --market US \
-  --synthetic data/synthetic/*.xlsx \
+  --synthetic data/synthetic/kantar/61405445-01/US/synthetic_US_50resp_*.xlsx \
   --generate-report
 ```
 
@@ -403,6 +545,64 @@ Kantar Excel Formatter → Exact GT column structure
    ↓
 Validation Runner → Metrics vs Ground Truth
 ```
+
+## Production CLI Features
+
+### Progress Tracking
+All generation commands display real-time progress bars with:
+- Progress percentage and completion count
+- Generation rate (respondents/minute)
+- Estimated time remaining (ETA)
+- Visual progress bar
+
+```bash
+# Example progress output:
+Generating US respondents: 40%|████      | 20/50 [10:30<15:45, 107.3s/resp]
+```
+
+### Checkpoint and Resume
+Long-running generations automatically save checkpoints:
+- Saves every N respondents (configurable, default: 10)
+- Automatically resumes from last checkpoint on failure
+- Works across machine restarts
+- No lost work on API errors or interruptions
+
+```bash
+# Start generation with checkpointing
+python3 -m src.cli.main generate study 61405445-01 US -n 50 --checkpoint-every 10
+
+# Close machine anytime, then resume later:
+python3 -m src.cli.main generate study 61405445-01 US -n 50 --resume
+```
+
+### Status Checking
+Track all active and completed generations:
+
+```bash
+# Check what's running, checkpointed, or completed
+python3 scripts/check_generation_status.py
+```
+
+Shows:
+- Active checkpoints (incomplete, can be resumed)
+- Running processes (currently generating)
+- Completed files (ready for validation)
+
+### Study Management
+Discover and verify study structure:
+
+```bash
+# List all available studies
+python3 -m src.cli.main study list
+
+# Show detailed study information
+python3 -m src.cli.main study info 61405445-01
+
+# Verify study structure before generation
+python3 -m src.cli.main study verify 61405445-01 --verbose
+```
+
+**See [CLI_REFERENCE.md](CLI_REFERENCE.md) for complete CLI documentation.**
 
 ## Documentation
 

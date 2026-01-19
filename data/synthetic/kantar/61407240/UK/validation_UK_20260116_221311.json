@@ -1,0 +1,177 @@
+{
+  "study_id": "61407240",
+  "market": "UK",
+  "timestamp": "2026-01-16T22:13:10.982137",
+  "ground_truth_file": "/Users/mark.stent/Projects/python/2025/sage/data/kantar-survey-source/61407240_QN_DBG Thunderball Concept Evaluate/UK/KAP400236776_Thinderball_UK_Respondent_Data_1.xlsx",
+  "synthetic_file": "data/synthetic/kantar/61407240/UK/synthetic_UK_200resp_20260116_221139.xlsx",
+  "respondent_counts": {
+    "ground_truth": 300,
+    "synthetic": 146
+  },
+  "column_counts": {
+    "ground_truth": 71,
+    "synthetic": 62,
+    "common": 25,
+    "questions": 20
+  },
+  "question_metrics": [
+    {
+      "column": "(SEX_NONBINARY) SEX",
+      "kl_divergence": 0.0013108857182897414,
+      "ks_statistic": 0.011278538812785389,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(AGEQUOTA) AGEBANDS",
+      "kl_divergence": 3.4585110268668204,
+      "ks_statistic": 0.17,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(OCCUPATION_SCR) OCCUPATION SCREENER",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(GROUPFMR) SAMPLE TYPE",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(CATBUYER) PRODUCTS / SERVICES BOUGHT",
+      "kl_divergence": 4.409095996468455,
+      "ks_statistic": 0.18378995433789955,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(BRDBUY) BRANDS BOUGHT",
+      "kl_divergence": 2.9625924265954557,
+      "ks_statistic": 0.048995433789954336,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - UK_Daily Millionaire  ",
+      "kl_divergence": 0.1740075974211877,
+      "ks_statistic": 0.2145662100456621,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - UK_Thunderball Inspired  ",
+      "kl_divergence": 0.11838782392821261,
+      "ks_statistic": 0.1710502283105023,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - UK_Daily Millionaire  ",
+      "kl_divergence": 1.7349494509723646,
+      "ks_statistic": 0.16534246575342465,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - UK_Thunderball Inspired  ",
+      "kl_divergence": 2.0146686805498017,
+      "ks_statistic": 0.158675799086758,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - UK_Daily Millionaire  ",
+      "kl_divergence": 0.07591018437273436,
+      "ks_statistic": 0.1391324200913242,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - UK_Thunderball Inspired  ",
+      "kl_divergence": 0.03292421584860733,
+      "ks_statistic": 0.10712328767123287,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - UK_Daily Millionaire  ",
+      "kl_divergence": 0.33348898089377466,
+      "ks_statistic": 0.24817351598173515,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - UK_Thunderball Inspired  ",
+      "kl_divergence": 1.7880447207385792,
+      "ks_statistic": 0.2733333333333333,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - UK_Daily Millionaire  ",
+      "kl_divergence": 0.2105605375369164,
+      "ks_statistic": 0.28187214611872147,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - UK_Thunderball Inspired  ",
+      "kl_divergence": 0.23000134376743409,
+      "ks_statistic": 0.23077625570776256,
+      "correlation": null,
+      "gt_count": 300,
+      "syn_count": 146
+    },
+    {
+      "column": "(LIKES_STD) LIKES - UK_Daily Millionaire  ",
+      "kl_divergence": 17.853865644306932,
+      "ks_statistic": 0.6088936791600028,
+      "correlation": null,
+      "gt_count": 197,
+      "syn_count": 146
+    },
+    {
+      "column": "(LIKES_STD) LIKES - UK_Thunderball Inspired  ",
+      "kl_divergence": 17.83678413058834,
+      "ks_statistic": 0.578193449690564,
+      "correlation": null,
+      "gt_count": 197,
+      "syn_count": 146
+    }
+  ],
+  "aggregate_metrics": {
+    "mean_kl_divergence": 2.957505758142995,
+    "median_kl_divergence": 0.33348898089377466,
+    "mean_ks_statistic": 0.19951092877175902,
+    "ks_similarity": 0.800489071228241,
+    "mean_correlation": null,
+    "questions_validated": 18
+  },
+  "success_criteria": {
+    "kl_below_0_20": false,
+    "ks_similarity_above_0_85": false,
+    "correlation_above_0_85": false
+  },
+  "validation_file": "data/synthetic/kantar/61407240/UK/validation_UK_20260116_221311.json"
+}

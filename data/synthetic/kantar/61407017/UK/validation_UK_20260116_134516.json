@@ -1,0 +1,49 @@
+{
+  "study_id": "61407017",
+  "market": "UK",
+  "timestamp": "2026-01-16T13:45:16.886083",
+  "ground_truth_file": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61407017_QN_IdeaEvaluate - 24 ideas screening/UK/KAP400226181_24 ideas screening_UK_Respondent_Data_1.xlsx",
+  "synthetic_file": "data/synthetic/kantar/61407017/UK/synthetic_UK_50resp_20260116_131638.xlsx",
+  "respondent_counts": {
+    "ground_truth": 601,
+    "synthetic": 48
+  },
+  "column_counts": {
+    "ground_truth": 223,
+    "synthetic": 223,
+    "common": 223,
+    "questions": 148
+  },
+  "question_metrics": [
+    {
+      "column": "(AGEQUOTA) AGEBANDS",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 601,
+      "syn_count": 48
+    },
+    {
+      "column": "(SEX_NONBINARY) SEX",
+      "kl_divergence": 0.03051118054481831,
+      "ks_statistic": 0.046623682750970605,
+      "correlation": null,
+      "gt_count": 601,
+      "syn_count": 48
+    }
+  ],
+  "aggregate_metrics": {
+    "mean_kl_divergence": 0.015255590272409155,
+    "median_kl_divergence": 0.03051118054481831,
+    "mean_ks_statistic": 0.023311841375485302,
+    "ks_similarity": 0.9766881586245147,
+    "mean_correlation": null,
+    "questions_validated": 2
+  },
+  "success_criteria": {
+    "kl_below_0_20": true,
+    "ks_similarity_above_0_85": true,
+    "correlation_above_0_85": false
+  },
+  "validation_file": "data/synthetic/kantar/61407017/UK/validation_UK_20260116_134516.json"
+}

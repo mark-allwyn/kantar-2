@@ -1,4 +1,4 @@
-# Synthetic Survey Data Generation System
+# S.A.G.E – Synthetic Audience Generation Engine
 ## Technical Report & Experimental Findings
 
 **Date:** January 16, 2026
@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-This report documents the development and validation of a synthetic survey data generation system designed to reduce dependency on external market research providers (specifically Kantar) for concept testing studies. The system uses Large Language Models (LLMs) combined with a novel Semantic Similarity Rating (SSR) methodology to generate realistic survey responses that statistically match real human data.
+This report documents the development and validation of **S.A.G.E** (Synthetic Audience Generation Engine), a system designed to reduce dependency on external market research providers for concept testing studies. S.A.G.E uses Large Language Models (LLMs) combined with a novel Semantic Similarity Rating (SSR) methodology to generate realistic survey responses that statistically match real human data.
 
 ### Key Findings
 
@@ -356,9 +356,9 @@ Each scale uses **6 reference sets** of anchor texts to improve robustness. Exam
 ### 7.1 System Architecture
 
 ```
-kantar-replica/
+sage/
 ├── src/
-│   ├── kantar/           # Kantar-specific formatting & validation
+│   ├── kantar/           # Survey format-specific formatting & validation
 │   ├── llm/              # LLM client & prompts
 │   ├── persona/          # Demographic generation
 │   ├── scales/           # Scale definitions & anchors
@@ -428,5 +428,4 @@ data/synthetic/kantar/61407240/UK/validation_UK_20260116_134516.json
 ---
 
 **Report Generated:** January 16, 2026
-**System Version:** 0.1.0
-**Contact:** [Your Name]
+**S.A.G.E Version:** 1.0.0

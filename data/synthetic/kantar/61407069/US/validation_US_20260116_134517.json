@@ -1,0 +1,129 @@
+{
+  "study_id": "61407069",
+  "market": "US",
+  "timestamp": "2026-01-16T13:45:16.994906",
+  "ground_truth_file": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61407069_QN_Allwyn ConceptEvaluate - Tech enabled ScratchCards/US/KAP400228784_Tech enabled_US_Respondent_Data_1.xlsx",
+  "synthetic_file": "data/synthetic/kantar/61407069/US/synthetic_US_50resp_20260116_124534.xlsx",
+  "respondent_counts": {
+    "ground_truth": 805,
+    "synthetic": 29
+  },
+  "column_counts": {
+    "ground_truth": 227,
+    "synthetic": 227,
+    "common": 227,
+    "questions": 175
+  },
+  "question_metrics": [
+    {
+      "column": "(SEX_NONBINARY) SEX",
+      "kl_divergence": 0.04557731194133248,
+      "ks_statistic": 0.06104090811736989,
+      "correlation": null,
+      "gt_count": 805,
+      "syn_count": 29
+    },
+    {
+      "column": "(AGEQUOTA) AGEBANDS",
+      "kl_divergence": 6.956454751385088,
+      "ks_statistic": 0.32919254658385094,
+      "correlation": null,
+      "gt_count": 805,
+      "syn_count": 29
+    },
+    {
+      "column": "(OCCUPATION_SCR) OCCUPATION SCREENER",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 805,
+      "syn_count": 29
+    },
+    {
+      "column": "(GROUPFMR) SAMPLE TYPE",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 805,
+      "syn_count": 29
+    },
+    {
+      "column": "(CATBUYER) PRODUCTS / SERVICES BOUGHT",
+      "kl_divergence": 7.309554422007942,
+      "ks_statistic": 0.24934675519383165,
+      "correlation": null,
+      "gt_count": 805,
+      "syn_count": 29
+    },
+    {
+      "column": "(BRDBUY) BRANDS BOUGHT",
+      "kl_divergence": 7.507536564864823,
+      "ks_statistic": 0.19588777040051403,
+      "correlation": null,
+      "gt_count": 805,
+      "syn_count": 29
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - US AR Christmas Mini Game  ",
+      "kl_divergence": 0.4272598548105594,
+      "ks_statistic": 0.02829648298774201,
+      "correlation": null,
+      "gt_count": 301,
+      "syn_count": 29
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - US AR Christmas Mini Game  ",
+      "kl_divergence": 1.9037461977782333,
+      "ks_statistic": 0.09634551495016612,
+      "correlation": null,
+      "gt_count": 301,
+      "syn_count": 29
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - US AR Christmas Mini Game  ",
+      "kl_divergence": 0.2180007735150979,
+      "ks_statistic": 0.24825294993699162,
+      "correlation": null,
+      "gt_count": 301,
+      "syn_count": 29
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - US AR Christmas Mini Game  ",
+      "kl_divergence": 1.2914014263336309,
+      "ks_statistic": 0.0664451827242525,
+      "correlation": null,
+      "gt_count": 301,
+      "syn_count": 29
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - US AR Christmas Mini Game  ",
+      "kl_divergence": 0.48641088016310463,
+      "ks_statistic": 0.42295795623782795,
+      "correlation": null,
+      "gt_count": 301,
+      "syn_count": 29
+    },
+    {
+      "column": "(LIKES_STD) LIKES - US AR Christmas Mini Game  ",
+      "kl_divergence": 17.661602886637137,
+      "ks_statistic": 0.5172413793103449,
+      "correlation": null,
+      "gt_count": 232,
+      "syn_count": 29
+    }
+  ],
+  "aggregate_metrics": {
+    "mean_kl_divergence": 3.6506287557864123,
+    "median_kl_divergence": 1.2914014263336309,
+    "mean_ks_statistic": 0.18458395387024096,
+    "ks_similarity": 0.815416046129759,
+    "mean_correlation": null,
+    "questions_validated": 12
+  },
+  "success_criteria": {
+    "kl_below_0_20": false,
+    "ks_similarity_above_0_85": false,
+    "correlation_above_0_85": false
+  },
+  "validation_file": "data/synthetic/kantar/61407069/US/validation_US_20260116_134517.json"
+}

@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/mark.stent/Projects/python/kantar-replica/analyze_responses.py", line 14, in <module>
-    from src.scales.registry import get_default_registry
-ImportError: cannot import name 'get_default_registry' from 'src.scales.registry' (/Users/mark.stent/Projects/python/kantar-replica/src/scales/registry.py)

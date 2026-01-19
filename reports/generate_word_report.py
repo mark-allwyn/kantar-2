@@ -1,4 +1,4 @@
-"""Generate Word document report for Synthetic Survey Generation System."""
+"""Generate Word document report for S.A.G.E - Synthetic Audience Generation Engine."""
 
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
@@ -42,7 +42,7 @@ def create_report():
     doc = Document()
 
     # Title
-    title = doc.add_heading('Synthetic Survey Data Generation System', 0)
+    title = doc.add_heading('S.A.G.E – Synthetic Audience Generation Engine', 0)
     subtitle = doc.add_paragraph('Technical Report & Experimental Findings')
     subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
@@ -808,12 +808,12 @@ def create_report():
     doc.add_paragraph()
     footer = doc.add_paragraph()
     footer.add_run(f'Report Generated: {datetime.now().strftime("%B %d, %Y")}').italic = True
-    footer.add_run('\nSystem Version: 0.1.0').italic = True
+    footer.add_run('\nS.A.G.E Version: 1.0.0').italic = True
 
     return doc
 
 if __name__ == '__main__':
     doc = create_report()
-    output_path = '/Users/mark.stent/Projects/python/2025/kantar-replica/reports/Synthetic_Survey_Generation_Report.docx'
+    output_path = '/Users/mark.stent/Projects/python/2025/sage/reports/SAGE_Technical_Report.docx'
     doc.save(output_path)
     print(f'Report saved to: {output_path}')

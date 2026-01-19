@@ -1,0 +1,273 @@
+{
+  "study_id": "61405445-01",
+  "market": "US",
+  "timestamp": "2026-01-15T13:15:51.535223",
+  "ground_truth_file": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61405445-01_QN_iGaming Concept Evaluate/US/KAP400231371_iGaming_US_Respondent_Data_1.xlsx",
+  "synthetic_file": "data/synthetic/kantar/61405445-01/US/synthetic_US_50resp_20260115_131337.xlsx",
+  "respondent_counts": {
+    "ground_truth": 250,
+    "synthetic": 45
+  },
+  "column_counts": {
+    "ground_truth": 149,
+    "synthetic": 149,
+    "common": 149,
+    "questions": 112
+  },
+  "question_metrics": [
+    {
+      "column": "(SEX_NONBINARY) SEX",
+      "kl_divergence": 0.0977040529284418,
+      "ks_statistic": 0.12755555555555556,
+      "correlation": null,
+      "gt_count": 250,
+      "syn_count": 45
+    },
+    {
+      "column": "(AGEQUOTA) AGEBANDS",
+      "kl_divergence": 0.00026995674734540606,
+      "ks_statistic": 0.011555555555555555,
+      "correlation": null,
+      "gt_count": 250,
+      "syn_count": 45
+    },
+    {
+      "column": "(OCCUPATION_SCR) OCCUPATION SCREENER",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 250,
+      "syn_count": 45
+    },
+    {
+      "column": "(GROUPFMR) SAMPLE TYPE",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 250,
+      "syn_count": 45
+    },
+    {
+      "column": "(CATBUYER) PRODUCTS / SERVICES BOUGHT",
+      "kl_divergence": 17.418538651539812,
+      "ks_statistic": 0.3497777777777778,
+      "correlation": null,
+      "gt_count": 250,
+      "syn_count": 45
+    },
+    {
+      "column": "(BRDBUY) BRANDS BOUGHT",
+      "kl_divergence": 0.20367015103904448,
+      "ks_statistic": 0.012,
+      "correlation": null,
+      "gt_count": 250,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNPURINT) UNPRICED PURCHASE INTENT - US Pulse Play  ",
+      "kl_divergence": 0.10873589927409444,
+      "ks_statistic": 0.1858858858858859,
+      "correlation": null,
+      "gt_count": 148,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNPURINT) UNPRICED PURCHASE INTENT - US Standard Or VIP Mode  ",
+      "kl_divergence": 0.10866124460699488,
+      "ks_statistic": 0.12222222222222222,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNPURINT) UNPRICED PURCHASE INTENT - US Happy Hour  ",
+      "kl_divergence": 0.19458151095892195,
+      "ks_statistic": 0.21777777777777776,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - US Pulse Play  ",
+      "kl_divergence": 0.04935159301193549,
+      "ks_statistic": 0.08648648648648649,
+      "correlation": null,
+      "gt_count": 148,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - US Standard Or VIP Mode  ",
+      "kl_divergence": 0.15616648036780156,
+      "ks_statistic": 0.24666666666666667,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - US Happy Hour  ",
+      "kl_divergence": 0.04405571911414223,
+      "ks_statistic": 0.10888888888888888,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNPRICEP) EXPECTED PRICE COMPARISON - US Pulse Play  ",
+      "kl_divergence": 0.31092884740984456,
+      "ks_statistic": 0.16531531531531532,
+      "correlation": null,
+      "gt_count": 148,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNPRICEP) EXPECTED PRICE COMPARISON - US Standard Or VIP Mode  ",
+      "kl_divergence": 0.2515734071795249,
+      "ks_statistic": 0.25555555555555554,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(UNPRICEP) EXPECTED PRICE COMPARISON - US Happy Hour  ",
+      "kl_divergence": 0.42619315912057204,
+      "ks_statistic": 0.24888888888888888,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - US Pulse Play  ",
+      "kl_divergence": 2.0623611765729164,
+      "ks_statistic": 0.10780780780780781,
+      "correlation": null,
+      "gt_count": 148,
+      "syn_count": 45
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - US Standard Or VIP Mode  ",
+      "kl_divergence": 0.1374362193781325,
+      "ks_statistic": 0.21555555555555556,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - US Happy Hour  ",
+      "kl_divergence": 0.5903164930927953,
+      "ks_statistic": 0.26222222222222225,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - US Pulse Play  ",
+      "kl_divergence": 8.941715812271234,
+      "ks_statistic": 0.7142642642642643,
+      "correlation": null,
+      "gt_count": 148,
+      "syn_count": 45
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - US Standard Or VIP Mode  ",
+      "kl_divergence": 0.8887295137204669,
+      "ks_statistic": 0.5466666666666666,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - US Happy Hour  ",
+      "kl_divergence": 9.706589208108225,
+      "ks_statistic": 0.6533333333333333,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - US Pulse Play  ",
+      "kl_divergence": 1.673176040144225,
+      "ks_statistic": 0.08783783783783784,
+      "correlation": null,
+      "gt_count": 148,
+      "syn_count": 45
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - US Standard Or VIP Mode  ",
+      "kl_divergence": 0.13189031787167912,
+      "ks_statistic": 0.03777777777777778,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - US Happy Hour  ",
+      "kl_divergence": 0.004791364364755378,
+      "ks_statistic": 0.03111111111111111,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - US Pulse Play  ",
+      "kl_divergence": 0.3359780923768446,
+      "ks_statistic": 0.2457957957957958,
+      "correlation": null,
+      "gt_count": 148,
+      "syn_count": 45
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - US Standard Or VIP Mode  ",
+      "kl_divergence": 0.4822559035530256,
+      "ks_statistic": 0.4111111111111111,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - US Happy Hour  ",
+      "kl_divergence": 0.6843943340525048,
+      "ks_statistic": 0.43333333333333335,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 45
+    },
+    {
+      "column": "(LIKES_STD) LIKES - US Pulse Play  ",
+      "kl_divergence": 18.412744728095717,
+      "ks_statistic": 0.4444444444444444,
+      "correlation": null,
+      "gt_count": 108,
+      "syn_count": 45
+    },
+    {
+      "column": "(LIKES_STD) LIKES - US Standard Or VIP Mode  ",
+      "kl_divergence": 18.30566012628534,
+      "ks_statistic": 0.45081967213114754,
+      "correlation": null,
+      "gt_count": 122,
+      "syn_count": 45
+    },
+    {
+      "column": "(LIKES_STD) LIKES - US Happy Hour  ",
+      "kl_divergence": 18.297043055920735,
+      "ks_statistic": 0.4375,
+      "correlation": null,
+      "gt_count": 128,
+      "syn_count": 45
+    }
+  ],
+  "aggregate_metrics": {
+    "mean_kl_divergence": 3.3341837686369025,
+    "median_kl_divergence": 0.31092884740984456,
+    "mean_ks_statistic": 0.2406052503322995,
+    "ks_similarity": 0.7593947496677005,
+    "mean_correlation": null,
+    "questions_validated": 30
+  },
+  "success_criteria": {
+    "kl_below_0_20": false,
+    "ks_similarity_above_0_85": false,
+    "correlation_above_0_85": false
+  },
+  "validation_file": "data/synthetic/kantar/61405445-01/US/validation_US_20260115_131551.json"
+}

@@ -1,0 +1,27 @@
+{
+  "study_id": "61407069",
+  "study_name": "61407069_QN_Allwyn ConceptEvaluate - Tech enabled ScratchCards",
+  "market_code": "US",
+  "num_respondents": 50,
+  "num_concepts": 8,
+  "concepts": [
+    "Personalised Video Scratchcard",
+    "Augmented Reality Christmas Scratchcard",
+    "AR Christmas Mini Game",
+    "Christmas Lip Sync",
+    "Christmas Duet",
+    "Christmas Cake Surprise",
+    "Christmas Cake Surprise",
+    "Valentine Message"
+  ],
+  "concept_mapping": {
+    "AR Christmas Mini Game": "US AR Christmas Mini Game",
+    "Christmas Lip Sync": "US Christmas Lip Sync",
+    "Christmas Duet": "US Christmas Duet"
+  },
+  "model": "gpt-4o-mini",
+  "num_concepts_per_respondent": 3,
+  "timestamp": "20260116_124534",
+  "ground_truth_path": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61407069_QN_Allwyn ConceptEvaluate - Tech enabled ScratchCards/US/KAP400228784_Tech enabled_US_Respondent_Data_1.xlsx",
+  "synthetic_path": "data/synthetic/kantar/61407069/US/synthetic_US_50resp_20260116_124534.xlsx"
+}

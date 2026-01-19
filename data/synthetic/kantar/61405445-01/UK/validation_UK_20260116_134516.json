@@ -1,0 +1,273 @@
+{
+  "study_id": "61405445-01",
+  "market": "UK",
+  "timestamp": "2026-01-16T13:45:16.608098",
+  "ground_truth_file": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61405445-01_QN_iGaming Concept Evaluate/UK/KAP400231370_iGaming_UK_Respondent_Data_1.xlsx",
+  "synthetic_file": "data/synthetic/kantar/61405445-01/UK/synthetic_UK_50resp_20260116_132343.xlsx",
+  "respondent_counts": {
+    "ground_truth": 251,
+    "synthetic": 49
+  },
+  "column_counts": {
+    "ground_truth": 149,
+    "synthetic": 149,
+    "common": 149,
+    "questions": 112
+  },
+  "question_metrics": [
+    {
+      "column": "(SEX_NONBINARY) SEX",
+      "kl_divergence": 0.13787384846779155,
+      "ks_statistic": 0.016668021790389464,
+      "correlation": null,
+      "gt_count": 251,
+      "syn_count": 49
+    },
+    {
+      "column": "(AGEQUOTA) AGEBANDS",
+      "kl_divergence": 0.03468681754501006,
+      "ks_statistic": 0.1301731848117733,
+      "correlation": null,
+      "gt_count": 251,
+      "syn_count": 49
+    },
+    {
+      "column": "(OCCUPATION_SCR) OCCUPATION SCREENER",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 251,
+      "syn_count": 49
+    },
+    {
+      "column": "(GROUPFMR) SAMPLE TYPE",
+      "kl_divergence": 0.0,
+      "ks_statistic": 0.0,
+      "correlation": null,
+      "gt_count": 251,
+      "syn_count": 49
+    },
+    {
+      "column": "(CATBUYER) PRODUCTS / SERVICES BOUGHT",
+      "kl_divergence": 14.456368276159683,
+      "ks_statistic": 0.4125538661679811,
+      "correlation": null,
+      "gt_count": 251,
+      "syn_count": 49
+    },
+    {
+      "column": "(BRDBUY) BRANDS BOUGHT",
+      "kl_divergence": 0.14655819443413826,
+      "ks_statistic": 0.12407512805919181,
+      "correlation": null,
+      "gt_count": 251,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNPURINT) UNPRICED PURCHASE INTENT - UK Pulse Play  ",
+      "kl_divergence": 0.03499345128370068,
+      "ks_statistic": 0.08109559613319012,
+      "correlation": null,
+      "gt_count": 152,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNPURINT) UNPRICED PURCHASE INTENT - UK Standard Or VIP Mode  ",
+      "kl_divergence": 0.06267379086442837,
+      "ks_statistic": 0.07768707482993198,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNPURINT) UNPRICED PURCHASE INTENT - UK Happy Hour  ",
+      "kl_divergence": 0.1254713628552328,
+      "ks_statistic": 0.1532639545884579,
+      "correlation": null,
+      "gt_count": 151,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - UK Pulse Play  ",
+      "kl_divergence": 0.268603372290823,
+      "ks_statistic": 0.07814178302900107,
+      "correlation": null,
+      "gt_count": 152,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - UK Standard Or VIP Mode  ",
+      "kl_divergence": 0.3737520114483454,
+      "ks_statistic": 0.027346938775510202,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNIQNESS) UNIQUENESS - UK Happy Hour  ",
+      "kl_divergence": 0.08778713562899883,
+      "ks_statistic": 0.11690769022840924,
+      "correlation": null,
+      "gt_count": 151,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNPRICEP) EXPECTED PRICE COMPARISON - UK Pulse Play  ",
+      "kl_divergence": 0.44122693846258904,
+      "ks_statistic": 0.2818206229860365,
+      "correlation": null,
+      "gt_count": 152,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNPRICEP) EXPECTED PRICE COMPARISON - UK Standard Or VIP Mode  ",
+      "kl_divergence": 0.5567951397926908,
+      "ks_statistic": 0.21319727891156462,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 49
+    },
+    {
+      "column": "(UNPRICEP) EXPECTED PRICE COMPARISON - UK Happy Hour  ",
+      "kl_divergence": 0.32528181089497876,
+      "ks_statistic": 0.20070279767536153,
+      "correlation": null,
+      "gt_count": 151,
+      "syn_count": 49
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - UK Pulse Play  ",
+      "kl_divergence": 1.2973369316204537,
+      "ks_statistic": 0.12204618689581095,
+      "correlation": null,
+      "gt_count": 152,
+      "syn_count": 49
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - UK Standard Or VIP Mode  ",
+      "kl_divergence": 1.1857289134556885,
+      "ks_statistic": 0.06,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 49
+    },
+    {
+      "column": "(LIKBILTY) LIKEABILITY - UK Happy Hour  ",
+      "kl_divergence": 0.24726832089181783,
+      "ks_statistic": 0.12339505338559265,
+      "correlation": null,
+      "gt_count": 151,
+      "syn_count": 49
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - UK Pulse Play  ",
+      "kl_divergence": 1.0810754871570345,
+      "ks_statistic": 0.4979860365198711,
+      "correlation": null,
+      "gt_count": 152,
+      "syn_count": 49
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - UK Standard Or VIP Mode  ",
+      "kl_divergence": 0.9157801328503421,
+      "ks_statistic": 0.47210884353741495,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 49
+    },
+    {
+      "column": "(RELVANCE) RELEVANCE - UK Happy Hour  ",
+      "kl_divergence": 1.5437968634048298,
+      "ks_statistic": 0.6237329368833626,
+      "correlation": null,
+      "gt_count": 151,
+      "syn_count": 49
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - UK Pulse Play  ",
+      "kl_divergence": 0.7513174164715923,
+      "ks_statistic": 0.0812298603651987,
+      "correlation": null,
+      "gt_count": 152,
+      "syn_count": 49
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - UK Standard Or VIP Mode  ",
+      "kl_divergence": 0.08591275790559283,
+      "ks_statistic": 0.17891156462585034,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 49
+    },
+    {
+      "column": "(EXCITMENT) EXCITEMENT - UK Happy Hour  ",
+      "kl_divergence": 0.07346222918542808,
+      "ks_statistic": 0.1338018651169077,
+      "correlation": null,
+      "gt_count": 151,
+      "syn_count": 49
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - UK Pulse Play  ",
+      "kl_divergence": 0.6364059641478431,
+      "ks_statistic": 0.28114930182599357,
+      "correlation": null,
+      "gt_count": 152,
+      "syn_count": 49
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - UK Standard Or VIP Mode  ",
+      "kl_divergence": 0.14123310149078358,
+      "ks_statistic": 0.2072108843537415,
+      "correlation": null,
+      "gt_count": 150,
+      "syn_count": 49
+    },
+    {
+      "column": "(BELVBLTY) BELIEVEABILITY - UK Happy Hour  ",
+      "kl_divergence": 0.1749028350908104,
+      "ks_statistic": 0.1913772131369104,
+      "correlation": null,
+      "gt_count": 151,
+      "syn_count": 49
+    },
+    {
+      "column": "(LIKES_STD) LIKES - UK Pulse Play  ",
+      "kl_divergence": 18.244555850985584,
+      "ks_statistic": 0.5123787219805955,
+      "correlation": null,
+      "gt_count": 122,
+      "syn_count": 49
+    },
+    {
+      "column": "(LIKES_STD) LIKES - UK Standard Or VIP Mode  ",
+      "kl_divergence": 18.305028096441923,
+      "ks_statistic": 0.5274179236912157,
+      "correlation": null,
+      "gt_count": 115,
+      "syn_count": 49
+    },
+    {
+      "column": "(LIKES_STD) LIKES - UK Happy Hour  ",
+      "kl_divergence": 18.30808593884494,
+      "ks_statistic": 0.4917869586859134,
+      "correlation": null,
+      "gt_count": 123,
+      "syn_count": 49
+    }
+  ],
+  "aggregate_metrics": {
+    "mean_kl_divergence": 2.6681320996691023,
+    "median_kl_divergence": 0.32528181089497876,
+    "mean_ks_statistic": 0.21393890963303927,
+    "ks_similarity": 0.7860610903669607,
+    "mean_correlation": null,
+    "questions_validated": 30
+  },
+  "success_criteria": {
+    "kl_below_0_20": false,
+    "ks_similarity_above_0_85": false,
+    "correlation_above_0_85": false
+  },
+  "validation_file": "data/synthetic/kantar/61405445-01/UK/validation_UK_20260116_134516.json"
+}

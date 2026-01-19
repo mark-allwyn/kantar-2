@@ -1,0 +1,22 @@
+{
+  "study_id": "61407240",
+  "study_name": "61407240_QN_DBG Thunderball Concept Evaluate",
+  "market_code": "UK",
+  "num_respondents": 50,
+  "num_concepts": 4,
+  "concepts": [
+    "Daily Millionaire",
+    "Thunderball inspired - A new lottery game",
+    "Thunderball",
+    "A new version of the Thunderball"
+  ],
+  "concept_mapping": {
+    "Daily Millionaire": "UK_Daily Millionaire",
+    "Thunderball": "UK_Thunderball Inspired"
+  },
+  "model": "gpt-4o-mini",
+  "num_concepts_per_respondent": 3,
+  "timestamp": "20260116_132132",
+  "ground_truth_path": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61407240_QN_DBG Thunderball Concept Evaluate/UK/KAP400236776_Thinderball_UK_Respondent_Data_1.xlsx",
+  "synthetic_path": "data/synthetic/kantar/61407240/UK/synthetic_UK_50resp_20260116_132132.xlsx"
+}

@@ -1,91 +1,38 @@
-# Kantar Synthetic Survey Data Generator
+# S.A.G.E – Synthetic Audience Generation Engine
 
-A production-ready Python system for generating synthetic survey respondents using **Semantic Similarity Rating (SSR)** methodology, specifically designed for Kantar survey formats.
+A production-ready Python system for generating synthetic survey respondents using **Semantic Similarity Rating (SSR)** methodology, designed for market research survey formats.
+
+> **S.A.G.E** uses LLMs combined with semantic similarity to generate statistically realistic survey responses that match real human data distributions.
 
 ## Overview
 
-This system creates high-quality synthetic survey data that mimics real human responses by:
-1. Extracting concepts from Kantar PPTX presentations
-2. Generating personas with realistic demographics (optionally sampled from ground truth)
-3. Using LLMs to generate free-text responses conditioned on persona + concept
-4. Mapping responses to rating scales using semantic similarity to anchor statements
-5. Formatting output to match exact Kantar Excel template structure
-6. Validating synthetic data against ground truth
+This system creates high-quality synthetic survey data that statistically matches real human responses by:
 
-## Key Features
+1. **Extracting concepts** from Kantar PPTX presentations
+2. **Sampling demographics** from ground truth distributions
+3. **Generating personas** with realistic demographic profiles
+4. **Using LLMs** to generate free-text responses conditioned on persona + concept
+5. **Mapping responses** to rating scales using semantic similarity to anchor statements
+6. **Validating output** against ground truth using KL divergence and KS statistics
 
-### Core Functionality
-- **Fully Generalized**: Works with all Kantar survey formats (validated on 4 standard studies, 15 markets)
-- **Template-Based**: Automatically matches ground truth Excel column structure
-- **Concept Extraction**: Uses GPT-4o to extract concepts from PPTX files
-- **Two Generation Modes**: Ground truth mode (with PPTX/Excel) or no-ground-truth mode (test new concepts)
-- **Ground Truth Demographics**: Optional flag to sample demographics from real data
-- **Market Profiles**: Pre-built demographic profiles (US_gaming, UK_lottery, EU_general, generic)
-- **Concept Rotation**: 3 concepts per respondent sampling (matches real Kantar methodology)
-- **Comprehensive Validation**: KL divergence, KS similarity, correlation metrics vs ground truth
-- **HTML Reporting**: Validation reports with metrics and visualizations
-- **Robust Matching**: Handles concept name variations across studies (5-24 concepts)
+### Key Results (January 2026)
 
-### Production Features
-- **✨ Real-Time Progress**: Progress bars with ETA for all generations
-- **✨ Checkpoint & Resume**: Automatic checkpointing, resume from interruptions
-- **✨ Production CLI**: Unified command-line interface with simplified workflows
-- **✨ Status Tracking**: Check active/completed/resumed generations anytime
-- **✨ Study Management**: List, verify, and manage Kantar studies
-- **Production Ready**: Validated across 4 standard studies with consistent quality
+| Metric | Target | Achieved |
+|--------|--------|----------|
+| KS Similarity (Demographics) | >85% | **90-98%** |
+| KS Similarity (Full Survey) | >85% | 75-82% |
+| Question Coverage | 100% | 100% |
+| Multi-market Support | Yes | US, UK, CZ, AT, GR |
 
-## Project Structure
-
-```
-kantar-replica/
-├── src/
-│   ├── kantar/              # Kantar-specific modules
-│   │   ├── survey_runner.py      # Main entry point for generation
-│   │   ├── validation_runner.py  # Validation against ground truth
-│   │   ├── study_catalog.py      # Study/market discovery
-│   │   ├── concept_extractor.py  # PPTX concept extraction
-│   │   ├── data_loader.py        # Ground truth data loading
-│   │   ├── column_mapper.py      # Concept-to-column mapping
-│   │   └── excel_formatter.py    # Kantar Excel formatting
-│   ├── persona/             # Persona generation
-│   ├── survey/              # Survey engine
-│   ├── ssr/                 # Semantic Similarity Rating
-│   ├── llm/                 # LLM client
-│   ├── scales/              # Scale registry
-│   ├── output/              # Base Excel formatter
-│   ├── parsers/             # Document parsers
-│   ├── logic/               # Conditional logic
-│   └── validation/          # Validation metrics
-├── data/
-│   ├── kantar-survey-source/  # Ground truth data
-│   └── synthetic/kantar/       # Generated synthetic data
-├── docs/                    # Documentation (organized by category)
-│   ├── technical/           # Technical specs, system design
-│   ├── poc/                 # POC presentations and deliverables
-│   ├── validation/          # Validation reports and templates
-│   └── reference/           # Historical docs and cost models
-├── notebooks/               # Jupyter notebooks (interactive front-end)
-│   ├── 01_quick_start.ipynb
-│   ├── 02_synthetic_data_generation.ipynb
-│   └── 03_validation_and_reporting.ipynb
-├── scripts/                 # Utility scripts
-│   └── validation/          # Validation and analysis scripts
-├── tests/                   # Test files
-└── .archive/                # Archived old experiments
-```
-
-## Quick Start Tutorial
+## Quick Start
 
 ### 1. Installation
 
 ```bash
-# Clone the repository
-cd kantar-replica
-
 # Install dependencies
 pip install -r requirements.txt
 
-# Install CLI tool (optional, for easier commands)
+# Install CLI tool
 pip install -e .
 
 # Set up OpenAI API key
@@ -95,69 +42,33 @@ export OPENAI_API_KEY="your-api-key-here"
 ### 2. List Available Studies
 
 ```bash
-# See all complete studies ready for generation
 python3 -m src.cli.main study list --complete-only
-```
-
-Output example:
-```
-    Study ID     Name                                      Complete    Markets
---  -----------  ----------------------------------------  ----------  ------------------
-✓   61405445-01  61405445-01_QN_iGaming Concept Evaluate   5/5         AT, CZ, GR, UK, US
-✓   61407017     61407017_QN_IdeaEvaluate - 24 ideas       3/3         CZ, UK, US
 ```
 
 ### 3. Generate Synthetic Data
 
-**Quick generation (recommended for getting started):**
 ```bash
-# Generate 50 respondents with ground truth demographics
-python3 -m src.cli.main quick-gen 61405445-01 US
+# Generate 50 respondents for a study/market
+python3 -m src.cli.main generate study 61405445-01 US -n 50
 
-# Progress bar will show:
-# Generating US respondents: 40%|████  | 20/50 [10:30<15:45, 2.1 resp/min]
-```
-
-**Advanced generation with checkpointing:**
-```bash
-# Generate with checkpoint every 10 respondents (resume if interrupted)
+# With checkpointing (resume if interrupted)
 python3 -m src.cli.main generate study 61405445-01 US -n 50 --checkpoint-every 10
 
-# Close your machine anytime - checkpoint saves your progress!
+# Resume interrupted generation
+python3 -m src.cli.main generate study 61405445-01 US -n 50 --resume
 ```
 
-### 4. Check Generation Status
+### 4. Validate Results
 
 ```bash
-# See what's running, completed, or needs to be resumed
-python3 scripts/check_generation_status.py
+# Validate against ground truth
+python3 -m src.cli.main validate study 61405445-01 US
+
+# Generate HTML report
+python3 -m src.cli.main validate study 61405445-01 US --report
 ```
 
-Output shows:
-- Active checkpoints (incomplete generations you can resume)
-- Running processes (currently generating)
-- Completed files (ready for validation)
-
-### 5. Resume Interrupted Generation
-
-```bash
-# If you closed your machine during generation, resume where you left off
-python3 -m src.cli.main quick-gen 61405445-01 US --resume
-
-# The system automatically detects the checkpoint and continues from there!
-```
-
-### 6. Validate Synthetic Data
-
-```bash
-# Auto-detect latest synthetic file and validate
-python3 -m src.cli.main quick-validate 61405445-01 US
-
-# Generate HTML validation report
-python3 -m src.cli.main quick-validate 61405445-01 US --report
-```
-
-### 7. View Results
+### 5. View Output
 
 ```bash
 # Synthetic data (Kantar Excel format)
@@ -165,499 +76,199 @@ ls data/synthetic/kantar/61405445-01/US/*.xlsx
 
 # Validation results (JSON)
 ls data/synthetic/kantar/61405445-01/US/validation_*.json
-
-# HTML reports (if generated)
-ls data/synthetic/kantar/61405445-01/US/*.html
 ```
 
-**That's it!** You've generated and validated synthetic survey data.
-
----
-
-## Detailed Installation & Setup
-
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Set up OpenAI API key:**
-   ```bash
-   export OPENAI_API_KEY="your-api-key-here"
-   ```
-
-3. **Place Kantar study data** in `data/kantar-survey-source/` with structure:
-   ```
-   data/kantar-survey-source/
-   ├── STUDY_ID/
-   │   ├── MARKET_CODE/
-   │   │   ├── *.pptx         # Concept presentations
-   │   │   └── *.xlsx         # Ground truth data
-   ```
-
-## Usage
-
-### Production CLI (Recommended)
-
-The system has a unified production CLI with built-in progress tracking, checkpointing, and validation.
-
-**See [CLI_REFERENCE.md](CLI_REFERENCE.md) for complete documentation.**
-
-### Two Modes of Operation
-
-The system supports two modes:
-1. **Ground Truth Mode**: Generate data for existing studies with PPTX/Excel files
-2. **No Ground Truth Mode**: Test new concepts without any historical data
-
-### Mode 1: Generate from Existing Studies (Ground Truth)
-
-**Quick generation (recommended):**
-```bash
-# Generate 50 respondents with ground truth demographics (default)
-python3 -m src.cli.main quick-gen 61405445-01 US
-
-# With checkpointing and resume
-python3 -m src.cli.main quick-gen 61405445-01 US --resume
-```
-
-**Advanced generation with full control:**
-```bash
-# Generate with custom settings
-python3 -m src.cli.main generate study 61405445-01 US -n 50 \
-  --use-gt-demographics \
-  --checkpoint-every 10 \
-  --model gpt-4o-mini
-
-# Resume interrupted generation
-python3 -m src.cli.main generate study 61405445-01 US -n 50 --resume
-```
-
-**Legacy Python API (still supported):**
-```bash
-python -m src.kantar.survey_runner \
-  --study 61405445-01 \
-  --market US \
-  --num-respondents 50 \
-  --model gpt-4o-mini \
-  --use-gt-demographics
-```
-
-### Mode 2: Generate from Custom Concepts (No Ground Truth)
-
-Test brand new concepts without needing PPTX files or historical data.
-
-**CLI approach (recommended):**
-```bash
-# List available market profiles
-python3 -m src.cli.main profile list
-
-# Generate from concepts file
-python3 -m src.cli.main generate custom my_concepts.json -n 100 \
-  --profile US_gaming \
-  --validate-concepts \
-  --output-name my_test
-```
-
-**Step 1: Create a concepts JSON file** (`my_concepts.json`):
-```json
-[
-  {
-    "id": "Concept1",
-    "name": "Premium Lottery Experience",
-    "description": "A new lottery game with enhanced odds and exclusive prizes",
-    "price": "$5 per ticket",
-    "features": [
-      "Enhanced winning odds",
-      "Exclusive prize tiers",
-      "VIP member benefits"
-    ],
-    "occasion": "Regular play"
-  },
-  {
-    "id": "Concept2",
-    "name": "Quick Pick Plus",
-    "description": "Instant lottery with AI-powered number selection",
-    "price": "$2 per ticket",
-    "features": [
-      "AI number selection",
-      "Instant results",
-      "Mobile-first experience"
-    ]
-  }
-]
-```
-
-**Step 2: Generate survey data:**
-```bash
-python -m src.kantar.survey_runner \
-  --concepts-file my_concepts.json \
-  --num-respondents 100 \
-  --market-profile US_gaming \
-  --model gpt-4o-mini
-```
-
-**List available market profiles:**
-```bash
-python -m src.kantar.survey_runner --list-profiles
-```
-
-Available profiles:
-- `US_gaming` - United States iGaming market
-- `UK_lottery` - United Kingdom National Lottery market
-- `EU_general` - General European Union market
-- `generic` - Default profile (works for any market)
-
-### Validate and Generate Reports
-
-**Quick validation (recommended):**
-```bash
-# Auto-detect latest synthetic file and validate
-python3 -m src.cli.main quick-validate 61405445-01 US
-
-# Generate HTML validation report
-python3 -m src.cli.main quick-validate 61405445-01 US --report
-```
-
-**Advanced validation with custom files:**
-```bash
-# Validate specific synthetic file
-python3 -m src.cli.main validate study 61405445-01 US \
-  --synthetic path/to/synthetic.xlsx \
-  --report
-
-# Generate JSON report
-python3 -m src.cli.main validate study 61405445-01 US \
-  --report --report-format json
-```
-
-**Legacy Python API (still supported):**
-```bash
-python -m src.kantar.validation_runner \
-  --study 61405445-01 \
-  --market US \
-  --synthetic data/synthetic/kantar/61405445-01/US/synthetic_US_50resp_*.xlsx \
-  --generate-report
-```
-
-The report includes:
-- Quality scores and status (PASS/WARNING/FAIL)
-- Validation metrics (KL divergence, KS similarity, correlation)
-- Top issues requiring attention
-- Visualization dashboards
-- Question-level details
-
-### Interactive Notebooks (Recommended for Getting Started)
-
-For a more interactive experience, use the Jupyter notebooks:
-
-```bash
-# Install Jupyter (if not already installed)
-pip install jupyter
-
-# Launch Jupyter
-jupyter notebook
-
-# Open notebooks in order:
-# 1. notebooks/01_quick_start.ipynb
-# 2. notebooks/02_synthetic_data_generation.ipynb
-# 3. notebooks/03_validation_and_reporting.ipynb
-```
-
-**Notebooks include:**
-- 📓 **Quick Start**: Introduction, environment setup, small test generation
-- 📓 **Generation**: Both ground truth and no-ground-truth modes with examples
-- 📓 **Validation**: Run validation, generate reports, analyze metrics
-
-See `notebooks/README.md` for detailed notebook documentation.
-
-### Python API
-
-**Ground Truth Mode:**
-```python
-from src.kantar.survey_runner import KantarSurveyRunner
-
-# Initialize runner
-runner = KantarSurveyRunner(model="gpt-4o-mini")
-
-# Generate for a specific market
-output_file = runner.generate_for_market(
-    study_id="61405445-01",
-    market_code="US",
-    num_respondents=50,
-    use_ground_truth_demographics=True
-)
-
-print(f"Generated: {output_file}")
-```
-
-**No Ground Truth Mode:**
-```python
-from src.kantar.survey_runner import KantarSurveyRunner
-from pathlib import Path
-
-# Define new concepts
-concepts = [
-    {
-        'id': 'NewConcept1',
-        'name': 'Revolutionary Product',
-        'description': 'A brand new concept without any historical data',
-        'price': '$15',
-        'features': ['Feature A', 'Feature B', 'Feature C'],
-        'occasion': 'Special occasions'
-    },
-    {
-        'id': 'NewConcept2',
-        'name': 'Premium Service',
-        'description': 'Enhanced lottery experience for VIP members',
-        'price': '$25',
-        'features': ['VIP access', 'Better odds', 'Exclusive prizes']
-    }
-]
-
-# Initialize runner
-runner = KantarSurveyRunner(model="gpt-4o-mini")
-
-# Generate survey data
-output_file = runner.generate_from_concepts(
-    concepts=concepts,
-    num_respondents=100,
-    market_profile='US_gaming',  # or 'UK_lottery', 'EU_general', 'generic'
-    output_dir=Path('output/my_concepts')
-)
-
-print(f"Generated: {output_file}")
-```
-
-## System Capabilities
-
-### Validated Studies
-
-**Standard Studies (Non-Segmented):**
-
-| Study ID | Name | Markets | Concepts | Status |
-|----------|------|---------|----------|--------|
-| 61405445-01 | iGaming Concept Evaluate | 5 (AT, CZ, GR, UK, US) | 5 | ✅ VALIDATED |
-| 61407017 | 24 Ideas Screening | 3 (CZ, UK, US) | 24 | ✅ VALIDATED |
-| 61407069 | Tech-Enabled ScratchCards | 4 (AT, CZ, GR, US) | 8 | ✅ VALIDATED |
-| 61407185 | Innovation Concepts 2025 | 3 (CZ, UK, US) | 8 | ✅ VALIDATED |
-
-**Segmented Studies (Excluded from Validation):**
-
-| Study ID | Name | Markets | Segments | Status |
-|----------|------|---------|----------|--------|
-| 61406317 | iGaming Concept Evaluate | 5 | iGaming + Multiplayer | ⊘ EXCLUDED |
-| 61407240 | Thunderball Concept | 5 | Standard + 2 UK variants | ⊘ EXCLUDED |
-
-**Coverage Summary:**
-- **4 standard studies validated** across 15 markets
-- **5 base markets**: AT, CZ, GR, UK, US
-- **Concept range**: 5-24 concepts per study
-- **3 concepts per respondent** sampling (matches Kantar design)
-- **Template adaptation**: 71-227 column templates
-- **Respondent generation**: 50 respondents per market with ground truth demographics
-
-### Question Types Supported
-
-All Kantar standard questions work out of the box:
-- Purchase Intent (UNPURINT, PRPURINT)
-- Uniqueness (UNIQNESS)
-- Price Comparison (UNPRICEP)
-- Likeability (LIKBILTY)
-- Incrementality (INCREMNT)
-- Relevance (RELVANCE)
-- Playfulness (PLAYFLNS)
-- Excitement (EXCITMENT)
-- Believability (BELVBLTY)
-- Likes/Dislikes
-- Barriers, Occasions, Gift questions
-
-## Semantic Similarity Rating (SSR)
-
-The core methodology:
-1. **Free-text elicitation**: LLM generates natural language response
-2. **Anchor statements**: 5-9 canonical statements per scale level
-3. **Embedding**: Convert response + anchors to vectors (text-embedding-3-small)
-4. **Similarity**: Compute cosine similarity
-5. **Normalization**: Softmax to probability distribution
-6. **Selection**: Choose level with highest probability
-
-### Why SSR?
-
-- Achieves 90% correlation attainment vs human test-retest reliability
-- Outperforms direct Likert rating from LLMs
-- Captures nuanced opinions that map to scales
-- More realistic than forced scale selection
-
-## Validation Metrics
-
-The system validates synthetic data against ground truth using:
-- **KL Divergence**: Distribution similarity (lower = better)
-- **KS Statistic**: Kolmogorov-Smirnov test
-- **Correlation**: Pearson correlation on question means
-- **MAE**: Mean absolute error
-- **Chi-square**: Categorical distribution tests
-
-## Configuration Options
-
-### Demographics Modes
-
-1. **Generic (default)**: Uses predefined demographic distributions
-2. **Ground Truth (--use-gt-demographics)**: Samples from actual survey demographics
-   - Gender distribution from GT
-   - Age distribution from GT
-   - Occupation distribution from GT
-   - Category/brand buyers from GT
-
-### Model Options
-
-- **gpt-4o-mini**: Fast, cost-effective (recommended for large-scale)
-- **gpt-4o**: Higher quality, slower
-- **gpt-4-turbo**: Balance of speed and quality
-
-### Output
-
-Generated files:
-- `synthetic_MARKET_Nresp_TIMESTAMP.xlsx` - Synthetic data in Kantar format
-- `metadata_MARKET_TIMESTAMP.json` - Generation metadata
-
-## Architecture
-
-### Key Design Decisions
-
-1. **Template-Based Formatting**: System loads ground truth Excel as template, ensuring exact column order/naming
-2. **Concept Filtering**: Automatically filters "Codes -" prefix to match question columns
-3. **Dynamic Column Detection**: Handles varying column counts (71-227) across studies
-4. **Reusable Questions**: Same question logic across all studies (only concepts vary)
-5. **Cached Concept Extraction**: Concepts cached per market to avoid re-extraction
-
-### Data Flow
+## Project Structure
 
 ```
-PPTX → Concept Extraction (GPT-4o) → Cached JSON
-   ↓
-Ground Truth Excel → Demographics + Template
-   ↓
-Persona Generation (with optional GT demographics)
-   ↓
-Survey Engine → Question Handler → LLM + SSR
-   ↓
-Kantar Excel Formatter → Exact GT column structure
-   ↓
-Validation Runner → Metrics vs Ground Truth
+sage/
+├── src/                          # Source code
+│   ├── cli/                      # Command-line interface
+│   ├── kantar/                   # Kantar-specific modules
+│   │   ├── survey_runner.py      # Main generation entry point
+│   │   ├── validation_runner.py  # Validation against ground truth
+│   │   ├── study_catalog.py      # Study/market discovery
+│   │   ├── concept_extractor.py  # PPTX concept extraction
+│   │   ├── excel_formatter.py    # Kantar Excel formatting
+│   │   └── checkpoint_manager.py # Resume capability
+│   ├── ssr/                      # Semantic Similarity Rating engine
+│   ├── llm/                      # LLM client and prompts
+│   ├── persona/                  # Persona generation
+│   ├── scales/                   # Scale definitions and anchors
+│   ├── survey/                   # Survey engine
+│   └── validation/               # Validation metrics
+├── data/
+│   ├── kantar-survey-source/     # Ground truth data (not in repo)
+│   └── synthetic/kantar/         # Generated synthetic data
+├── docs/                         # Documentation
+│   ├── technical/                # System specs and tuning
+│   ├── validation/               # Validation reports
+│   └── reference/                # Question reference
+├── notebooks/                    # Jupyter notebooks
+├── scripts/                      # Utility scripts
+├── reports/                      # Generated reports
+├── tests/                        # Test files
+└── config/                       # Configuration files
 ```
 
-## Production CLI Features
-
-### Progress Tracking
-All generation commands display real-time progress bars with:
-- Progress percentage and completion count
-- Generation rate (respondents/minute)
-- Estimated time remaining (ETA)
-- Visual progress bar
-
-```bash
-# Example progress output:
-Generating US respondents: 40%|████      | 20/50 [10:30<15:45, 107.3s/resp]
-```
-
-### Checkpoint and Resume
-Long-running generations automatically save checkpoints:
-- Saves every N respondents (configurable, default: 10)
-- Automatically resumes from last checkpoint on failure
-- Works across machine restarts
-- No lost work on API errors or interruptions
-
-```bash
-# Start generation with checkpointing
-python3 -m src.cli.main generate study 61405445-01 US -n 50 --checkpoint-every 10
-
-# Close machine anytime, then resume later:
-python3 -m src.cli.main generate study 61405445-01 US -n 50 --resume
-```
-
-### Status Checking
-Track all active and completed generations:
-
-```bash
-# Check what's running, checkpointed, or completed
-python3 scripts/check_generation_status.py
-```
-
-Shows:
-- Active checkpoints (incomplete, can be resumed)
-- Running processes (currently generating)
-- Completed files (ready for validation)
+## CLI Reference
 
 ### Study Management
-Discover and verify study structure:
 
 ```bash
-# List all available studies
+# List all studies
 python3 -m src.cli.main study list
 
-# Show detailed study information
+# List only complete studies
+python3 -m src.cli.main study list --complete-only
+
+# Show study details
 python3 -m src.cli.main study info 61405445-01
 
-# Verify study structure before generation
+# Verify study structure
 python3 -m src.cli.main study verify 61405445-01 --verbose
 ```
 
-**See [CLI_REFERENCE.md](CLI_REFERENCE.md) for complete CLI documentation.**
+### Generation
+
+```bash
+# Generate from existing study
+python3 -m src.cli.main generate study STUDY_ID MARKET -n RESPONDENTS
+
+# Options:
+#   -n, --respondents     Number of respondents (required)
+#   --use-gt-demographics Sample demographics from ground truth (default: True)
+#   --model              LLM model (default: gpt-4o-mini)
+#   --checkpoint-every   Save checkpoint every N respondents (default: 10)
+#   --resume             Resume from checkpoint if available
+
+# Generate from custom concepts (no ground truth)
+python3 -m src.cli.main generate custom concepts.json -n 100 --profile US_gaming
+```
+
+### Validation
+
+```bash
+# Validate study
+python3 -m src.cli.main validate study STUDY_ID MARKET
+
+# Options:
+#   --synthetic    Path to synthetic file (auto-detect if omitted)
+#   --report       Generate HTML validation report
+#   --report-format  html or json (default: html)
+```
+
+### Market Profiles
+
+```bash
+# List available profiles
+python3 -m src.cli.main profile list
+```
+
+Available profiles: `US_gaming`, `UK_lottery`, `EU_general`, `generic`
+
+## Methodology
+
+### Semantic Similarity Rating (SSR)
+
+The system implements SSR methodology from *"LLMs Reproduce Human Purchase Intent via Semantic Similarity Elicitation of Likert Ratings"* (arXiv:2510.08338v2).
+
+**How it works:**
+
+1. **Generate Response**: LLM generates natural language answer to survey question
+2. **Embed**: Response embedded using `text-embedding-3-small`
+3. **Compare**: Cosine similarity computed against anchor texts for each scale level
+4. **Normalize**: Similarities converted to probability distribution
+5. **Average**: Process repeated with 6 reference sets, PMFs averaged
+6. **Select**: Final rating selected via sampling
+
+**Configuration:**
+- Normalization: Linear (per paper Equation 8)
+- Temperature: 1.0
+- Selection: Sample (preserves variance)
+- Reference Sets: 6
+
+### Ground Truth Demographics Sampling
+
+When validating, the system samples synthetic persona demographics from the ground truth distribution. This ensures:
+
+- Identical demographic profile to real respondents
+- Fair comparison for attitudinal questions
+- High demographic similarity scores (95-100%)
+
+The true test of the system is performance on attitudinal questions (Purchase Intent, Likeability, etc.) where the LLM must generate realistic responses.
+
+## Validation Metrics
+
+| Metric | Description | Target |
+|--------|-------------|--------|
+| **KL Divergence** | Distribution similarity (lower = better) | < 0.20 |
+| **KS Statistic** | Maximum CDF difference (lower = better) | < 0.15 |
+| **KS Similarity** | 1 - KS Statistic (higher = better) | > 85% |
+
+## Validated Studies
+
+| Study ID | Name | Markets | Status |
+|----------|------|---------|--------|
+| 61405445-01 | iGaming Concept Evaluate | US, UK, AT, CZ, GR | Validated |
+| 61407017 | 24 Ideas Screening | US, UK, CZ | Validated |
+| 61407069 | Tech-Enabled ScratchCards | US, AT, CZ, GR | Validated |
+| 61407185 | Innovation Concepts 2025 | US, UK, CZ | Validated |
+| 61407240 | Thunderball Concept | UK, AT, CZ, GR | Validated |
+
+## Question Types Supported
+
+- **Purchase Intent** (UNPURINT) - 5-point Likert
+- **Uniqueness** (UNIQNESS) - 5-point Likert
+- **Price Comparison** (UNPRICEP) - 5-point Likert
+- **Likeability** (LIKBILTY) - 6-point Likert
+- **Relevance** (RELVANCE) - 5-point Likert
+- **Excitement** (EXCITMENT) - 4-point Likert
+- **Believability** (BELVBLTY) - 4-point Likert
+- **Likes/Dislikes** (LIKES_STD) - Open text
+- Plus: Incrementality, Playfulness, Gift questions, Barriers, Occasions
+
+## API Costs
+
+| Component | Model | Cost per 50 Respondents |
+|-----------|-------|------------------------|
+| Response Generation | GPT-4o-mini | ~$1.50 |
+| Embeddings | text-embedding-3-small | ~$0.10 |
+| Concept Extraction | GPT-4o | ~$0.50 (one-time) |
+| **Total** | | **~$2.10** |
+
+## Performance
+
+- **Generation Speed**: ~100-130 seconds per respondent
+- **50 Respondents**: ~1.5 hours
+- **Checkpoint Frequency**: Every 10 respondents (configurable)
+- **Resume Capability**: Automatic
 
 ## Documentation
 
-Comprehensive documentation is organized in the `docs/` directory:
+- **[docs/technical/](docs/technical/)** - System specifications, tuning guide
+- **[docs/validation/](docs/validation/)** - Validation reports and templates
+- **[docs/reference/](docs/reference/)** - Question reference, cost models
+- **[notebooks/](notebooks/)** - Interactive Jupyter notebooks
+- **[reports/](reports/)** - Generated analysis reports
 
-- **[docs/](docs/)**: All project documentation (see [docs/index.md](docs/index.md) for complete index)
-  - **[Technical Documentation](docs/technical/)**: System specifications, question reference, compliance, tuning guide
-  - **[POC Materials](docs/poc/)**: Presentations, summary, and deliverables
-  - **[Validation Reports](docs/validation/)**: Statistical validation results and templates
-  - **[Reference Materials](docs/reference/)**: Historical documentation and cost models
-- **[notebooks/README.md](notebooks/README.md)**: Jupyter notebooks documentation
-- **[scripts/](scripts/)**: Utility scripts for validation and analysis (see [scripts/README.md](scripts/README.md))
+## Development
 
-## Development Status
+### Running Tests
 
-### ✅ Completed (Production Ready)
-- **Kantar Integration**: 4 standard studies validated (15 markets total)
-- **Generation Modes**: Ground truth + no-ground-truth modes
-- **Market Profiles**: US_gaming, UK_lottery, EU_general, generic
-- **Concept Extraction**: PPTX parsing with GPT-4o
-- **Ground Truth Sampling**: Demographics from real survey data
-- **Concept Matching**: Handles name variations across studies
-- **Template Formatting**: Exact Kantar Excel structure replication
-- **Question Types**: All Kantar standard questions (Purchase Intent, Uniqueness, Likeability, etc.)
-- **Persona Generation**: Generic + GT demographics modes
-- **SSR Engine**: Semantic Similarity Rating for all scale types
-- **Concept Rotation**: 3 concepts per respondent (matches Kantar methodology)
-- **Validation Metrics**: KL divergence, KS statistic, correlation
-- **HTML Reporting**: Validation reports with visualizations
-- **Interactive Notebooks**: Jupyter notebooks for generation & validation
-- **CLI Tools**: Survey runner and validation runner
-- **Python API**: Programmatic access to all functionality
+```bash
+python -m pytest tests/
+```
 
-### 📊 Current Validation Status
-- **US Market Validation**: In progress for all 4 standard studies
-- **Target Metrics**: KL < 0.20, KS similarity > 0.85, correlation > 0.85
-- **Respondent Count**: 50 respondents per market with GT demographics
-- **Model**: gpt-4o-mini (cost-effective, production-ready)
+### Project Dependencies
 
-### 🎯 Future Enhancements
-- Validation of remaining 11 markets (AT, CZ, GR, UK across studies)
-- Response distribution sampling from GT (beyond demographics)
-- Segmented study support (61406317, 61407240)
-- Market-specific psychographic patterns
-- Multi-language support
-- Batch processing optimization
-- Web UI for generation
-- PDF report generation
-
-## Methodology Reference
-
-Based on research: "Using LLMs for Market Research"
-- SSR achieves 90% correlation attainment
-- Demographic conditioning critical
-- Validated across multiple question types
+See `requirements.txt` for full list. Key dependencies:
+- `openai` - LLM API
+- `pandas` - Data manipulation
+- `openpyxl` - Excel file handling
+- `numpy` - Numerical operations
+- `click` - CLI framework
+- `tqdm` - Progress bars
 
 ## License
 

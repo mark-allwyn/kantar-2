@@ -1,0 +1,30 @@
+{
+  "study_id": "61407185",
+  "study_name": "61407185_QN_Innovation concepts 07 2025",
+  "market_code": "US",
+  "num_respondents": 50,
+  "num_concepts": 8,
+  "concepts": [
+    "Game On",
+    "Drop\u2019d",
+    "RealPlay",
+    "Someday",
+    "Goals Feel Better Together",
+    "Karma",
+    "Pocket Prophet",
+    "Game Vibes"
+  ],
+  "concept_mapping": {
+    "Game On": "US Game On",
+    "RealPlay": "US RealPlay",
+    "Someday": "US Someday",
+    "Karma": "US Karma",
+    "Pocket Prophet": "US Pocket Prophet",
+    "Game Vibes": "US Game Vibes"
+  },
+  "model": "gpt-4o-mini",
+  "num_concepts_per_respondent": 3,
+  "timestamp": "20260116_095611",
+  "ground_truth_path": "/Users/mark.stent/Projects/python/2025/kantar-replica/data/kantar-survey-source/61407185_QN_Innovation concepts 07 2025/US/KAP400231527_Inno Concepts_US_Respondent_Data_1.xlsx",
+  "synthetic_path": "data/synthetic/kantar/61407185/US/synthetic_US_50resp_20260116_095611.xlsx"
+}
